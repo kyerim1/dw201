@@ -1,0 +1,130 @@
+<!--  파일명 : index.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div</title>
+    <style>
+        #first{
+            height:300px;
+            width:100px;
+            display:inline-block;
+            float:right;
+        }
+
+        #parent{
+            width:300px;
+            height:200px;
+            border:4px solid red;
+            border-radius: 0px;
+            position:relative;
+        }
+        /* #parent div{
+
+        }  */
+        #child1, #child2, #child3, #child4 {
+            width:100px;
+            height:35px;
+        }
+        #child1{
+            background:blue;
+        }
+        #child2{
+            background:green;
+        }
+        #child3{
+            background:pink;
+            position: relative;
+            top:0;
+            left:0;
+        }
+        #child4{
+            background:violet;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+
+        #parent{
+            height:1300px;
+        }
+        #parent2{
+            position:fixed;
+            top:200px;
+            left:400px;
+            width:100px;
+            height:50px;
+            background: yellow;
+            margin-top:50px;
+        }
+
+        #two{
+            margin-bottom:100px;
+        }
+        #stk{
+            position:sticky;
+            top:0;
+            height:50px;
+            background:#46fc92;
+            z-index:100;
+        }
+
+        #stk ul{ list-style-type:none;}
+        #stk ul li{
+            padding-left:10px;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="first">
+        나 div입니다.
+    </div>
+    <div id="two">
+        나는 두번째 div 입니다.
+    </div>
+
+    <div id="stk">
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>    
+        </ul>
+    </div>
+
+
+
+    <div id="parent">
+        <div id="child1"></div>
+        <div id="child2"></div>
+        <div id="child3"></div>
+        <div id="child4"></div>
+    </div>
+    
+    <div id="parent2">
+
+    </div>
+
+
+</body>
+</html>
+
+<!--
+과제
+주제 : 자유 
+기간 : 다음주 화요일까지(5월 30일) - 화요일 결석자들은 수요일에 검사 ,화수 결석자는 목요일 검사, (진짜 나는 하기싫다 하면 안해도 되요 이 과제로 여러분 학점을 주거나 하는거아니니까  단,  취업 하고 싶으면 해야죠??? ) 
+1. 첫페이지 만들기 
+2. 이번주 학습한 내용을 활용하여 제작하기
+3. 수업시간에 만든 UI와 똑같이 안됨!  4개이상은 다르게 제작
+4.  기본틀은  div로 제작하기
+5. table 사용은 하지않기
+6. 이미지로 도배 하지말기
+7. 텍스트 로 도배하지말기
+8.  과제를 수행 함에 있어 욕심내서 수업시간의 학습한 내용을 더 보충하여 만들었으면
+  보충해서 만들라는 얘기가  예를 들어 after를 활용해서 애니메이션 비슷한 효과내기?
+
+
+-->

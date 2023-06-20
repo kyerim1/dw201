@@ -1,0 +1,35 @@
+<!-- script_func4.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="./static/css/srp.css">
+<script src="./static/js/srp.js"></script>
+</head>
+<body>
+<!--
+    구글드라이브에 image 폴더에  paper.png  rock.png  scissors.png
+    이미지 가져가요.
+    그리고 ,  가위바위보 게임을 만들어요!!
+    지금 동전 게임 한것처럼!!!
+
+-->
+<div class="box">
+    <div class="com">
+        <img src="./static/image/scissors.png" id="game_image">
+    </div>
+    <div class="resBox">
+        <b>Com VS User <button onclick="start()">START</button></b>
+        <b id="result"> </b>
+    </div>
+    <div class="user">
+        <p onclick="select(0)"><img src="./static/image/scissors.png"></p>
+        <p onclick="select(1)"><img src="./static/image/rock.png"></p>
+        <p onclick="select(2)"><img src="./static/image/paper.png"></p>
+    </div>
+</div>
+
+</body>
+</html>

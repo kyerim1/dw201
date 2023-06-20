@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+/*
+1. 도형 입력하기(  정사각형, 직각사각형, 원형)
+2. 배경색 입력하기 ( 빨강, 파랑, 노랑, 핑크)
+3. 너비크기 입력하기 (100px 이상 입력, 원형을 선택한경우 너비는 반지름)
+4. 높이 입력하기(100px 이상 입력, 원형을 선택한 경우 높이는 패스)
+5. 정사각형 이라고 도형 입력했을경우  너비와 높이는 같아야 한다.
+6. 화면에 도형 출력하기
+*/
+
+var shape = prompt("도형을 입력하세요 (square , rectangle , circle)");
+var color = prompt("배경색을 입력하세요 (red , blue, yellow, pink)");
+var width = parseInt(prompt("너비를 입력하세요 (100px 이상)"));
+var height = parseInt(prompt("높이를 입력하세요 (100px 이상)"));
+
+if(shape === "square"){
+    document.write("<div style = width:" + width + "px;height:" + width + "px;background:"+color+";></div>");
+}
+else if(shape === "rectangle"){
+    document.write("<div style = width:" + width + "px;height:" + height + "px;background:"+color+";></div>");
+}
+else if(shape === "circle"){
+    document.write("<div style = border-radius:100%;width:" + (width*2) + "px;height:"+(width*2)+"px;background:"+color+";></div>");
+}
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

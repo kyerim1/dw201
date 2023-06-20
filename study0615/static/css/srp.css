@@ -1,0 +1,37 @@
+.box{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+img {width:100%;}
+.com{
+    width:20%;
+    max-width:300px;
+}
+.resBox{
+    font-size:30px;
+}
+.resBox b{display:block;}
+.resBox button{
+    background:#1e1e20;
+    color:#ebebeb;
+    border:0;
+    padding:15px 20px;
+    font-size:30px;
+    border-radius: 50px;
+    cursor:pointer;
+}
+
+.user{
+    display:flex;
+}
+.user p{
+    margin:0 3%;
+    max-width:250px;
+    padding:30px;
+}
+.user p:hover{
+    cursor:pointer;
+    background:yellow;
+    border-radius: 100px;
+}

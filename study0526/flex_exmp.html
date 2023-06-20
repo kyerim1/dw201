@@ -1,0 +1,164 @@
+<!--  파일명 :  flex_exmp.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+
+    <link rel="stylesheet" href="./style/css/default.css">
+</head>
+<body>
+    
+    <!--  flex  ,  플렉서블 박스  
+    플렉서블 박스 - 부모
+    플렉서블 아이템 - 자식
+    flex는  주축과 교차축으로 이루어져있다.
+    주축은 중심이되는 축으로  주축을 따라 아이템들이 배치된다.
+    주축이 가로일경우 왼쪽에서 오른쪽으로 ,  
+    주축이 세로일경우, 위에서 아래쪽으로 배치된다.
+    교차축은 주축에 교차되는 축 이다.
+
+    flex-wrap: 
+         nowrap-  한줄로배치
+         wrap - 여러줄 배치
+         wrap-reverse - 여러줄 배치 하되 역순으로
+    
+    flex-direction:
+        row - 박스에서 왼쪽에서 오른쪽으로 배치
+              주축은 가로 ,교차축은 세로
+        row-reverse - 오른쪽에서 왼쪽으로 배치
+             주축은 가로, 교차축은 세로
+        column - 위에서 아래쪽으로 배치
+            주축은 세로, 교차축은 가로
+        column-reverse - 아래에서 위로 배치
+           주축은 세로, 교차축은 가로
+        -->
+<h3>flex direction-row, wrap</h3>
+<div id="flex1">
+    <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+    <div class="blue"></div>
+</div>
+
+<br> <h3>flex direction-row, nowrap</h3>
+<div id="flex2" class="flexshape">
+    <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+    <div class="blue"></div>
+</div>
+
+<br>
+<h3>주축 방향 justify-content : space-between</h3>
+<div id="flex3" class="flexshape">
+    <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+    <div class="blue"></div>
+</div>
+<br>
+<h3>주축 방향 justify-content : space-around</h3>
+<div id="flex4" class="flexshape">
+    <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+    <div class="blue"></div>
+</div>
+
+<!--
+    flex의 교차축
+    align-items 
+    stretch : flex 아이템을 확장해서배치
+             확장해서 배치는 아이템들을
+             부모의 크기 만큼 늘려준다는것
+    flex-start : 아이템들을 교차축의 
+            시작점에 배치
+    flex-end : 교차축의 끝점에 배치
+    center: 교차축의 중앙에 배치
+-->
+<br>
+<h3>교차축 </h3>
+<div id="flex5" class="flexshape">
+    <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+    <div class="blue"></div>
+</div>
+
+<!--
+    align-self: auto, stretch, flex-start,
+    flex-end, center
+
+    align-items는 부모에게 적용
+    align-self는 자식(아이템)
+-->
+<br>
+<h3>교차축 으로 개별적으로 배치하기 </h3>
+<div id="flex6" class="flexshape">
+    <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+    <div class="blue"></div>
+</div>
+
+<!--
+flex-direction:column 일경우
+각 아이템들에  order를 적용할수있다.
+order의 값이 작을수로 위에 배치
+order이 적용되지않은 아이템들은
+html태그 작성 순서대로 위쪽에 배치된다.
+
+-->
+<br>
+<h3>direction column </h3>
+<div id="flex7" class="flexshape">
+    <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+    <div class="blue"></div>
+</div>
+
+<!--
+flex 아이템 크기 변경
+ flex: flex-grow  flex-shrink  flex-basis;
+ flex-grow는 부모영역에 남는 영역이있다면
+ 자식들에 할당한 총 flex-grow값 을
+ 부모의 남은영역 / 총flex-grow값 을 계산하여
+ 각 자식들의 grow값 만큼 더해준다.
+ 예)  부모 너비 : 800px;
+    자식들 너비 : 100px;
+1자식 grow : 2,  2자식 grow:0, 
+3자식 grow : 1  
+총 grow값 : 3
+남은 영역 : 500
+ 500 / 3 = 166;
+ 1자식 너비 : 432px 
+ 2자식 너비 : 100px
+ 3자식 너비 : 266px
+
+ flex-shrink는  부모의 크기보다 자식들의
+ 총 크기가 더 큰경우에  부모크기에 맞춰서 
+ 표현 하고자 할때 사용
+ 적용방식은 grow와 비슷 하지만 - 계산을한다.
+
+ ! flex-grow는 부모의 padding크기제외하고 계산하지만
+ flex-shrink는 부모의 padding크기 포함해서 계산
+
+ flex-basis 은 자식(아이템)의 기본크기 설정
+ 
+-->
+<br>
+<h3>flex 아이템 크기 변경</h3>
+<div id="flex8" class="flexshape">
+    <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+    <div class="blue"></div>
+</div>
+
+
+</body>
+</html>

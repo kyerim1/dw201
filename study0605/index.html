@@ -1,0 +1,149 @@
+<!-- 파일명 : index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- 지금까지 수업 중에서 이해 안되는 거 한사람당 하나씩만  의무적으로
+ID와 class  
+  id는 html문서에서 유일한 명칭이고, class는 여러태그들이 같은 명칭을 가질수있다.
+  class를 하지않고 id를 사용하는이유 !
+  id는 단일 이고  class는 다수의 값이기 때문에 인식 하는 자체가 다르다.
+  class는 배열이라는 형태로 처리되고, id는 단일 값으로 처리된다.
+  배열이라는 것은  값이 하나일수도 있고 여러개 일수도 있는 자료구조의 한 구조이다.
+  처음 html문서가 브라우저에 오픈 되면 class들을 배열의 구조로 저장해둔다.
+    id는 변수의 구조이다. 변수와 배열에대해서는 자바스크립트에서 다룰것인데
+    변수와 배열은 사용하는 방식이 다르다.  접근하는 것은 변수가빠르다.
+또,!!  style에서  태그 > id > class 순서로 style이 적용되는 순위가 다르다.
+ class 보다는 id가 더 우선이다. 
+ 그래서 class를 사용하는이유는 대체적으로 개발자들은 여러태그들을 하나의 이름으로
+ style을 적용하고 싶거나  또는  자식 태그들에 사용한다. 왜 자식태그에 사용하냐면
+ class가 id보다는 우선순위가 낮으니까
+-->
+</head>
+<body>
+    
+<!-- flex-flow  는   flex-direction과  flex-wrap의 단축속성이다. 
+margin-right:50px;
+margin-left:50px;
+margin-bottom:30px;
+
+margin:0 50px 30px 50px;
+
+border-color:red;
+border-style:solid;
+border-width:1px;
+
+border:1px solid red;
+
+flex-direction: row;
+flex-wrap: wrap;
+
+flex-flow: row wrap;
+
+html문서의 기본 흐름은  html의 구조를 따른다.
+html구조는  <div>  <p> <b> </b> </p </div>
+    에서  div의 영역을 먼저 생성하고,  div영역안에 p의 영역을생성
+    하면서 p의 수용할수 있게 div의 영역크기가 변한다.
+    p안에  b의 영역이 생성되고 p안에 b를 수용할수 있게 크기가 변하고
+    p의 크기가 변했으므로 div의 크기도 변한다.
+
+부모의 크기는 자식을 품을 수 있는 크기여야만 한다 가 기본이다.
+위 와 같이  기본흐름 에서  float 속성을 가지는 태그는 흐름에서 빠지게 된다.
+p태그에 float 속성을 주면 div 생성하고 내부에 p태그를 생성해야 하는데
+p태그에  새로운 block 박스를 생성하여 원래 부모div와 별개로 화면에 그려진다.
+
+부모인 div의 영향을 받지 않는 p태그에  부모의 영향을 받게 하려면
+clear라는 속성을 부여하면된다.  clear는 float에 부여된 상태를 해제 할수 있는 속성
+clear에 사용할수 있는값은 아래와 같음
+ - none 아무것도 해제 하지않는다.
+ - left float:left를 해제 한다.
+ - right  float:right를 해제 한다.
+ - both  모든 float을 해제한다.
+ - inherit  부모의 속성을 상속 받는다.
+ 
+ clear를 사용하여 float를 해제하면 float이 적용되기 이전의 모습으로 돌아간다.
+
+
+ 미디어쿼리;
+ @media { 
+
+ }
+ 미디어쿼리의 조건이 참인경우에만 style 속성이 적용된다.
+ 참이 아닌경우에는 미디어쿼리 외부의 속성이 적용된다.
+ 
+
+ flex는 공간에 크기를 맞추거나 줄이는 방법을 설정 하는 속성
+
+ display:flex; 
+       내부 자식요소의 배치를 위한 설정
+       자식요소의 방향을 가로, 세로로 배치 할수 있고 
+       빈공간을채우거나 넘어가지 않도록 조절 할수 있다.
+       수직과 수평을 쉽게 조작할경우에 사용되기도 한다.
+
+여러줄의 요소를 한줄로 하고싶다면 display:flex 만 주면된다.
+한줄로 표시되는 요소들을 여러줄로 표시하고싶다면 
+    display:flex;   flex-direction:column 을 하면 된다.
+
+여려 요소를 한줄로 표시되는 상황에서 수평 가운데 정렬 하려면
+display:flex;   align-items:center; 하면된다.
+
+여러 요소가 한줄로 표시되는 상황에서 일정한 간격으로 펼쳐주려면
+display:flex;  justify-content:space-between;
+ 또는          justify-content:space-arroud; 
+ 하면된다.
+
+ flex는 자식요소들을 배치및 크기에 대해 쉽게 설정하기 위한 방법이다.
+
+질문자 이우주는  위 내용을 먼저 숙지하고 익히고 검사 받은 다음에
+따로 다음에 대해서 알려주도록 하겠다. 
+수요일 10시에 위 내용을 숙지하고 제대로 인지 하였는지 검사 진행 함
+
+flex-direction:row 일경우 
+justify-content  수평
+align-items   수직
+
+flex-direction:column 일경우 
+
+
+-->
+<style>
+div{
+   height:50px;
+}
+#box1{
+    background-color: orange;
+    width:30px;
+}
+#box2{
+    background-color: violet;
+    width:30%;
+}
+html{font-size:10px;}
+body{
+    font-size:15px;
+}
+#box3{
+    background: indigo;
+    width:30rem;
+}
+#box4{
+    background:palegreen;
+    width:30vw;
+}
+#box5{
+    background:chartreuse;
+    width:30em;
+}
+</style>
+<div id="box1"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+<div id="box4"></div>
+<div id="box5"></div>
+
+
+</body>
+</html>

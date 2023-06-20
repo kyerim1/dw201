@@ -1,0 +1,31 @@
+.box{
+    margin:20px 0;
+    padding:20px;
+    border:1px solid black;
+}
+.subject{
+    margin:10px 0;
+}
+.subject label{
+    font-weight:800;
+    margin-right:10px;
+    font-size:20px;
+}
+.subject input{
+    font-size:20px;
+    height:30px;
+    padding-left:10px;
+    color:red;
+}
+
+.input_box{
+    display:flex;
+    width:350px;
+    justify-content: space-between;
+    margin-bottom:15px;
+}
+.input_box input[type=text]{
+    width:210px;
+    height:40px;
+    font-size:30px;
+}

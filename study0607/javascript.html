@@ -1,0 +1,107 @@
+<!--  javascript.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+// " ", ' ' 는 문자열을 뜻한다.  문자열은 숫자가 아니다. 문자이다.
+/*  암묵적으로  ''이거는  고유대명사? 같은거 사용할때, 또는
+변하지 않는 문자열사용할때  
+
+변수 - 데이터가 저장되어있는 메모리 공간
+ 자바스크립트에서는 변수의 공간에 어떠한 데이터라도 저장 할 수 있다.
+
+= 이거는  연산자이다.  컴퓨터 언어에서는 대입연산자라고 한다.
+대입연산자는   오른쪽의 값을 왼쪽에 저장
+*/
+
+// variable(변수) = var  
+var number=10;
+
+document.write("<b>"+number+"</b><br>");
+
+var width=40;
+var height=160;
+
+document.write( width*height) ;
+
+// 순향이가 사과 10개,  순호가 딸기 5개,  순겸이가 배 15개 있다.
+// 세 사람이 가지고있는 과일은  총 몇개인지 출력
+// 각 사람마다 변수지정해서 하시오!
+
+var hyang_apple= 10;
+var ho_strawberry = 5;
+var gyeom_pear = 15;
+
+document.write(hyang_apple+ho_strawberry+gyeom_pear);
+
+document.write("<div>과일은 총 "+ 
+    (hyang_apple+ho_strawberry+gyeom_pear)+"개 이다.</div>");
+
+    var aa=10;
+
+var width=2023;
+
+var width=15;
+var height=20;
+document.write("밑변 : document.write" + width+ " 높이:"+height);
+document.write("<br>삼각형의 넓이:"+(width*height/2)+"<br>");
+
+// 밑변 15, 높이 20을 가지는 삼각형의 넓이를 구하여 출력하시오.
+// 출력결과는  ->   밑변:15  높이:20
+//                 삼각형의 넓이:150
+
+var tall=180;
+var my_tall ="나의 키는 "+tall;
+
+document.write(my_tall);
+
+my_tall = "예림이 키는 "+160;
+document.write(my_tall);
+
+
+var num1=10;
+var num2= 30;
+// num1+num2  ,  num1-num2,  num1*num2,   num1/num2  
+document.write("<br><br>");
+document.write( num1/num2  +"<br>");
+document.write( num1%num2 + "<br>");
+
+// 오늘의 숙제 가 있고!!!  이제 부터 자바스크립트를 하기때문에 
+// 당분간  숙제는 매일 있을 예정!!!! 
+// 문제는 1개만
+//  그래서 오늘 과제는 무엇이냐!!
+//   반지름이 r인 원이 있다.  이 원의  넓이와  둘레를 구하여 출력
+
+var r= Number( prompt("반지름 입력하시오!") );
+// prompt함수는 브라우저에서 입력창을 제공하는 기능을 가지고있다.
+// prompt로 입력한 내용은 반드시, 무조건!  문자열이다. 
+// 문자열 -> 숫자 변환 하는 방법 :  Number(),  parseInt()  
+// Number() : 숫자만 있는 문자열인경우에 변환 가능
+// parseInt() : 숫자와 문자가 섞여있어도 변환 가능 
+//             문자열의 앞쪽에있는 숫자만 변환 해준다.
+
+// 데이터의 타입을 알고싶은경우 : typeof()  를 사용하면된다.
+document.write(  typeof(r) );
+
+
+var area = r*r*3.14;
+var dist = r*2*3.14;
+document.write("원의 넓이 : "+area +"    원의 둘레 : " + dist+"<br><br>");
+
+
+
+document.write("안녕 나는 자바스크립트야  반갑지?<br>");
+document.write('오늘 머먹었어? ');
+document.write("사과 먹었다");
+</script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

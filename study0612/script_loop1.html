@@ -1,0 +1,212 @@
+<!--  script_loop1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+/*
+    제어문 은 공통적으로 조건에 의해 동작한다.
+    반복문은 정해진 횟수만큼 반복을 시킬수 있고 무한대로 반복 할 수 도있다.
+    반복문 사용시 무한루프에 빠지지않게 코드를 작성해야한다.
+    반복문에 무한루프를 사용시에는 항시 빠져나올수 있는 코드를 둬야한다.
+
+    반복문은 기본적으로  지정된 횟수만큼 실행 될수 있다.
+    지정된 횟수만큼 실행 되려면  처음 시작값과 끝값이 필요하다.
+    시작값을 1,  끝 값을 10으로 설정하면  1,2,3,4,5,6,7,8,9,10 총숫자가
+    10개이므로 반복횟수는 10번 반복된다. 
+    시작값과 끝나는 값을 설정하고 시작값에서 얼마씩 증가 할것인지,또는 감소할것인지
+    설정도 필요하다.  증가또는 감소의 값에 따라서 반복되는 횟수가 달라진다.
+
+    for(시작값 ; 끝나는값 ; 증가또는 감소값){
+
+    }
+    for(var i=1; i<=10; i=i+2){
+
+    }
+    반복문에 설정해준 조건식이 참인경우에만 반복문 의{ }안에 내용이 실행된다.
+    조건식이 거짓이 되면 반복문은 그즉시 종료 , 더이상 실행되지않는다.
+
+    시작값은  특별한경우가 아니라면 반복횟수의 편의를 위해 1또는 0 부터 시작한다.
+    증가또는 감소값은 특별한경우 아니라면 1씩 증가,감소한다.
+
+*/
+//1~9중에서 숫자 하나를 입력받아 입력한 숫자에 맞는 구구단 출력되게 하시오.
+
+// var num=parseInt(prompt("1~9중에 숫자 하나"));
+
+//     for(var i=1; i<=9 ; i++){
+//         document.write("<div> "+num+" * "+i+" = "+(i*num)+"</div>");
+//     }
+// //실습 2.  1부터  77까지 출력하시오
+
+// for(var i=1; i<=77; i++){
+//     document.write("<div>"+i+"</div>");
+// }
+//실습 3.  1부터 120까지  3씩 증가해서 출력
+
+// for(var i=1; i<=120; i=i+3){
+//     document.write("<div>"+i+"</div>");
+// }
+
+
+//실습 4.   정수 하나를 입력하고, 입력한 숫자를 시작값으로 하여  12번 반복하는
+//          반복문 만들기
+// var num=parseInt(prompt("정수 입력 "));
+
+// for(var i=num; i<num+12; i++){
+//     document.write("<div>"+i+"</div>");
+// }
+
+// for(var i=0; i<12; i++){
+//     document.write("<div>"+(num+i)+"</div>");
+// }
+
+// var count=0;
+
+// for(var i=1; i<=100; i++){  // 변수 i는 1부터 1씩증가하여 101까지 (101부터는 거짓)
+//     if( i%4 == 0)
+//         count++;
+// }
+// document.write("1~100중에서 4의 배수는 "+count+"개");
+
+//동전 앞면 뒷면 맞추기 게임을 10판 한다.  10번해서 내가 몇번이기고 몇번졌는지
+
+// var win=0, lose=0;
+// for(var i=1; i<=10; i++){
+//     var coin=Math.floor(Math.random()*2)+1; //동전던지기
+//     var user = parseInt(prompt("1.앞면  2.뒷면"));
+//     if(coin == user){
+//         document.write("정답<br>");
+//         win++;
+//     }else{
+//         document.write("오답<br>");
+//         lose++;
+//     }
+// }
+// document.write("정답 횟수 : "+win+"  오답 횟수 : "+lose);
+
+// 주사위던지기  게임 10판
+//  컴퓨터와 내가  주사위를 던진다.  숫자가 큰쪽이 승리, 같은숫자면비김
+//  10판 해서  내가 몇번이기고 지고 비겼는지 출력하시오.
+
+// var 이기다=0, 비기다=0, 지다=0;
+
+// for(var 아이라는변수=1; 아이라는변수<=10; 아이라는변수++){
+//     var com=Math.floor(Math.random() *6 )+1;
+//     var 유저 = Math.floor(Math.random()*6)+1;
+//     if(com < 유저){
+//         document.write("이김<br>");
+//         이기다++;
+//     }
+//     else if(com==유저){
+//         document.write("비김<br>");
+//         비기다++;
+//     }else {
+//         document.write("패배<br>");
+//         지다++;
+//     }
+// }
+// document.write("결과 =>  승:"+이기다+"회  패:"+지다+"회 무:"+비기다+"회<br>");
+
+
+/*
+    for(초기값; 조건식; 증감식){
+
+    }
+    for문은  반복되는 횟수가 정해져있는경우에 주로 사용한다.
+
+    반복되는 횟수가 정해져있지 않은경우에는 while문을 사용한다.
+
+    while문의 기본 형태
+    var i=1;  초기값
+    while( i<=10 ){ 조건식
+        내용;
+        i++; 증감식
+    }
+*/
+    // var i=1;
+    // while(true){ //무한루프
+    //     if(i==100)   //무한루프를 중지시키는 방법
+    //         break; // break는 제어문을 중단 시키는 방법이다. 
+    //     i++;
+    // }
+
+    // while(true){  //무한루프
+    //     var num=parseInt(prompt("정수 입력 "));
+    //     if(num==0) break;
+    // }
+
+    // 너비를 100px 이상 입력하시오.
+    // while(true){
+    //     var width=parseInt(prompt("너비 입력(100이상)"));
+    //     if( width>=100) break;
+    // }
+
+    // 쉬는시간 끝나고  아래 문제를 해보세요.
+    // 아래문제는 오늘 과제와 관련있는 문제입니다. 
+    // up & down 게임
+    // 랜덤의 숫자 하나 ( 랜덤범위는 1~50)
+    // 랜덤 숫자를 맞출때까지 계속 입력하기
+    // 입력한 숫자가 랜덤 값과 일치하지 않으면  UP 또는 DOWN  이라고 출력
+    // 입력한 숫자가 랜덤값보다 작으면 UP, 
+    // 입력한 숫자가 랜덤값보다 크면 DOWN 
+    // 출력은 alert으로
+    // 정답이면  화면에 write로  랜덤숫자와 함께 정답이라고 출력
+
+// 랜덤범위 22~50 이라면
+// 범위중 최소값이  + 22 에사용
+// 범위중 최대값 50에서 최소값 22를 빼고 1을더한값  50-22+1 => 29를 *29에사용
+// Math.floor(Math.random() *29)+22
+    // var com = Math.floor(Math.random()*a)+b;
+
+    // while(true){
+    //     var num = parseInt(prompt("정수 입력 "));
+    //     if( com== num) {
+    //         document.write("정답이다.!랜덤숫자 : "+com);
+    //         break; // 정답이니까 무한루프는 끝
+    //     }
+    //     if(num < com){
+    //         alert("UP");
+    //     }
+    //     if(num > com){
+    //         alert("DOWN");
+    //     }
+    // }
+
+// 이 문제는  매 수업 때마다 하는 문제인데 완성 할 확률은10% 였음
+//20명중에 2명? 1명?
+var i=50, k=1, max=50;
+
+var user=parseInt(prompt("1~50중 정수 하나 입력"));
+
+while(true){
+    var com = Math.floor(Math.random()* i )+k ;
+    if( user==com){
+        document.write("정답"); break;
+    }
+    if(user<com){
+        document.write("DOWN "+com+" (범위 : "+k+"~"+max+") <br>");
+        max = com -1;
+        i = max-k+1;
+    }
+    if(user > com){
+        document.write("UP "+com+" (범위 : "+k+"~"+max+") <br>");
+        k = com+1;
+        i = max-k+1;
+    }
+}
+
+
+
+
+</script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!-- script_func6.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<link rel="stylesheet" href="./static/css/func6.css">
+<script src="./static/js/func6.js"></script>
+
+</head>
+<body>
+    <!--  
+
+문제 받을 마음의 준비는 되셨습니까??
+그렇다고요??  
+그럼...
+문제에 맞는 코드를 작성하여  어떻게든 제대로 동작되게 하세요.
+시간제한은 3시30분 까지  아주 충분한 시간입니다.
+문제 나갑니다.
+게임 만들기
+게임명 : 선향이가 좋아하는 랜덤게임 게임 스타트 주사위
+게임 규칙 : 
+    1. 컴퓨터와 주사위 게임을 합니다.
+    2. 컴퓨터의 주사위 이미지와  내 주사위 이미지가 화면에 나타납니다.
+    3. start 버튼을 클릭하면 컴퓨터 주사위를 랜덤값에 따라
+       맞는 숫자의 이미지가 나와야 합니다.
+    4. 다음 내 주사위 이미지를 클릭하면 랜덤값에따라 맞는 숫자의
+       이미지가 나와야 합니다.
+    5. 결과는 주사위 숫자가 큰쪽이 승리입니다.
+    6. 결과 텍스트 출력 아래쪽에는  그동안 진행한  결과가 출력됩니다.
+       예) 3승 0패 1무  이런식으로 출력합니다.
+
+반드시 사용되어야하는 함수
+    Math.floor()  , Math.random() 
+setInterval은 안해도됨
+    -->
+
+    <div id="btwrap">
+        <button onclick="start()"></button>
+    </div>
+    <div id="dice_wrap">
+        <div class="comImg">
+            <img src="./static/image/dice1.png" id="com">
+            <p>컴퓨터</p>
+        </div>
+        <div id="vs"></div>
+        <div class="userImg">
+            <img onclick="mydice()" src="./static/image/dice1.png" id="user">
+            <p>JKR</p>
+        </div>
+    </div>
+    <div id="result_wrap">
+        <p id="result"></p>
+        <p id="recoard"></p>
+    </div>
+</body>
+</html>

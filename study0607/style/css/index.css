@@ -1,0 +1,185 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#wrap{
+    width:100%;
+    position:relative;
+}
+#header{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    height:94px;
+    align-items:center;
+}
+.top_image{
+    width:225px;
+    height:37px;
+}
+.top_image a{
+    background:url(../image/logo.png);
+    width:100%;
+    height:100%;
+    display:block;
+}
+.header_menu{
+    flex-grow:1;
+}
+ul{ list-style: none;}
+.menu_list{
+    display:flex;
+    height:100%;
+    justify-content: flex-end;
+    position:relative;
+}
+.menu_list>li{
+    padding:20px 30px;
+    font-size:20px;
+    position:relative;
+}
+.menu_list>li>ul{
+    position:absolute;
+    top:20px;
+    height:0;
+    width:0;
+    opacity: 0;
+}
+.menu_list>li>ul>li{
+    position:relative;
+    line-height:0;
+}
+.menu_list>li:hover ul{
+    opacity: 1;
+    width:100%;
+    left:0;
+    top:67px;
+}
+.menu_list>li:hover ul>li{
+    line-height:1;
+    padding:10px 0;
+    text-align:center;
+    font-size:16px;
+}
+
+#section{
+    width:1200px;
+    margin:0 auto;
+}
+
+#img1{
+    width:100px;
+}
+#img1 img{
+    width:100%;
+    transition: all ease 1s;
+}
+
+#img1 img:hover{
+    transform: rotateY(6.2832rad);
+}
+
+#move_box{
+    width:100px;
+    height:100px;
+    background: yellow;
+    transition: all 1s;
+}
+#move_box:hover{
+    /*transform: translate(50px, 50px);*/
+   /* transform: translateX(100px);*/
+   transform: translate3d(50px, 100px, 30px);
+}
+
+#zoom_box{
+    width:100px;
+    height:100px;
+    background:red;
+    transition: all 1s;
+    border-right:3px solid black;
+}
+#zoom_box:hover{
+    transform: scale(2,1.5);
+}
+
+#skew_box{
+    width:100px;
+    height:200px;
+    background:pink;
+    transition: all 1s;
+}
+#skew_box:hover{
+    transform: skew(30deg,20deg);
+}
+
+#matrix_box{
+    width:100px;
+    height:100px;
+    background:green;
+    transition: all 1s;
+}
+#matrix_box:hover{
+    /*
+    transform: matrix(2,0,0,2,50,50);
+
+    scale(3,2);
+    rotate(45deg);
+    matrix(3con45 , 2sin45, -3sin45, 2con45,0,0);
+    */
+    transform:matrix(2.1, 1.4, -2.1,1.4,0,0);
+}
+
+/*
+    transform  기울기, 확대,축소, 이동효과, 회전 할때 사용
+   sin30 = 1/2   0.5
+   sin45 = √2/2  0.7
+   sin60 = √3/2  0.8
+   cos30 = √3/2  0.8
+   cos45 = √2/2  0.7
+   cos60 = 1/2   0.5
+   tan30 = 1/√3  0.5
+   tan45 = 1     1 
+   tan60 = √3    1.7
+   
+    matrix(a,b,c,d,e,f );
+      a : scaleX 
+      b : skewY
+      c : skewX
+      d : scaleY
+      e : translateX
+      f : translateY
+    matrix에 회전 적용시
+       matrix(cos, sin, -sin, cos, 0, 0)
+       45도 회전 , 3배 확대
+       matrix(3con45, 3sin45, -3sin45, 3con45, 0, 0)
+
+
+    기울기 - skew => 가로, 세로 방향으로 각도만큼 기울이기
+          skew(30deg, 15deg) 가로30도, 세로 15도 기울기
+          skew(45deg) 가로 45도 기울기
+          skewX(30deg) 가로 30도 기울기
+          skewY(40deg) 세로 40도 기울기
+
+    확대,축소 - scale =>  가로,세로 크기 확대,축소
+            scale(1.5)  가로,세로의크기를 1.5 배 확대
+            scale(0.7)  가로,세로의 크기를 0.7 축소
+            scale(2, 1.2) 가로 2배, 세로1.2배 확대
+            scaleX(3)  가로만 3배 확대
+            scaleY(2.3)  세로만 2.3배 확대
+     1을 기준으로 1보다 크면 확대, 1보다 작으면 축소
+
+
+    회전 - rotate =>  단위 deg( 각도), turn, rad(180/3.14)
+           rotateX x축 기준으로 회전
+           rotateY y축 기준으로 회전
+
+    이동 - translate =>  해당요소를 이동 
+         translate(x축 이동거리, y축 이동거리)
+         translateX(x축 이동거리)
+         translateY(y축 이동거리)
+         translate3d(x축, y축, z축)
+*/

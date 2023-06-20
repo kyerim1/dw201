@@ -1,0 +1,85 @@
+<!--  파일명 : test1.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/*  */
+        #boardWrap{
+            width:930px;
+            border-collapse: collapse;
+        }
+        #boardWrap tr td{
+            text-align: center;
+            border-bottom:1px solid #e5e5e5;
+            padding:10px 0;
+        }
+        #boardWrap tr th{
+            border-top: 3px solid #818181;
+            border-bottom: 1px solid #a2a2a2;
+            padding:10px 0;
+        }
+        .num{ width:80px;}
+        .title{ width:420px;}
+        .nik{width:150px;}
+        .date{width:150px;}
+        .hit{width:100px;}
+        
+        /* td부분 스타일  */
+        .td01{
+            color:#818181;
+        }
+        #boardWrap .td02{
+            text-align: left;
+            padding-left:20px;
+        }
+        .td04{ color:red;}
+
+    </style>
+
+</head>
+<body>
+    
+    <table id="boardWrap">
+        <tr>
+            <th class="num">글번호</th>
+            <th class="title">글제목</th>
+            <th class="nik">닉네임</th>
+            <th class="date">글작성일</th>
+            <th class="hit">조회수</th>
+        </tr>
+        <tr>
+            <td class="td01">154477</td>
+            <td class="td02">초고스펙 계정 30에 판매</td>
+            <td class="td03">포이즌11</td>
+            <td class="td04">08:10:19</td>
+            <td class="td05">18</td>
+        </tr>
+        <tr>
+            <td class="td01">154476</td>
+            <td class="td02">마피로치 두마리 제시에 팝니다.</td>
+            <td class="td03">yukid</td>
+            <td class="td04">23:42:56</td>
+            <td class="td05">31</td>
+        </tr>
+        <tr>
+            <td class="td01">154475</td>
+            <td class="td02">포고 중간스펙 계정팝니다.</td>
+            <td class="td03">GG6A</td>
+            <td class="td04">22:12:14</td>
+            <td class="td05">87</td>
+        </tr>
+        <tr>
+            <td class="td01">154474</td>
+            <td class="td02">국산 그림자 뮤츠 100계정 판매</td>
+            <td class="td03">반짝백로치구매</td>
+            <td class="td04">21:25:34</td>
+            <td class="td05">64</td>
+        </tr>
+    </table>
+
+</body>
+</html>

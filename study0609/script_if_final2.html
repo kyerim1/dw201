@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+/*
+1. 도형 입력하기(  정사각형, 직각사각형, 원형)
+2. 배경색 입력하기 ( 빨강, 파랑, 노랑, 핑크)
+3. 너비크기 입력하기 (100px 이상 입력, 원형을 선택한경우 너비는 반지름)
+4. 높이 입력하기(100px 이상 입력, 원형을 선택한 경우 높이는 패스)
+5. 정사각형 이라고 도형 입력했을경우  너비와 높이는 같아야 한다.
+6. 화면에 도형 출력하기
+*/
+
+var shape = prompt("정사각형, 직각사각형, 원형 중 1택 하시오")
+
+var color = prompt("빨강, 파랑, 노랑, 핑크 중 1택하시오")
+if(color=="빨강"){color= "red;"
+}else if(color=="파랑"){ color= "blue;"
+}else if(color=="노랑"){ color= "yellow;"
+}else if(color=="핑크"){ color= "pink;"}
+
+
+if(shape==="정사각형"){
+    var side = prompt("한 변의 값을 입력하시오 (100 이상)")
+    if(side<100){alert("고집부리지 말고 100 이상으로")
+    var side = prompt("한 변의 값을 입력하시오 (100 이상)")}
+
+    document.write("<div style=" + "background:" + color + 
+                    "width:" + side + "px;" +
+                    "height:" + side + "px;" +
+                    "></div>")
+
+
+
+}else if(shape==="직각사각형"){
+    var width = prompt("넓이값을 입력 (100 이상)")
+    if(width<100){alert("고집부리지 말고 100 이상으로")
+        width = prompt("넓이값을 입력 (100 이상)")}
+
+    var height = prompt("넓이값을 입력 (100 이상)")
+    if(height<100){alert("고집부리지 말고 100 이상으로")
+        height = prompt("넓이값을 입력 (100 이상)")}
+
+        document.write("<div style=" + "background:" + color + 
+                    "width:" + width + "px;" +
+                    "height:" + height + "px;" +
+                    "></div>")
+
+
+
+}else if(shape==="원형"){
+    var h = prompt("반지름의 값을 입력하시오 (100 이상)")
+    if(h<100){
+        alert("고집부리지 말고 100 이상으로")
+        var h = prompt("반지름의 값을 입력하시오 (100 이상)")
+    }
+    document.write("<div style=" + "border-radius:100%;" +
+                    "background:" + color + 
+                    "width:" + (h*2) + "px;" +
+                    "height:" + (h*2) + "px;" +
+                    "></div>")
+}
+
+
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

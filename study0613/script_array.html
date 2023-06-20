@@ -1,0 +1,46 @@
+<!--  script_array.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+
+// 자바스크립트의 함수
+// 함수는 기능을 가지고있는 녀석이다.
+// 아래 welcome 함수는 왜나를 클릭했냐? 를 출력하는 기능을 가진 함수이다.
+// 함수를 선언 정의 하는 방법은
+// function 함수이름(){ }  -> 기본 함수 형태이다.
+// 함수호출 은   함수이름()  -> 요렇게 쓰면 함수를 호출한다. 함수가 실행된다.
+var num=10;
+
+    function welcome(){
+        alert("왜나를 클릭했냐?");
+    }
+    function show_number(){
+        var show = document.getElementById("showbox");
+
+         var result="";
+        for(var i=1; i<=10; i++)
+            result = result + i+"<br>";
+        
+        show.innerHTML=result;
+    }
+</script>
+
+</head>
+<body>
+    
+<button onclick="welcome()"> 나를 클릭해줘~</button>
+<button onclick="show_number()">10까지 출력</button>
+
+<div id="showbox"></div>
+
+<button onclick="input()">너의 이름은?</button>
+
+<b id="myname"></b>
+<!--  input  함수에서  이름을 입력받아 #myname에 출력하시오  -->
+</body>
+</html>

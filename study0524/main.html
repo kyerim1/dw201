@@ -1,0 +1,125 @@
+<!-- main.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우주카페</title>
+
+    <style>
+        body{
+            padding:0;
+            margin:0;
+        }
+         #wrap{
+            width:1250px;
+         }
+         #wrap tr td{ 
+            border:0px solid #000;
+            position: relative;
+        }
+
+         .head{
+            width:1200px;
+            height:50px;
+            text-align: right;
+            font-size:10px;
+            color:gray;
+         }
+         .logo_wrap{ width:150px;}
+         .logo_wrap img{ width:150px; height:80px;}
+         
+         .menu_list{
+            list-style-type:none;
+            padding:0;
+            margin:0;
+         }
+         /* float은 해당 태그(요소)를 어떻게 정렬할지 정의하는 속성이다.
+            float은 묶음 태그에만 적용( <div>, <p> ,<ol> , <ul>, <table>, <img>)
+            float:left 는  왼쪽 정렬 
+                    - float이 적용된 태그들이 한줄로 왼쪽 정렬 된다.  
+         */
+         .menu_list_title{
+            float:left;
+            padding:0 24px;
+            font-weight: 700;
+            font-size:18px;
+            cursor:pointer;
+         }
+         .content_wrap{
+            background-image: url('../image/bg.jpg');
+            height:1080px;
+         }
+
+         .content_Text{
+            position:absolute;
+            top:0;
+            left:200px;
+            list-style-type: none;
+            padding:0;
+            margin:0;
+            font-size:32px;
+            font-weight:900;
+            font-family:'Impact';
+            padding-left:150px;
+         }
+         .mainText{
+            font-size:96px;
+            margin:28px 0px 40px 0px;   /* 위  오른쪽  아래   왼쪽  */
+         }
+         .subText{
+            letter-spacing:5px;
+            margin:90px 0px;    /* 위아래   오른쪽왼쪽 */
+         }
+         .underText{ 
+            text-decoration: underline; 
+            text-underline-offset: 10px;
+        }
+        .grayText{
+            /*color:gray;*/
+            opacity:0.6;  /* 투명도 값 범위 : 0 ~ 1 */
+        }
+
+    </style>
+</head>
+<body>
+    
+    <table id="wrap">
+        <tr>
+            <td colspan="2" class="head">
+                로그인 / 사이트맵 / 고객센터
+            </td>
+        </tr>
+        <tr>
+            <td class="logo_wrap">
+<!-- a태그: 링크, 페이지 이동을 위한 태그,  -->
+                <a href="">
+                    <img src="../image/cafe_logo.jpg" alt="로고이미지">
+                </a>
+            </td>
+            <td class="menu_wrap">
+                <ul class="menu_list">
+                    <li class="menu_list_title">우주플레이스 소개</li>
+                    <li class="menu_list_title">메뉴이야기</li>
+                    <li class="menu_list_title">브랜드 지원</li>
+                    <li class="menu_list_title">우주플레이스 앱 & 멤버십</li>
+                    <li class="menu_list_title">가맹점 창업안내</li>
+                    <li class="menu_list_title">새소식&공지</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="content_wrap">
+                <ul class="content_Text">
+                    <li class="mainText">MENU STORY.</li>
+                    <li class="subText underText">COFFEE STORY</li>
+                    <li class="subText grayText">DESSERT STORY</li>
+                    <li class="subText grayText">DELI STORY</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

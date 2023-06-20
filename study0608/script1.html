@@ -1,0 +1,78 @@
+<!--  script1.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+// 문제 1.
+// 반지름이 r인 원형 트랙이 있다. 
+// 원형 트랙위로  자동차한대가 달리고있다.
+//  자동차는 시속 v로 달리고 있다.
+//  자동차가 트랙을 한바퀴 완주하는데 몇분이 걸리는가??
+// $$ 속도와 거리와 시간의 관계에대한 공식을 찾아 보시길!!
+//  반지름과 속도를 입력하여  출력하시오! 
+//  거리 = 속도*시간;
+//   속도 =  거리/시간;
+//  시간 = 거리/속도;
+
+
+var r= parseInt( prompt("원형 트랙 반지름"));
+var v = parseInt(prompt("자동차 속도"));
+
+var dist = r*2*3.14;  // 원형트랙의 거리
+var time = dist / v; // 1바퀴 완주시간
+document.write("1바퀴 완주 시간 : "+ (time*60) + "(분)<br><br>");
+//변수가 생성되어야 사용할수있다.
+// 코드의 동작은 작성한 순서대로 실행된다.(함수는 예외)
+// 변수에 값이 있어야 출력이되고 계산이 된다.
+
+// 문제 2.
+var redCup=10;
+var blueCup=20;
+var whiteCup=0;
+
+whiteCup= redCup;
+redCup = blueCup;
+blueCup= whiteCup;
+
+document.write("빨간컵은 "+redCup);
+document.write("<br>파랑컵은 "+blueCup+"<br><br>");
+// ? 에 들어갈 코드를 작성하세요
+//  실행 하면 결과는    빨간컵은 20
+//                     파랑컵은 10
+//   단, redCup=20  이렇게 하면안됨!
+//변수의 데이터를  다른 변수에 저장할수 있다. 
+//  다른 변수에 저장을 해도 현재 변수에 데이터는 유지된다.
+//  변수에 값이 존재하는 상태에서 다른값을 저장하면
+//  덮어쓰기로 저장되어  이전 값은 찾을수 없게 된다.
+
+//  상수 - 데이터를 저장하는 메모리 공간 (읽기)
+//  변수 - 데이터를 저장하는 메모리 공간 (읽기, 쓰기)
+// 상수 선언 방법
+const pi = 3.14;
+//const pi = 10; // const는 같은이름의 변수로 재선언 불가능
+//상수를 사용하는 이유
+//  불변의 값을 저장 해서 사용한다. 숫자나 문자열 데이터 대신 이름
+//    상수이름으로 사용하는게 편하기 때문에
+//   naver.com 이라는 이름이 210.209.175.183 보다 사용하기 편하다.
+//   이유2. 다른 개발자에게 변경 하면 안된다고 알려주기 위함 목적
+
+var r=5;
+r = 10;
+var r=1000; // var는 같은이름의 변수로 재선언이 가능하다.
+
+// 연산자 
+// 
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

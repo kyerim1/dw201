@@ -1,0 +1,156 @@
+body{
+    /* body에  여백을 제거하여  화면에 꽉채워서 사용하려고 합니다.요. */
+    padding:0;
+    margin:0;
+    background-color: #1e1f21;
+    color:#cbcbcb;
+    position: relative;
+}
+
+#wrap{
+    position:relative;
+    width:100%;
+}
+#header{
+    width:1200px;
+    margin:0 auto;
+    background-color: #343638 ;
+    position:sticky;
+    top:0;
+    z-index:100;
+    display:flex;
+    padding:20px 0;
+    font-size:25px;
+    justify-content: space-around;
+}
+
+#section{
+    width:1200px;
+    margin:0 auto;
+    display:flex;
+    margin-top:15px;
+}
+.section_left{
+    width:80%;
+    height:800px;
+    /*background:#a1a5b6;*/
+}
+.section_right{
+    width:20%;
+    height:800px;
+    /*background:#6f7486;*/
+}
+.section_left .mainImage{
+    width:100%;
+    height:400px;
+    overflow: hidden;
+}
+.section_left .mainImage img{
+    width:100%;
+}
+.notice_adImg{
+    width:100%;
+    display:flex;
+    position: relative;
+}
+.notice_adImg .notice_box{
+    width:70%;
+    position: relative;
+}
+.notice_adImg .notice_box .notice_list{
+/* 공지사항 ul태그 */
+    /*list-style-type: circle; */
+    /*list-style-image:url('../image/listIcon.png');*/
+    list-style-type: none;
+}
+.notice_adImg .notice_box .notice_list li::before{
+    content:'';
+    display: inline-block;
+    height:15px;
+    width:15px;
+    background-image: url('../image/listIcon.png');
+    background-size: 15px;
+    background-repeat: no-repeat;
+    margin-right:5px;
+}
+.notice_adImg .notice_box .notice_list li{
+/* 공지사항 li태그 */
+    padding:5px 0;
+}
+.notice_adImg .notice_box .notice_more{
+/* 공지사항에 more 텍스트 있는 h5 */
+    position:absolute;
+    top:0;
+    right:20px;
+}
+
+
+.notice_adImg .adImg_box{
+    width:30%;
+    overflow:hidden;
+    display:flex;
+    align-items: center;
+}
+.notice_adImg .adImg_box img{
+    width:100%;
+}
+
+.coop_box{
+    width:100%;
+}
+.coop_box .imageList{
+    width:100%;
+    display: flex;
+    height:80px;
+    justify-content: space-between;
+}
+.coop_box .imageList img{
+    width:140px;
+}
+
+.login_wrap{
+    text-align: center;
+    border:1px solid #cbcbcb;
+    height:120px;
+}
+
+.subMenu_wrap{
+    margin-top:50px;
+    padding:10px;
+}
+.subMenu_list{
+    padding:0;
+    margin:0;
+    list-style-type: none;
+    font-size:20px;
+    font-weight: 700;
+    text-align: center;
+}
+.list{
+    padding:5px;
+}
+
+#footer{
+    width:1200px;
+    margin:0 auto;
+}
+.ft_menu{
+    width:100%;
+    padding:30px;
+}
+.ft{
+    list-style-type: none;
+    padding:0;
+    margin:0;
+    display:flex; /*기본 한 줄로 나열  */
+}
+.ft li{
+    padding-right:30px;
+}
+
+.address{
+    padding:0 30px;
+}
+.copyright{
+    padding:5px 30px;
+}

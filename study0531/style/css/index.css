@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+
+body, h1,h2,h3,h4,h5,h6, p, ul,ol,li,
+dl,dd{
+    margin:0;
+    padding:0;
+}
+img{
+    max-width:100%;
+    display:block;
+}
+a{
+    text-decoration: none;
+    color:inherit; /*  */
+}
+
+#wrap{
+    max-width:1080px;
+    width:90%;
+    margin:0 auto;
+}
+#header{
+   position:sticky;
+   top:0;
+   background:#fff;
+    display:flex;
+    justify-content: space-between;
+    padding:7px 20px;
+    border-bottom:1px solid #d0d0d0;
+}
+ .header-logo{
+    width:100px;
+ }
+ .header-nav{
+    display:flex;
+    align-items: center;
+ }
+ .header-nav a{
+    margin-left:15px;
+ }
+ .header-nav a:nth-child(2){
+    display:flex;
+    align-items:center;
+    padding:7px 17px;
+    color:#fff;
+    background:#000;
+    border-radius: 7px;
+ }
+ .header-nav a:nth-child(2) i{
+    padding-left:5px;
+ }
+
+ #main{
+    padding:15px 0;
+ }
+ #flex{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    column-gap:20px;
+    row-gap:20px;
+ }
+ .flexitem{
+   width:30%;
+   max-width:300px;
+   border:1px solid #d0d0d0;
+   border-radius: 10px;
+   overflow: hidden;
+ }
+
+ .product-content{
+    display:flex;
+    justify-content: space-between;
+    padding:7px;
+ }
+ .product-info{
+    font-size:13px;
+ }
+
+ .like{
+    align-self:flex-end;
+ }
+
+ /* 
+
+ @media 조건 {
+   스타일속성: 속성값;
+ }
+
+ @media  키워드 논리연산자 (조건){
+
+ }
+ 키워드 - all, screen, print, tv, tty, projection 등등
+논리연산자 - and, or
+   and -  양쪽 조건이 모두 참인경우에 참
+   or - 한쪽의 조건만 참이면 참
+조건 - max-width(이하),  min-width(이상)
+      세로모드 : orientation:portrait
+      가로모드 : orientation:landscape
+      너비와 높이 비율
+       aspect-ratio:6/4   ->  너비가6 높이가 4   6:4 비율
+      색상 비트수( 색상 표현 정도)
+        color:8  -> 색상이 8비트 라면
+
+!참고 : 반응형 제작할때  두가지 방법으로 제작한다.
+     1. 모바일 환경에서  PC 환경으로 제작
+         min
+
+     2. PC환경에서  모바일환경으로 제작 
+        max
+ */
+
+ @media screen and (max-width:768px){  /* 너비가 768이하 라면 */
+   #flex{
+   column-gap:15px;
+   }
+   .flexitem{
+      width:40%;
+   }
+ }
+
+ @media screen and (max-width:576px){
+   .flexitem{
+      width:75%;
+   }
+ }
+
+ /*  이걸 해봐요.  너비가 576px이하 일 경우 한줄에 하나만 나오게 */

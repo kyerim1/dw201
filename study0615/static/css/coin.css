@@ -1,0 +1,25 @@
+.coin{
+    display:flex;
+    justify-content: center;
+}
+.coin img{
+    width:300px;
+}
+
+.select{
+    display:flex;
+    justify-content: center;
+    margin:50px 0;
+}
+.select b{
+    display:inline-block;
+    font-size:30px;
+    padding:20px 50px;
+    background:#1e1e20;
+    color:#cbcbcb;
+    cursor:pointer;
+}
+.select b:hover{
+    background:#cbcbcb;
+    color:#1e1e20;
+}

@@ -1,0 +1,82 @@
+<!--  파일명: test2.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 마지막</title>
+    <style>
+        #cross{ border-collapse: collapse;}
+        .top, .bottom{
+            width:100px;
+            height:200px;
+            border:1px solid black;
+        }
+        .left, .right{
+            width:200px;
+            height:100px;
+            border:1px solid black;
+        }
+
+        .top:hover{
+            background:pink;
+        }
+        .left:hover{
+            background:yellow;
+        }
+
+        .rightMemo{
+            display:none;
+        }
+        .right:hover .rightMemo{
+            display:block;
+        }
+        
+        .brother2{  opacity: 0;}
+        .brother1:hover ~ .brother2{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    
+    <table id="cross">
+        <tr>
+            <td ></td>
+            <td class="top"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="left"></td>
+            <td></td>
+            <td class="right">
+                <p class="rightMemo">
+                    나는 오른쪽입니다.  
+                    오른쪽은 오른손잡이가 밥먹을때 수저를 사용하는 손 쪽입니다.
+                </p>
+
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="bottom">
+                
+                <h3 class="brother1">여기에 마우스 놔보라고!</h3>
+                
+                <h5 class="brother2">
+                    그냥 아무말이나써요  이거 따라쓰지말고  알았지요??
+                    그냥  쓰라구요!!  따라쓰지말라고!!!!
+                    그냥 아무말이나써요  이거 따라쓰지말고  알았지요??
+                    그냥  쓰라구요!!  따라쓰지말라고!!!!
+                    그냥 아무말이나써요  이거 따라쓰지말고  알았지요??
+                    그냥  쓰라구요!!  따라쓰지말라고!!!!
+                </h5>
+
+            </td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+</html>

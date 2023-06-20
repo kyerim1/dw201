@@ -1,0 +1,47 @@
+body{ background-color: #000;}
+img{width:100%;}
+#btwrap{
+    text-align: center;
+    
+}
+#btwrap button{
+    box-shadow:inset 0px 0px 14px 8px #000000;
+    border:0;
+    background:url(../image/play.jpg);
+    background-size:contain;
+    width:100px;
+    height:100px;
+    cursor:pointer;
+}
+
+#dice_wrap{
+    display:flex;
+    width:90%;
+    margin:50px auto 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+.comImg , .userImg{
+    width:30%;
+}
+.comImg p, .userImg p{
+    color:#ebebeb;
+    text-align: center;
+    font-size:50px;
+}
+
+#vs{
+    align-self: stretch;
+    background:url(../image/vs.jpg) no-repeat;
+    background-size:contain;
+    background-position: center;
+    width:35%;
+    box-shadow:inset 0px 0px 14px 8px #000000;
+}
+
+#result_wrap p{
+    text-align: center;
+    font-size:30px;
+    color:#ccc;
+    height:40px;
+}

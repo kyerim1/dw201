@@ -1,0 +1,141 @@
+<!-- main.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--  html 문서에서 css의 선언 위치는 <head> 태그 내부에 선언하는것이 정석이다.-->
+ <!-- style 태그가  css를 사용하기위한 태그이다. -->   
+    <style> 
+        /* css 주석 */
+        body{
+            background:#292a2c;
+        }
+        /* table{
+            border-spacing: 0px;
+        }
+        table tr td{
+            
+            vertical-align: bottom;
+            text-align: center;
+            color:brown;
+            font-size:20px;
+            width:100px;
+            background: yellow;
+            border:1px solid rgb(2, 0, 133);
+                    border-width:1px;
+                    border-color: black;
+                    border-style:solid; 
+            height:50px;
+        } */
+
+        table{
+            width:1200px;
+        }
+        table tr td{
+            border:1px solid #fff;
+            color:#eeede0;
+        }
+        .top{
+            height:50px;
+            text-align: center;
+        }    
+        #logo-location{
+            width:250px;
+        }
+        #search-location{
+            width:650px;
+        }
+        #login-location{ width:300px;  }
+        #menu-location{
+            height:700px;
+            vertical-align: top;
+        }
+        
+        #logo-location img{
+            /*width:250px; */
+            height:50px;
+        }
+        .loginButton{
+            background:#669933;
+            width:150px;
+            height:30px;
+            display:inline-block;
+            line-height: 30px;
+        }
+        #menuList{
+            list-style-type:none;
+            padding:0;
+            text-align: center;
+            font-size:25px;
+        }
+        #menuList li:hover{
+            color:#292a2c;
+            background: #eeede0;
+        }
+        .content{
+            
+            width:700px;
+            margin:0 auto;
+        }
+        .content tr td{ border:0;}
+        .content-location{
+            vertical-align: top;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>block</h2>
+    <table>
+        <tr>
+            <td id="logo-location" class="top">
+                <img src="logo.png">
+            </td>
+            <td id="search-location" class="top">검색위치</td>
+            <td id="login-location" class="top">
+                <b class="loginButton">로그인</b>
+            </td>
+        </tr>
+        <tr>
+            <td id="menu-location">
+                <ul id="menuList">
+                    <li>회사소개</li>
+                    <li>연혁</li>
+                    <li>오시는길</li>
+                    <li>채용정보</li>
+                    <li>공지사항</li>
+                    <li>사이트맵</li>
+                </ul>
+            </td>
+            <td colspan="2" class="content-location"> 
+                <table class="content">
+                    <tr>
+                        <td>
+                            <h4>공지사항</h4>
+                            <ul>
+                                <li>집에가고 싶으신가요?</li>
+                                <li>가실 수 없습니다.</li>
+                                <li>왜냐고요?</li>
+                                <li>아직 수업이 안끝났거든요</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h4>채용정보</h4>
+                            <ol>
+                                <li>무기계약직 상시 채용</li>
+                                <li>개발자 계약직 채용공고</li>
+                                <li>연구소 정규직 신입/경력 채용공고</li>
+                                <li>AS사원 채용공고</li>
+                            </ol>
+                        </td>
+                    </tr>
+                </table>    
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!-- script_function.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="./static/css/style.css">
+<script src="./static/js/func.js"></script>
+
+</head>
+<body>
+
+<button onclick="sum(10,20)">더하기</button>
+
+<div> 결과 <b id="sum_result"></b></div>
+
+
+<div>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button onclick="plus()">+</button>
+    <div>결과 : <b id="result2"></b></div>
+</div>
+
+<div style="border:1px solid black; width:300px;padding:20px;">
+    <input type="number" min="1920" max="2023" id="birth_year">
+    <input type="button" value="나이구하기" onclick="myage()">
+    <br>
+    <div> 만 나이 : <span id="age"></span>세 </div>
+</div>
+
+<div class="box">
+    <div class="subject">
+        <label>국어</label>
+        <input type="number" id="kor" min="0" max="100">
+    </div>
+    <div class="subject">
+        <label>수학</label>
+        <input type="number" id="mat" min="0" max="100">
+    </div>
+    <div class="subject">
+        <label>음악</label>
+        <input type="number" id="mus" min="0" max="100">
+    </div>
+    <button onclick="score_calc()">총점/평균</button>
+    <div id="result3"></div>
+</div>
+
+<!-- 소주한잔을 마시면 수명이 2분 단축된다.
+    어떤 사람이 소주를 매일  20년을 마셨다.
+    이사람은 수명이 얼마나 단축이 되었는가?
+    input을 이용하여  하루에 몇잔 먹었는지 입력 하여 
+    단축 된 수명 출력 하기
+    단, 단축된 수명은  총 몇분,  총 몇시간, 총 몇일 인지 각각 출력
+-->
+<div class="box">
+    <input type="number" id="soju">
+    <button onclick="my_minus_life()">수명계산</button>
+    <div id="minute"></div>
+    <div id="hour"></div>
+    <div id="day"></div>
+</div>
+
+<div class="box">
+    <div class="input_box">
+         <label>야식 메뉴</label>
+         <input type="text" id="night_snack">
+    </div>
+    <div class="input_box">
+        <label>사이드 메뉴</label>
+        <input type="text" id="side_menu">
+    </div>
+    <div class="input_box">
+        <label>주류</label>
+        <input type="text" id="alc">
+    </div>
+    <button onclick="my_order()"> 주문하기 </button>
+    <div id="order_result"></div>
+</div>
+
+
+
+
+<!--
+    텍스트 타입<input type="text">  <br>
+    숫자 타입<input type="number"> <br>
+    이메일 타입<input type="email"> <br>
+    검색 타입 <input type="search"> <br>
+    날짜 타입 <input type="date"> <br>
+    파일 타입 <input type="file"> <br>
+    체크 타입 <input type="checkbox"> <br>
+    라디오 타입 <input type="radio"> <br>
+    월 타입 <input type="month"><br>
+    <input type="datetime-local"><br>
+    길이? 타입 <input type="range"> <br>
+    <input type="time"><br>
+    <input type="week"><br>
+    비밀번호 타입 <input type="password"> <br>
+-->
+</body>
+</html>

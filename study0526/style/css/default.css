@@ -1,0 +1,99 @@
+
+#flex1{
+    width:1000px;
+    height:300px;
+    border:1px solid black;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+#flex1 div{
+    width:100%
+}
+
+.red{
+    background:red;
+}
+.yellow{
+    background:yellow;
+}
+.green{
+    background:green;
+}
+.blue{
+    background:blue;
+}
+
+#flex2{
+    width:1000px;
+    height:300px;
+    display:flex;
+/*  flex 기본 적용 값
+    flex-direction:row;
+    flex-wrap:nowrap; */
+}
+#flex2 div{
+    width:25%;
+}
+
+.flexshape{
+    width:1000px;
+    height:300px;
+    display:flex;
+}
+#flex3 div{
+    width:15%;
+}
+#flex3{
+    justify-content: space-between;
+}
+
+#flex4 div{width:15%;}
+#flex4{
+    justify-content: space-around;
+}
+
+#flex5 div{width:15%;
+height:200px;}
+#flex5{
+    align-items: center;
+}
+
+#flex6 div{
+    width:15%; height:200px;
+}
+
+#flex6 .red{
+    align-self:flex-end;
+}
+#flex6 .yellow{
+    align-self:center;
+}
+#flex6 .green{
+    height:auto;
+    align-self:stretch;
+}
+
+
+#flex7{
+    flex-direction: column;
+    justify-content: space-between;
+}
+#flex7 div{
+    width:25%;
+    height:50px;
+}
+#flex7 .red{
+    order:3;
+}
+#flex7 .green{
+    order:1;
+}
+
+#flex8 div{
+    width:120px;
+}
+#flex8 .red{ flex-grow: 1;}
+#flex8 .yellow{ flex-grow: 1;}
+#flex8 .green{ flex-grow: 0;}
+#flex8 .blue{ flex-grow: 2;}

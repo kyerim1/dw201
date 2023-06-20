@@ -1,0 +1,49 @@
+<!--  script_func5.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<link rel="stylesheet" href="./static/css/table.css">
+<script src="./static/js/table.js"></script>
+
+</head>
+<body>
+
+<div>
+    <input type="text" id="result">
+</div>
+
+<table>
+    <tr>
+        <td onclick="init()" colspan="4" style="height:50px;">C</td>
+    </tr>
+    <tr>
+        <td onclick="select(7)">7</td>
+        <td onclick="select(8)">8</td>
+        <td onclick="select(9)">9</td>
+        <td onclick="select('+')">+</td>
+    </tr>
+    <tr>
+        <td onclick="select(4)">4</td>
+        <td onclick="select(5)">5</td>
+        <td onclick="select(6)">6</td>
+        <td onclick="select('-')">-</td>
+    </tr>
+    <tr>
+        <td onclick="select(1)">1</td>
+        <td onclick="select(2)">2</td>
+        <td onclick="select(3)">3</td>
+        <td onclick="select('*')">*</td>
+    </tr>
+    <tr>
+        <td onclick="select(0)" colspan="2">0</td>
+        <td onclick="select('=')">=</td>
+        <td onclick="select('/')">/</td>
+    </tr>
+</table>
+
+</body>
+</html>
