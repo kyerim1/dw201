@@ -17,7 +17,7 @@
         var n=0;
         while(true){
             n=Math.floor(Math.random()*18)+1 ;
-            if(n==17 || n==5 ||n==12 ||n==13  ){
+            if(n==17 || n==5   ){
                 continue;
             }    
             if(arr.indexOf(n)!=-1)
@@ -75,7 +75,8 @@
   animation: bounce .3s ease infinite alternate;
   font-family: 'Titan One', cursive;
   font-size: 80px;
-  width:300px;
+  max-width:300px;
+  width:30%;
   color: #FFF;
   text-shadow: 0 1px 0 #CCC,
                0 2px 0 #CCC,
