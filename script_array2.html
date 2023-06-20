@@ -1,0 +1,35 @@
+<!-- script_array2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+// 간단 실습
+// arr1 이라는  배열 생성
+//  arr1배열에 5개의 무작위 숫자(1~50)를 저장하고 출력하시오.
+// 배열에 저장과 출력은 반복문 사용하기 
+
+var arr1 = new Array();
+
+for( var i=1; i<=5; i++){
+    arr1.push(Math.floor(Math.random()*50)+1);
+}
+
+for(var i=0; i<arr1.length; i++){
+    if(arr1[i]%2 == 0)
+        document.write( arr1[i]+"<br>");
+}
+
+// 배열에 저장된 5개 데이터중 짝수만 출력하시오.
+
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>
