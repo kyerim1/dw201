@@ -2,6 +2,8 @@
 let show=false; //start 버튼 클릭 유무
 let cmp_num=new Array(); // 두개의 숫자를 비교하기 위한 배열
 let choice = new Array(); // 클릭한 두개의 span태그 인덱스 저장 배열
+let end=0; // 4가 되면 게임 끝
+let step=0; // 클릭횟수 제한을 위한 변수
 
 let num = new Array(); // 화면에 표시되는 숫자 저장 배열 
 let board=new Array();  //  숫자가 출력될 위치 저장 배열
@@ -29,7 +31,8 @@ function init(){ //초기화
             i--;
         }
     }
-    
+    var count = document.getElementById("count");
+    count.innerText=0;
 }
 
 window.onload=function(){
@@ -68,6 +71,18 @@ function  same_search(){
         return;  // start버튼을 클릭하지 않았으면 same_search함수를 
         //실행 시키지않는다.
      }
+
+     // 클릭횟수 증가시키기
+     if( step == 20){ //20번클릭하면 더이상 진행이 되지않게 
+        //show는 false로  바꾸고 함수 종료
+        alert("다음기회에 도전하세요");
+        show=false;
+        return;
+     }
+     var count = document.getElementById("count");
+     count.innerText = ++step;
+     
+
     var child = this.children[0];  //child변수는 td태그의 자식인 span이다.
     child.style.display="inline";
     
@@ -80,9 +95,9 @@ function  same_search(){
 
     if( cmp_num.length == 2 ){ // 배열에 숫자 2개가 저장되어있다면 비교
         if(cmp_num[0] == cmp_num[1] ){
-            
             cmp_num=new Array();
             choice=new Array();
+            end++; // 같은숫자 찾으면 end변수 1씩 증가
         }else{
             setTimeout( function(){
                 cmp_num = new Array();
@@ -93,6 +108,11 @@ function  same_search(){
                 choice= new Array();
             }, 500);
         }
+    }
+
+    if(end == 4){
+        alert("게임 끝");
+        show=false;
     }
 }
 //  자식태그 가져오는 방법 :  
