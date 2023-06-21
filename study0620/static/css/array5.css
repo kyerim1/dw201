@@ -4,6 +4,20 @@
     min-width:650px;
     margin:50px auto;
 }
+#start{
+    margin:0 auto 50px auto; 
+    display:block;
+    font-size:35px;
+    border:0;
+    background:#232323;
+    color:#cbcbcb;
+    padding:10px;
+    border-radius: 10px;
+}
+#start:hover{
+    background:#cbcbcb;
+    color:#232323;
+}
 #game_table{border-spacing: 0; margin:0 auto;}
 .picture{
     border:1px solid black;

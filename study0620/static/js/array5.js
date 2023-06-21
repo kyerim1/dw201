@@ -1,5 +1,6 @@
 
 let num = new Array();
+let board=new Array();
 
 function init(){ //초기화
     //중복없이 랜덤값 넣기
@@ -14,16 +15,35 @@ function init(){ //초기화
             i--;
         }
     }
+
+    board.push(Math.floor(Math.random()*8) );
+    for(var i=1; i<=7; i++){
+        var temp = Math.floor(Math.random()*8);
+        if ( board.indexOf(temp) == -1){
+            board.push(temp);
+        }else{
+            i--;
+        }
+    }
+    
 }
 
 window.onload=function(){
     init(); //초기화 함수 실행
+    let start = document.getElementById("start");
+    start.addEventListener("click",play);
+
    let pic = document.getElementsByClassName("picture");
    for( var i=0; i<pic.length; i++){
         pic[i].addEventListener("click",same_search);
-        pic[i].innerHTML = num[i%4]  ;
     }
 
+}
+function play(){
+    let pic = document.getElementsByClassName("picture");
+    for( var i=0; i<pic.length; i++){
+         pic[board[i]].innerHTML = num[i%4]  ;
+     }
 }
 
 function  same_search(){

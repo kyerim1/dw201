@@ -39,4 +39,14 @@ function search_name(){
     res.innerHTML= out;
     input.value="";  // input태그의 내용을 비우기
     input.focus(); // 검색 input태그에 커서 놓기 다음검색을위해
-}
+}김승겸  2
+안태균 1
+송은선 1
+김철환 1
+박수호 1
+이상준 -2
+이충현 1
+김선향 2
+김태형 1
+정예림 1
+임민지 1
