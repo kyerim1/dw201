@@ -53,6 +53,7 @@ function play(){
     for( var i=0; i<pic.length; i++){
          pic[board[i]].innerHTML = num[i%4]  ;
      }
+//setTimeout( 실행할 함수 , 시간 );
 
     setTimeout( function(){ 
         let pic = document.getElementsByClassName("back");
@@ -92,7 +93,8 @@ function  same_search(){
             choice.push(i); // 클릭한 td의 span태그 인덱스를 배열에 저장
     }
     cmp_num.push( parseInt(child.innerText) ); //클릭한 td>span의 숫자를 배열에저장
-
+a="abc";
+a.length;
     if( cmp_num.length == 2 ){ // 배열에 숫자 2개가 저장되어있다면 비교
         if(cmp_num[0] == cmp_num[1] ){
             cmp_num=new Array();
