@@ -1,0 +1,76 @@
+*{ box-sizing: border-box;}
+body,ul,p,h1,h2,h3,h4,h5,
+ol,dl{ 
+    padding:0;
+    margin:0;
+}
+ul{
+    list-style-type: none;
+}
+
+#wrap{
+    width:85%;
+    min-width:500px;
+    max-width:1000px;
+    margin:50px auto;
+}
+.line{
+    border-bottom:2px solid #aaa;
+}
+#menu{
+    display:flex;
+    justify-content: space-around;
+    margin-bottom:20px;
+}
+.menu_bt{
+    font-size:25px;
+    display:inline-block;
+    padding:10px 20px;
+    color:#fff;
+    font-weight:900;
+    text-shadow:0px 0px 2px #000;
+    border-radius: 5px;
+}
+#menu .menu_bt:nth-child(1){
+    background:#69c8f2
+}
+#menu .menu_bt:nth-child(2){
+    background:#ff7272
+}
+#menu .menu_bt:nth-child(3){
+    background:#b0d840;
+}
+
+.menu_icon{
+    display:none;
+    position: relative;
+}
+.strapIcon{
+    font-size:30px;
+    cursor: pointer;
+}
+
+.menu_list{
+    display:none;
+    position: absolute;
+    background:#fff;
+    width:100%;
+}
+
+
+/*
+    이하 : max-width
+    이상 : min-width
+    웹 제작을 PC 우선으로 제작시 max-width
+    모바일 우선으로 제작시 min-width
+*/
+@media screen and (max-width:786px){
+    #menu{ 
+        display:block;
+        position: relative;
+    }
+    .menu_icon{
+        display:block;
+    }
+    .menu_bt{ display:none;}
+}
