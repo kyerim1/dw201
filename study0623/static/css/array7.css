@@ -55,7 +55,33 @@ ul{
     position: absolute;
     background:#fff;
     width:100%;
+    font-size:30px;
+    box-shadow: 0px 3px 5px #000;
 }
+.list_bt{
+    display:block;
+    padding:10px;
+}
+.menu_list li:nth-child(1) .list_bt:hover{
+    background:#69c8f2;
+    color:#fff;
+    font-weight:900;
+    text-shadow:0px 0px 2px #000;
+}
+.menu_list li:nth-child(2) .list_bt:hover{
+    background:#ff7272;
+    color:#fff;
+    font-weight:900;
+    text-shadow:0px 0px 2px #000;
+}
+.menu_list li:nth-child(3) .list_bt:hover{
+    background:#b0d840;
+    color:#fff;
+    font-weight:900;
+    text-shadow:0px 0px 2px #000;
+}
+ 
+
 .list_active{
     display:block;
 }
