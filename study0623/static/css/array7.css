@@ -56,6 +56,9 @@ ul{
     background:#fff;
     width:100%;
 }
+.list_active{
+    display:block;
+}
 
 
 /*
