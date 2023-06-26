@@ -36,8 +36,6 @@
 
 let lotto=new Array(); // 역대 당첨 번호 저장될 배열
 
-
-
 window.onresize=function(){
     var wd = window.innerWidth; 
     if( wd > 786){
@@ -67,7 +65,6 @@ window.onload=function(){
             for( var i in temp){
                 lotto.push( temp[i].split("\t") );
             }
-            alert(lotto[0][3]);
         });
         reader.readAsText(files[0]);
     });

@@ -11,7 +11,6 @@
 
 <script src="./static/js/array7.js"></script>
 <script src="./static/js/confirm.js"></script>
-
 </head>
 <body>
 <!--
@@ -39,7 +38,14 @@
         <div class="line"> </div>
         <div id="content">
             <div id="lotto_data">
-                <div class="search_data"></div>
+                <div class="search_data">
+                    <select id="drwNo">
+                    </select>
+                    <span>
+                        지급게시일로부터 1년 이내의 당첨번호 조회만
+                        가능합니다.
+                    </span>
+                </div>
                 <table class="tbl_data">
                     <tr>
                         <th class="col">번호</th>
@@ -50,12 +56,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645 input1" maxlength="2">
+                            <input type="text" class="num_645 input1" maxlength="2">
+                            <input type="text" class="num_645 input1" maxlength="2">
+                            <input type="text" class="num_645 input1" maxlength="2">
+                            <input type="text" class="num_645 input1" maxlength="2">
+                            <input type="text" class="num_645 input1" maxlength="2">
                         </td>
                         <td class="resultNumber"></td>
                         <td class="resultBonus"></td>
@@ -64,12 +70,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645 input2" maxlength="2">
+                            <input type="text" class="num_645 input2" maxlength="2">
+                            <input type="text" class="num_645 input2" maxlength="2">
+                            <input type="text" class="num_645 input2" maxlength="2">
+                            <input type="text" class="num_645 input2" maxlength="2">
+                            <input type="text" class="num_645 input2" maxlength="2">
                         </td>
                         <td class="resultNumber"></td>
                         <td class="resultBonus"></td>
@@ -78,12 +84,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645 input3" maxlength="2">
+                            <input type="text" class="num_645 input3" maxlength="2">
+                            <input type="text" class="num_645 input3" maxlength="2">
+                            <input type="text" class="num_645 input3" maxlength="2">
+                            <input type="text" class="num_645 input3" maxlength="2">
+                            <input type="text" class="num_645 input3" maxlength="2">
                         </td>
                         <td class="resultNumber"></td>
                         <td class="resultBonus"></td>
@@ -92,12 +98,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645 input4" maxlength="2">
+                            <input type="text" class="num_645 input4" maxlength="2">
+                            <input type="text" class="num_645 input4" maxlength="2">
+                            <input type="text" class="num_645 input4" maxlength="2">
+                            <input type="text" class="num_645 input4" maxlength="2">
+                            <input type="text" class="num_645 input4" maxlength="2">
                         </td>
                         <td class="resultNumber"></td>
                         <td class="resultBonus"></td>
@@ -106,12 +112,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
-                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645 input5" maxlength="2">
+                            <input type="text" class="num_645 input5" maxlength="2">
+                            <input type="text" class="num_645 input5" maxlength="2">
+                            <input type="text" class="num_645 input5" maxlength="2">
+                            <input type="text" class="num_645 input5" maxlength="2">
+                            <input type="text" class="num_645 input5" maxlength="2">
                         </td>
                         <td class="resultNumber"></td>
                         <td class="resultBonus"></td>
@@ -119,6 +125,12 @@
                         <td class="resultNumberGrade"></td>
                     </tr>
                 </table>
+
+                <div id="btn_submit">
+                    <button id="btnDefault">초기화</button>
+                    <button id="btnSearch">결과확인</button>
+                </div>
+
             </div>
         </div>
     </div>
