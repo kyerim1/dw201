@@ -33,6 +33,11 @@
 
     브라우저 의 크기가 변경되면 동작하는 함수 - resize();
 */
+
+let lotto=new Array(); // 역대 당첨 번호 저장될 배열
+
+
+
 window.onresize=function(){
     var wd = window.innerWidth; 
     if( wd > 786){
@@ -48,6 +53,25 @@ window.onload=function(){
     icon[0].addEventListener("click", open_close);
 
     content= document.querySelector("#content");
+
+    var file = document.querySelector("#lotto");
+    file.addEventListener("input",function(e){
+        let target = e.target; // 선택된 파일 참조
+        let files = target.files; // 선택 되 파일은 배열의 형식으로 저장된다.
+        //  첫번째 파일 참조를 해야 내가 선택한 파일을 읽을수 있다.
+        let reader = new FileReader();
+        reader.addEventListener("load",function(){
+            var str = reader.result;
+            var temp = str.split("\n");
+            
+            for( var i in temp){
+                lotto.push( temp[i].split("\t") );
+            }
+            alert(lotto[0][3]);
+        });
+        reader.readAsText(files[0]);
+    });
+
 }
 
 function open_close(){
@@ -75,6 +99,10 @@ function win_confirm(){
 }
 
 function make_num(){
+    if(lotto.length==0){
+        alert("로또 파일 을 먼저 열어주세요");
+        return;
+    }
 
     var out="<table class='makeTable'>";
 
@@ -123,7 +151,13 @@ function make_num(){
             }
         }
         //역대 당첨 번호와 비교하기 
-
+//lotto는 2차워배열 - 1차원 배열이 두개 있기때문에  인덱스도 두개다.
+// i변수에는 첫번째 인덱스를 k 변수에는 두번째 인덱스를 표현한다.
+        for(var i in lotto){ 
+            for(var k=2; k<=7; k++ ){
+                lotto[i][k]
+            }
+        }
         
         out += "<td colspan='7'>"+
         "총합 : "+total+"  "+
