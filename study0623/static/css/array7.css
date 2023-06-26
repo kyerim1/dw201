@@ -110,6 +110,48 @@ a:hover{
 .c3{background:#aaa;}
 .c4{background:#b0d840;}
 
+
+
+#input_box{
+    margin:50px auto;
+    width:320px;
+}
+.mynum{
+    width:50px; height:50px;
+    font-size:30px;
+    text-align: center;
+    margin-right:2px;
+}
+.mynum::-webkit-outer-spin-button, 
+.mynum::-webkit-inner-spin-button{
+    -webkit-appearance: none; margin:0;
+}
+#bt{
+    position:relative;
+    width:320px;
+    margin: 0 auto;
+    text-align:right;
+    top: -20px;
+}
+#bt button{
+    border:0;
+    background:#227adf;
+    font-size:25px;
+    padding:5px 25px;
+    color:#eee;
+}
+/*
+    상수는  선향이를 보호해준다. 
+    선향이는 상수의 보호를 받는다.
+    상수는 선향이 경호원인가?  아니면 ... ㅋㅋㅋ
+
+    -webkit  :  구글 사파리브라우저에적용
+    -moz : 파이어폭스에적용
+    -ms : 잇지, 익스플로러
+    -o : 오페라 적용
+*/
+
+
 .list_active{
     display:block;
 }

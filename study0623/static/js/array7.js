@@ -94,9 +94,7 @@ function open_close(){
 
 let content=null;
 
-function win_confirm(){
-    alert("당첨확인 클릭");
-}
+
 
 function make_num(){
     if(lotto.length==0){
@@ -155,11 +153,21 @@ function make_num(){
 // i변수에는 첫번째 인덱스를 k 변수에는 두번째 인덱스를 표현한다.
         for(var i in lotto){ 
             for(var k=2; k<=7; k++ ){
-                lotto[i][k]
+               if( ac.indexOf(lotto[i][k]) != -1 ){
+// 역대 당첨번호와 같은숫자가 ac배열에 있다면 ac배열에서 삭제하기
+// 배열에 저장되어있는 데이터를 삭제하는 방법
+// 1. 배열이름.pop()
+// 2. 특정인덱스의 데이터를 삭제 - 배열이름.splice(인덱스,갯수)
+//     삭제할 데이터의 인덱스와  해당 인덱스 부터 몇개 삭제할것인지 갯수
+                   var index= ac.indexOf(lotto[i][k]);
+                   ac.slice(index,1);
+               }
             }
         }
+
         
         out += "<td colspan='7'>"+
+        "AC : "+ (ac.length - 5) +" "+
         "총합 : "+total+"  "+
         "홀/짝 : "+odd+"/"+even+"</td>";
 
@@ -170,9 +178,7 @@ function make_num(){
     content.innerHTML = out;
 }
 
-function num_count(){   
-    alert("출현횟수");
-}
+
 
 
 

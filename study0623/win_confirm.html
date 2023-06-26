@@ -1,0 +1,127 @@
+<!-- win_confirm.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="./static/css/array7.css">
+<link rel="stylesheet" href="./static/css/confirm.css">
+
+<script src="./static/js/array7.js"></script>
+<script src="./static/js/confirm.js"></script>
+
+</head>
+<body>
+<!--
+    태그에 이벤트 등록시키는 방법 
+    1. html에서 onclick으로 등록시키기
+    2. javascript에서 addEventListener로 등록 시키기
+-->
+<input type="file" id="lotto" accept=".txt">
+
+    <div id="wrap">
+        <div id="menu">
+            <a href="win_confirm.html" class="menu_bt">당첨확인</a>
+            <a href="javascript:make_num();" class="menu_bt">번호생성</a>
+            <a href="num_count.html" class="menu_bt">출현횟수</a>
+            <div class="menu_icon">
+                <div class="strapIcon">
+                    <i class="bi bi-list"></i>
+                </div><ul class="menu_list" data-show="1">
+                    <li><a href="win_confirm.html" class="list_bt">당첨확인</a></li>
+                    <li><a href="javascript:make_num();" class="list_bt">번호생성</a></li>
+                    <li><a href="num_count.html" class="list_bt">출현횟수</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="line"> </div>
+        <div id="content">
+            <div id="lotto_data">
+                <div class="search_data"></div>
+                <table class="tbl_data">
+                    <tr>
+                        <th class="col">번호</th>
+                        <th class="col">선택번호</th>
+                        <th class="col">보너스번호</th>
+                        <th class="col">일치</th>
+                        <th class="col">등수</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                        </td>
+                        <td class="resultNumber"></td>
+                        <td class="resultBonus"></td>
+                        <td class="resultNumberSu"></td>
+                        <td class="resultNumberGrade"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                        </td>
+                        <td class="resultNumber"></td>
+                        <td class="resultBonus"></td>
+                        <td class="resultNumberSu"></td>
+                        <td class="resultNumberGrade"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                        </td>
+                        <td class="resultNumber"></td>
+                        <td class="resultBonus"></td>
+                        <td class="resultNumberSu"></td>
+                        <td class="resultNumberGrade"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                        </td>
+                        <td class="resultNumber"></td>
+                        <td class="resultBonus"></td>
+                        <td class="resultNumberSu"></td>
+                        <td class="resultNumberGrade"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                            <input type="text" class="num_645" maxlength="2">
+                        </td>
+                        <td class="resultNumber"></td>
+                        <td class="resultBonus"></td>
+                        <td class="resultNumberSu"></td>
+                        <td class="resultNumberGrade"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
