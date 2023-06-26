@@ -116,10 +116,14 @@ function make_num(){
         // 산술적 복합성 값 구하기
         var ac = new Array();
         for(var i=lucky_num.length-1; i>=1; i--){
-            for(var k=i-1; i>=0; i--){
-                ac.push(lucky_num[i] - lucky_num[k]);
+            for(var k=i-1; k>=0; k--){
+                var tmp = lucky_num[i] - lucky_num[k];
+                if( ac.indexOf(tmp) == -1 )
+                    ac.push(tmp);
             }
         }
+        //역대 당첨 번호와 비교하기 
+
         
         out += "<td colspan='7'>"+
         "총합 : "+total+"  "+
