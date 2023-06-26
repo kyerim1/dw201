@@ -55,7 +55,11 @@ function data_search(){
         for(var i=0; i<input.length; i++){
             if(input[i].value!=''){
                 var val = input[i].value;
-                num_arr.push( "<span>"+input[i].value+"</span>" );
+                if(win_num.indexOf(parseInt(val)) == -1 ){ //내가입력한번호는 당첨X
+                    num_arr.push( "<span>"+input[i].value+"</span>" );
+                }else{//내가입력한 번호가 당첨번호 O
+                    num_arr.push("<strong class='red'>"+val+"</strong>");
+                }
             }
         }
         if( num_arr.length==6){
