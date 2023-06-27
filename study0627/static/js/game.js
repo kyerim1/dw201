@@ -35,7 +35,7 @@ window.onload=function(){
     for(var i=0; i<=1; i++){
         out += "<tr>";
         for(var k=1; k<=25; k++){
-            out+="<td class='stnum'>"+(i*25+k)+"</td>";
+            out+="<td class='stnum'>"+(fruit[i*25+k-1])+"</td>";
         }
         out += "</tr>";
     }
@@ -56,8 +56,14 @@ function init(){
     var td = document.querySelectorAll(".Gnum");
     for( var i=0; i<td.length; i++){
         td[i].addEventListener("click", bingo_check);
-        td[i].innerText=bingo[i];
+        td[i].innerText= fruit[bingo[i]-1] ;
     }
+
+    var stat=document.querySelectorAll(".stnum");
+    for( var i=0; i<stat.length; i++){
+        stat[i].addEventListener("click", state_check);
+    }
+
 }
 
 function start(){
@@ -70,5 +76,66 @@ function start(){
 }
 
 function bingo_check(){
+    var end=0;
+    var row=0,col=0;
+    var click_num=0;
+    // 클릭한곳의 칸 체크 표시 하기 
+    var td= document.querySelectorAll(".Gnum");
+    for(var i=0; i<td.length; i++){
+        if( td[i] == this){
+            td[i].classList.add("Gnum_check");//클릭한곳 클래스추가
+            click_num = bingo[i];
+            bingo[i] = 0;
+            break; // 클릭에대한 동작이 끝났으므로 반복문 종료
+        }
+    }
+    
+    //state_board의 과일에 클릭한 과일배경색 바꾸고
+    //  직접 클릭해서 배경색 변경 할수 있게
+    var stat = document.querySelectorAll(".stnum");
+    stat[click_num-1].classList.add("st_check");
 
+    //5빙고 찾기
+    var cross=[0,0]; //대각선 방향 체크하기위한 배열
+    for(var i=0; i<Brow; i++){ // 줄
+        for(var k=0; k<Bcol; k++){  // 칸
+            if (bingo[i*5+k] == 0)  // 가로방향으로 한줄씩 0이 몇개인가 확인
+                row++; // 한칸에 0이 있을때마다 1씩증가 
+            if( bingo[k*5+i] == 0) // 세로방향으로 한줄씩 0이 몇개인가
+                col++; // 세로방향 한칸에 0이 있을때마다 1씩증가
+        }
+        if(bingo[i*6] == 0) cross[0]++;//대각선방향(좌상-우하)
+        if(bingo[i*4+4] ==0) cross[1]++;//대각선방향(우상-좌하)
+        if(cross[0]==5) end++;
+        if(cross[1]==5) end++;
+        if(row==5) end++; // 한줄에 0이 5개라면 1줄 빙고
+        if(col==5) end++;// 세로방향 한줄에 0이 5개라면 1줄 빙고
+        row=0;
+        col=0;
+    }
+
+    if(end==5){
+        alert("빙고!!! 당신의 승리입니다.");
+        game_state=false;
+        bingo=new Array();
+        var td = document.querySelectorAll(".Gnum");
+        for( var i=0; i<td.length; i++){
+            td[i].removeEventListener("click", bingo_check);
+        }
+
+        var stat=document.querySelectorAll(".stnum");
+        for( var i=0; i<stat.length; i++){
+            stat[i].removeEventListener("click", state_check);
+        }
+        return;
+    }
+
+
+}
+function state_check(){
+    if( this.classList.contains("st_check"))//st_check클래스가 있냐?
+        this.classList.toggle("st_check");//있다면 클래스 삭제
+    else
+        this.classList.add("st_check");//없다면 클래스 추가
+    
 }
