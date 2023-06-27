@@ -49,3 +49,18 @@
     color:#fff;
     border:1px solid #007bc3;
 }
+.red{
+    position: relative;
+    color:red;
+}
+.red::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    margin-left: -1.5px;
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    background: #d43301;
+}
