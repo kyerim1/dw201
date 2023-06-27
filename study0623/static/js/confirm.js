@@ -1,5 +1,25 @@
 
 window.onload=function(){
+
+    //여기에 input에 키보드로 입력이벤트를 등록 시키기
+    // 키보드 이벤트는 press가 일반적이기는한데...
+    // 모든 input에 이벤트 등록해야함!!
+    var num645 = document.getElementsByClassName("num_645");
+    for(var i=0; i<num645.length; i++){
+        num645[i].addEventListener("keyup",function(e){
+           
+            if( e.keyCode<48 || (e.keyCode >57 && e.keyCode<96) || e.keyCode>105){
+                return;
+            }// 숫자키와 키패드 숫자 제외한 모든 키를 무시하기위한 if문
+            var n = parseInt(this.value);
+            if(  !(1<=n && n<=45) ){
+                alert("1~45 숫자만 입력하세요");
+                this.value='';
+                this.focus();
+            }
+        });
+    }
+
     var drwNo = document.querySelector("#drwNo");
     var btnDefault = document.querySelector("#btnDefault");
     var btnSearch = document.querySelector("#btnSearch");
@@ -52,7 +72,10 @@ function data_search(){
         var input = document.getElementsByClassName("input"+line);
         var num_arr = new Array();
         var bonus_str="<span>"+lotto[sel_count][8]+"</span>";//보너스 에관한 내용 변수
+        var isBonus=false;// 보너스번호가 있냐?
         var win_cnt=0;//일치여부 갯수 저장 변수
+        var rank=0;  //등수 
+
         for(var i=0; i<input.length; i++){
             if(input[i].value!=''){
                 var val = input[i].value;
@@ -66,10 +89,22 @@ function data_search(){
                 //  (lotto[sel_count][8])
                 if(val == parseInt(lotto[sel_count][8])){
                     // if문이 참이라면 내가입력한 숫자가 보너스번호와 일치한다.
-                    bonus_str = "<strong class='red'>"+val+"</strong>";
-                    win_cnt = win_cnt!=6 ? win_cnt+"+Bonus" : win_cnt;
+                    isBonus=true;
                 }
             }
+        }
+        switch(win_cnt){
+            case 6: rank=1; break; // 당첨번호일치가 6개 면 1등
+            case 5: if(isBonus) rank=2;  //당첨번호일치 5개에 보너스 2등
+                    else rank=3; break;//당첨번호일치가 5개만 3등
+            case 4: rank=4; break; //당첨번호일치가 4개 4등
+            case 3: rank=5; break; // 당첨번호일치가 3개 5등
+            default: 
+                rank="X"; //당첨번호가 2개이하면  X
+        }
+        if(isBonus){
+            bonus_str = "<strong class='red'>"+lotto[sel_count][8]+"</strong>";
+            win_cnt = win_cnt!=6 ? win_cnt+"+Bonus" : win_cnt;
         }
         if( num_arr.length==6){
             var resN = document.getElementsByClassName("resultNumber");
@@ -82,6 +117,8 @@ function data_search(){
             var NumberSu = document.getElementsByClassName("resultNumberSu");
             NumberSu[line-1].innerText=win_cnt;
             
+            var grade = document.getElementsByClassName("resultNumberGrade");
+            grade[line-1].innerHTML=rank;
         }
         
     }
