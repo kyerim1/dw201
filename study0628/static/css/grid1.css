@@ -1,0 +1,130 @@
+/*
+그리드 컨테이너
+ - display:grid를 적용하는 , Grid의 전체영역
+  그리드 컨테이너 안의 요소들리 그리드 규칙의 영향을 받아 정렬 된다.
+
+그리드 아이템 
+ - 그리드 컨테이너의 자식 태그들.
+   그리드 규칙에 의해 배치가 된다.
+그리드 트랙
+  -  그리드의 행과 열
+
+그리드 셀
+ - 그리드의 한 칸을 가리키는 말, 그리드 아이템 하나하나씩을
+   셀이라고 한다.
+그리드 라인
+  - 그리드 셀을 구분하는 선
+
+그리드 번호
+ - 각 그리드 라인에는 1번부터 번호가 부여된다.
+ - 1행만 있는경우 그리드번호는 행번호 1,2가 있다.
+ 그리드 갭
+  - 그리드 셀 사이의 간격
+
+Grid 속성들은 FLEX 와 마찬가지로  
+부모(컨테이너)에 적용하는 속성과
+자식(아이템)에 적용하는 속성이 있다.
+
+grid-template-columns  그리드 열의 각셀의 너비값
+grid-template-rows  그리드 행의 각셀의 높이값
+  - grid-template-columns: 100px 100px; 
+     이렇게하면  한줄씩 2개의 셀에 너비를 100px 설정
+  - grid-template-columns: 150px 100px 200px;
+   이렇게 하면 한줄씩 3개의 셀에 150px 100px 200px 씩 너비설정
+
+repeat()함수 - repeat(반복횟수, 반복값)
+    repeat(4, 100px)  하면 한줄에 4개씩 표기하고 각셀에 너비100px
+minmax()함수 - minmax(최소값, 최대값)
+    minmax(100px, 300px)  각셀의 너비가 최소 100에서 
+                 최대 300까지 늘어난다.
+
+auto-fill ,auto-fit
+- column의 개수를 미리 정하지 않고 설정된 너비가 허용하는 한 최대한
+ 셀을 채운다.
+
+ 그리그 간격 
+  row-gap  , column-gap
+  gap: 10px 20px;  -  row 10 , column 20
+  gap: 15px;  - row,column 15
+
+grid-auto-columns, grid-auto-rows 
+  -template이 아닌 auto로 변경해주면  알아서 크기 지정해라 의미가된다.
+    횟수 지정해서 반복 하지 않아도  부모(컨테이너)의 크기에 맞춰서
+    알아서  행과 열이 적용된다.  
+    단점은 통제를 벗어나 알아서 자동으로 설정되기때문에 다루기 힘들다.
+    크기를 통제하지않으면 전체 레이아웃 구성에 어려움이 생긴다.
+    그래서  auto 는 모바일용이나  소규모 레이아웃구성에 사용된다.
+
+각 셀의 영역 지정 방법
+ 자식(그리드아이템)에 적용하는속성
+
+ grid-column-start , grid-column-end, grid-column, 
+ grid-row-start, grid-row-end, grid-row
+*/
+
+
+#container{
+    
+    display:grid;
+    /*grid-template-columns: repeat(5, 200px);*/
+    /*grid-template-columns: repeat(5, 1fr); 
+         5개의 아이템에 5분1 크기로 너비 부여
+    */
+    grid-template-columns:repeat(3, minmax(200px,auto));
+    grid-auto-rows: minmax(100px, auto);
+   /* grid-template-rows:repeat(5, 200px); */
+   /* column-gap: 10px;
+    row-gap:20px; */
+    gap:30px 15px; /* 행간격  열간격 */
+    /* gap: 30px;   행과 열 간격 30px */
+
+    row-gap:20px;
+    column-gap: 10px;
+    grid-row-gap:20px;
+    grid-column-gap: 10px;
+
+grid-template-areas: 
+"head head head" 
+" sideA main sideB"
+" . . ."
+"foot foot foot"
+;
+
+
+}
+
+.item{
+    font-size:50px;
+    border:1px solid black;
+}
+
+.item:nth-child(1){ grid-area:head;}
+.item:nth-child(2){ grid-area:sideA;}
+.item:nth-child(3){ grid-area:main;}
+.item:nth-child(4){ grid-area:sideB;}
+.item:nth-child(5){ grid-area:foot;}
+
+/* .item:nth-child(1){
+    grid-column:2;
+}
+.item:nth-child(3){
+    grid-column:2;
+}
+.item:nth-child(4){
+    grid-row:1/4;
+} */
+
+/* .item:first-child{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.item:nth-child(4){
+    grid-column:1/3;
+    grid-row:5/7;
+}
+.item:nth-child(3){
+    grid-row-start:3;
+    grid-row-end:5;
+    grid-column-start:1 ;
+    grid-column-end:4 ;
+} */
