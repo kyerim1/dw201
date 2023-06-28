@@ -1,0 +1,33 @@
+body{
+    padding:0;
+    margin:0;
+    background:pink;
+}
+#container{
+    display:grid;
+    grid-template-columns: repeat(4, minmax(100px, auto));
+    grid-template-rows: repeat(3, minmax(80px, auto));
+   /* grid-auto-flow:dense; /*  row,  column, dense, row dense, column dense */
+    height:800px;
+
+}
+.item:nth-child(6){
+    z-index: 1;
+    transform: scale(3);
+}
+.item:nth-child(2){
+    grid-column: auto/span 3;
+    align-self: start;
+}
+.item:nth-child(5){
+    grid-column:  auto/ span 3;
+}
+.item:nth-child(7){
+    grid-column: auto/ span 2;
+}
+.item{
+    border:1px solid yellow;
+    background:red;
+    font-size:50px;
+    color:#fff;
+}
