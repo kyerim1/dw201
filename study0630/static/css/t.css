@@ -1,0 +1,22 @@
+/*#wrap{
+    width:800px;
+    margin: 0 auto;
+    display:flex;
+    height:1000px;
+    font-size:40px;
+}
+#wrap div{
+    width:300px;
+    height:100px;
+    border:1px solid black;
+}
+#box6{
+    position:fixed;
+    left:50px;
+    top:400px;
+}
+#box7{
+    position:fixed;
+    left:50px;
+    top:500px;
+}*/

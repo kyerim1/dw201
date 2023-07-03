@@ -1,0 +1,120 @@
+*{padding:0;margin:0;}
+ul{list-style: none;}
+
+#wrap{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:100px 2300px 120px ;
+    justify-content: center;
+}
+#nav{
+    justify-self: center;
+    width:1320px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding:20px;
+    font-size:30px;
+}
+#nav b{justify-self: end;font-size:30px;}
+
+#main{
+    padding:112px;
+    width:1320px;
+    justify-self: center;
+    display:grid;
+    grid-template-rows: 70px 880px 300px 510px;
+    gap:110px;
+}
+.section:nth-child(1){
+
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+
+}
+.me h3{font-size:28px;padding-bottom:15px;}
+.menu{
+    display:grid;
+    grid-template-columns: repeat(5,auto);
+}
+.menu a{text-underline-offset:5px;text-decoration: underline;}
+
+.section:nth-child(2){
+    margin-top:-50px;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    gap:20px;
+}
+.item{
+    overflow: hidden;
+}
+.item .image:hover{
+    transition: all 1s;
+    transform: scale(1.2);}
+.item:nth-child(1) .image{
+    height:100%;
+    background:url(../image/pic1.jpg) no-repeat center;
+    background-size:cover;
+}
+.item:nth-child(2) .image{
+    height:100%;
+    background:url(../image/pic3.jpg) no-repeat center;
+    background-size:cover;
+}
+.item:nth-child(3) .image{
+    height:100%;
+    background:url(../image/pic5.jpg) no-repeat center;
+    background-size:cover;
+}
+.item:nth-child(4) .image{
+    height:100%;
+    background:url(../image/pic11.jpg) no-repeat center;
+    background-size:cover;
+}
+.item:nth-child(5) .image{
+    height:100%;
+    background:url(../image/pic14.jpg) no-repeat center;
+    background-size:cover;
+}
+.item:nth-child(6) .image{
+    height:100%;
+    background:url(../image/pic16.jpg) no-repeat center;
+    background-size:cover;
+}
+
+.section:nth-child(3){
+    display:grid;
+    grid-template-rows: repeat(2,1fr);
+    gap:20px;
+    padding:112px 0;
+}
+.client{
+    display:grid;
+    grid-template-columns: repeat(6,1fr);
+}
+.client div{justify-self: center;font-size:35px;}
+.justify-center{
+    justify-self: center;
+    text-align:center;
+    width:550px;
+}
+.justify-center h3{ font-size:30px;}
+.justify-center p{ font-size:20px;}
+
+
+.section:nth-child(4){
+    display:grid;
+    grid-template-rows: repeat(2,1fr);
+    grid-template-rows: 100px auto;
+    gap:20px;
+    padding:50px 0;
+}
+.service{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+
+    gap:20px;
+}
+.service div{box-shadow: 0px 0px 2px #000;}

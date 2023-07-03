@@ -7,7 +7,7 @@
 
 <script>
    let  arr=new Array(0);
-   const names=["김선향","김승겸","김철환","김태형","김한솔","박수호","송은선","신상수","안지영","안태균","이상준","이영주","이우주","이충현","임민지","정길원","정대용","정예림"];
+   const names=["김선향","김승겸","김철환","김태형","박수호","송은선","신상수","안지영","안태균","이상준","이영주","임민지","정길원","정예림"];
 
    function start(){
     alfa=document.querySelector("#alfa");
@@ -16,10 +16,8 @@
         res.style.display="none";
         var n=0;
         while(true){
-            n=Math.floor(Math.random()*18)+1 ;
-            if(n==17 || n==5   ){
-                continue;
-            }    
+            n=Math.floor(Math.random()*names.length)+1 ;
+             if( n==8 || n==11) continue;
             if(arr.indexOf(n)!=-1)
                 continue;
             arr.push(n);
