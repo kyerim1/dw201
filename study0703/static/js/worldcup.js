@@ -39,6 +39,10 @@ window.onload=function(){
     var title =태그선택("title");
     title.innerHTML=round+"강  "+count+"/"+(round/2);
 
+    //토너먼트1 = image;  참조 복사
+    토너먼트1 = Array(round).fill().map((arr,i) => i);
+    //0부터 31까지 숫자 토너먼트1 배열에 저장
+
     순서섞기();
     show();
     //이미지 클릭 이벤트 등록
@@ -49,7 +53,22 @@ window.onload=function(){
 }
 
 function 선택(){
+    if( this == 태그선택("left") ){
+        토너먼트2.push(토너먼트1[순서[count*2-2]]);
+    }else{
+        토너먼트2.push(토너먼트1[순서[count*2-1]]);
+    }
+    if(count==round/2){
+        round= round/2;
+        count=0;
+        순서=new Array();
+        순서섞기();
+        토너먼트1 = 토너먼트2.map((i)=>i);
+        토너먼트2=new Array();
+    }
     count++;
+    var title =태그선택("title");
+    title.innerHTML=round+"강  "+count+"/"+(round/2);
     show();
 }
 function show(){
@@ -58,8 +77,8 @@ function show(){
     var leftText=태그선택("leftText");
     var rightText=태그선택("rightText");
 
-    left.src="./static/image/"+image[순서[count*2-2]];
-    right.src="./static/image/"+image[순서[count*2-1]];
-    leftText.innerHTML=kind[순서[count*2-2]];
-    rightText.innerHTML=kind[순서[count*2-1]];
+    left.src="./static/image/"+image[토너먼트1[순서[count*2-2]]];
+    right.src="./static/image/"+image[토너먼트1[순서[count*2-1]]];
+    leftText.innerHTML=kind[토너먼트1[순서[count*2-2]]];
+    rightText.innerHTML=kind[토너먼트1[순서[count*2-1]]];
 }
