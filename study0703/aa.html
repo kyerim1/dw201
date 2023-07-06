@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+/*
+    input 태그 와 버튼 만들기
+    3명의 키를 입력받아  키가 150이상이면 바이킹 탑승가능 이라고 출력
+    키 입력값 가져오는 함수
+    키 체크 하는 함수
+    결과 출력하는 함수
+*/
+
+
+
+let a=new Array();
+
+input();
+show();
+
+function input(){
+    for(i=1; i<=20; i++){
+        a.push(Math.floor(Math.random()*100)+1);
+    }
+}
+
+function show(){
+    for(i=0; i<a.length; i++){
+        !m35(a[i]) ? !m3(a[i]) ? m5(a[i]): '' :'';
+    }
+}
+function m3(num){
+    if( num%3==0){
+        document.write("선향<br>");
+        return true;
+    }
+    return false;
+}
+function m5(num){
+    if( num%5==0){
+            document.write("상수<br>");
+            return true;
+    }
+    return false;
+}
+function m35(num){
+    if(num%3==0 && num%5==0){
+            document.write("선향상수<br>");
+            return true;
+    }
+    return false;
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
