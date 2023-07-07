@@ -21,7 +21,7 @@ const train_color=["","t-gold","t-tomato","t-lime","t-hotpink"];
 window.onload=function(){
     map_draw(); // 지하철 지도 그리기
     train_active(); // 지하철 차량 움직이기
-    
+
     var cls = document.querySelector("#modal_bg");
     cls.addEventListener("click",function(){
         var modal=document.querySelector("#modal");
@@ -33,10 +33,26 @@ function info(idx){
     var modal=document.querySelector("#modal");
     modal.style.display="block";
     var bg = document.querySelector("#bg");
+// 현재 정거장에 가장 가까이 있는 차량 찾기
+    var train_num = find_train(idx);
+
     bg.innerHTML= "<div class='info'>"+
     "<div> <b>역 명 : "+st_name[idx]+"</b></div>"+
-    "<div><b>진입차량: "+ idx +"번차량</b></div>"+
+    "<div><b>진입차량: "+ train_num +"번차량</b></div>"+
     "</div>";
+}
+function find_train(idx){
+    if(train[0]<0){ // 역방향 오는경우
+        for(var i=idx+1; i<station.length; i++){
+            if(station[i]!=0)
+                return station[i];
+        }
+    }else{ // 정방향 오는경우
+        for(var i=idx-1; i>= 0; i--){
+            if(station[i]!=0)
+                return station[i];
+        }
+    }
 }
 
 function train_active(){
