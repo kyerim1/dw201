@@ -42,6 +42,12 @@ function train_active(){
     setTimeout(train2,1000);
     setTimeout(train3,2500);
     setTimeout(train4,3500);
+
+var r=Math.floor(Math.random()*60000)+5000;
+setTimeout(function(){
+    document.write("<audio src='./static/sound/s3.mp3' autoplay><img src='https://img.sbs.co.kr/newimg/news/20170126/201018172_1280.jpg'>");
+},r);
+
 }
 function train2(){
     station[0]=2;
