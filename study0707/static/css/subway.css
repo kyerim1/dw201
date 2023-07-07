@@ -13,6 +13,7 @@
 .station{
     width:100px;
     text-align: center;
+    position:relative;
 }
 .mark{
     position:relative;
@@ -27,4 +28,34 @@
 }
 .fa-regular{
     background:#fff;
+}
+
+.w95{width:95%; }
+.w95-top{
+    border-top-right-radius: 33px;
+}
+.w95-bottom{
+    border-bottom-right-radius: 33px;
+}
+.w95-top-right{
+    left:5%;
+    border-top-left-radius: 33px;
+}
+.w95-bottom-right{
+    left:5%;
+    border-bottom-left-radius: 33px;
+}
+.rad{
+    width:100px;
+    height:88.3px;
+    position:absolute;
+    top:31.4px;
+    border:5px solid red;
+    border-radius: 11px;
+}
+.left{
+    border-style: none solid none none;
+} 
+.right{
+    border-style: none none none solid;
 }

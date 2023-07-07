@@ -31,17 +31,24 @@ function map_draw(){ //지도 그리기 위한 함수
 
 function make(t){
     var w95="";
-    if(t==9 || t==10 || t==19|| t==20 || t==29|| t==30)
-        w95="w95";
+    if((t%10==9 || t%10==0) &&t!=0) //줄의 마지막역과 시작역 부분
+        w95 = "w95";
+    if(t==9 || t==29 ||t==19) //줄의 마지막역
+        w95 += " w95-top";
+    if(t==10||t==30 || t==20) // 줄의 시작역
+        w95 += " w95-bottom";
+    if(t==19||t==20) // 오른쪽에 있는 연결 되어야하는 역
+        w95 += "-right";
 
     var out="";
     out += "<div class='station'>";
     out += "<div class='train'><i class='fa-solid fa-train'></i></div>";
     out += "<div class='mark'><div class='rail "+w95+"'></div>"+
             "<span class='stop'><i class='fa-regular fa-square'></i></span>";
+    
+     out += "</div>";
     if(t%10==9 && t!=39)
         out+="<div class='rad "+(t==19?'right':'left')+"'></div>";
-    out += "</div>";
     out += "<div class='name'>" +st_name[t]+ "</div></div>";
     return out;
 }
