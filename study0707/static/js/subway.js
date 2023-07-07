@@ -22,31 +22,39 @@ window.onload=function(){
     map_draw(); // 지하철 지도 그리기
     train_active(); // 지하철 차량 움직이기
 }
+
+function info(){
+    alert("역클릭");
+}
+
 function train_active(){
     station[0]=1;
     map_draw();
+
+    setInterval(function(){
+        map_draw();
+    },3000);
+
     setInterval(
         function(){
             station[Math.abs(train[0]++)]=0;
             station[Math.abs(train[0])]=1;
-            map_draw();
             if(train[0]==39){ // 마지막역 도착
                 station[Math.abs(train[0])]=0;
-                map_draw();
                 setTimeout(function(){
                     train[0]=-40;
-                },500);
+                },4000);
             }
         }
-    ,500);
-    setTimeout(train2,1000);
-    setTimeout(train3,2500);
-    setTimeout(train4,3500);
+    ,4000);
+    setTimeout(train2,8000);
+    setTimeout(train3,16000);
+    setTimeout(train4,24000);
 
-var r=Math.floor(Math.random()*60000)+5000;
-setTimeout(function(){
-    document.write("<audio src='./static/sound/s3.mp3' autoplay><img src='https://img.sbs.co.kr/newimg/news/20170126/201018172_1280.jpg'>");
-},r);
+// var r=Math.floor(Math.random()*60000)+5000;
+// setTimeout(function(){
+//     document.write("<audio src='./static/sound/s3.mp3' autoplay></audio><img src='https://blog.kakaocdn.net/dn/UjlMi/btqYQw0TarA/3SXTiUQZjYiheRw3GPaCS1/img.png'>");
+// },r);
 
 }
 function train2(){
@@ -59,10 +67,10 @@ function train2(){
                 station[Math.abs(train[1])]=0;
                 setTimeout(function(){
                     train[1]=-40;
-                },500);
+                },4000);
             }
         }
-    ,500);
+    ,4000);
 }
 function train3(){
     station[0]=3;
@@ -74,10 +82,10 @@ function train3(){
                 station[Math.abs(train[2])]=0;
                 setTimeout(function(){
                     train[2]=-40;
-                },500);
+                },4000);
             }
         }
-    ,500);
+    ,4000);
 }
 function train4(){
     station[0]=4;
@@ -89,10 +97,10 @@ function train4(){
                 station[Math.abs(train[3])]=0;
                 setTimeout(function(){
                     train[3]=-40;
-                },500);
+                },4000);
             }
         }
-    ,500);
+    ,4000);
 }
 
 function map_draw(){ //지도 그리기 위한 함수
@@ -126,7 +134,7 @@ function make(t){
     var out="";
     out += "<div class='station'>";
     out += "<div class='train "+(train_color[station[t]])+"'>  <i class='fa-solid fa-train'></i>  </div>";
-    out += "<div class='mark'><div class='rail "+w95+"'></div>"+
+    out += "<div class='mark' onclick='info()' data-idx='"+t+"'><div class='rail "+w95+"'></div>"+
             "<span class='stop '><i class='fa-regular fa-square "+(train_color[station[t]])+"'></i></span>";
     
      out += "</div>";
