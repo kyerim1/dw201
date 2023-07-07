@@ -65,12 +65,16 @@
 .t-gold{ /* 1번차량 */
     color:gold;
 }
+i.t-gold{background:gold;}
 .t-tomato{/*2번차량*/
     color:tomato;
 }
+i.t-tomato{background:tomato;}
 .t-lime{/* 3번차량*/
     color:lime;
 }
+i.t-lime{background:lime;}
 .t-hotpink{/* 4번차량*/
     color:hotpink;
 }
+i.t-hotpink{background:hotpink;}

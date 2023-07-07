@@ -15,22 +15,78 @@ const st_name=["상수역","은선역","예림역","향숙역","영주역","선�
 "월컵역","지족역","계림역","천안역","대동역"];
 
 const train=[0,0,0,0];// 기차 4대
-const train_color=["t-gold","t-tomato","t-lime","t-hotpink"];
-
+const train_color=["","t-gold","t-tomato","t-lime","t-hotpink"];
+// const train_time=[0,0,0,0];
 
 window.onload=function(){
     map_draw(); // 지하철 지도 그리기
     train_active(); // 지하철 차량 움직이기
 }
 function train_active(){
-
+    station[0]=1;
+    map_draw();
     setInterval(
         function(){
-            station[train[0]++]=0;
-            station[train[0]]=1;
+            station[Math.abs(train[0]++)]=0;
+            station[Math.abs(train[0])]=1;
             map_draw();
+            if(train[0]==39){ // 마지막역 도착
+                station[Math.abs(train[0])]=0;
+                map_draw();
+                setTimeout(function(){
+                    train[0]=-40;
+                },500);
+            }
         }
-    ,4000);
+    ,500);
+    setTimeout(train2,1000);
+    setTimeout(train3,2500);
+    setTimeout(train4,3500);
+}
+function train2(){
+    station[0]=2;
+    setInterval(
+        function(){
+            station[Math.abs(train[1]++)]=0;
+            station[Math.abs(train[1])]=2;
+            if(train[1]==39){ // 마지막역 도착
+                station[Math.abs(train[1])]=0;
+                setTimeout(function(){
+                    train[1]=-40;
+                },500);
+            }
+        }
+    ,500);
+}
+function train3(){
+    station[0]=3;
+    setInterval(
+        function(){
+            station[Math.abs(train[2]++)]=0;
+            station[Math.abs(train[2])]=3;
+            if(train[2]==39){ // 마지막역 도착
+                station[Math.abs(train[2])]=0;
+                setTimeout(function(){
+                    train[2]=-40;
+                },500);
+            }
+        }
+    ,500);
+}
+function train4(){
+    station[0]=4;
+    setInterval(
+        function(){
+            station[Math.abs(train[3]++)]=0;
+            station[Math.abs(train[3])]=4;
+            if(train[3]==39){ // 마지막역 도착
+                station[Math.abs(train[3])]=0;
+                setTimeout(function(){
+                    train[3]=-40;
+                },500);
+            }
+        }
+    ,500);
 }
 
 function map_draw(){ //지도 그리기 위한 함수
@@ -52,7 +108,7 @@ function map_draw(){ //지도 그리기 위한 함수
 
 function make(t){
     var w95="";
-    if((t%10==9 || t%10==0) &&t!=0) //줄의 마지막역과 시작역 부분
+    if((t%10==9 || t%10==0) &&t!=0 &&t!=39) //줄의 마지막역과 시작역 부분
         w95 = "w95";
     if(t==9 || t==29 ||t==19) //줄의 마지막역
         w95 += " w95-top";
@@ -63,9 +119,9 @@ function make(t){
 
     var out="";
     out += "<div class='station'>";
-    out += "<div class='train "+(station[t]==1?'t-gold':'')+"'>  <i class='fa-solid fa-train'></i>  </div>";
+    out += "<div class='train "+(train_color[station[t]])+"'>  <i class='fa-solid fa-train'></i>  </div>";
     out += "<div class='mark'><div class='rail "+w95+"'></div>"+
-            "<span class='stop'><i class='fa-regular fa-square'></i></span>";
+            "<span class='stop '><i class='fa-regular fa-square "+(train_color[station[t]])+"'></i></span>";
     
      out += "</div>";
     if(t%10==9 && t!=39)
