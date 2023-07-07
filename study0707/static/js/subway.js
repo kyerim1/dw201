@@ -21,10 +21,22 @@ const train_color=["","t-gold","t-tomato","t-lime","t-hotpink"];
 window.onload=function(){
     map_draw(); // 지하철 지도 그리기
     train_active(); // 지하철 차량 움직이기
+    
+    var cls = document.querySelector("#modal_bg");
+    cls.addEventListener("click",function(){
+        var modal=document.querySelector("#modal");
+        modal.style.display="none";
+    });
 }
 
-function info(){
-    alert("역클릭");
+function info(idx){
+    var modal=document.querySelector("#modal");
+    modal.style.display="block";
+    var bg = document.querySelector("#bg");
+    bg.innerHTML= "<div class='info'>"+
+    "<div> <b>역 명 : "+st_name[idx]+"</b></div>"+
+    "<div><b>진입차량: "+ idx +"번차량</b></div>"+
+    "</div>";
 }
 
 function train_active(){
@@ -53,7 +65,7 @@ function train_active(){
 
 // var r=Math.floor(Math.random()*60000)+5000;
 // setTimeout(function(){
-//     document.write("<audio src='./static/sound/s3.mp3' autoplay></audio><img src='https://blog.kakaocdn.net/dn/UjlMi/btqYQw0TarA/3SXTiUQZjYiheRw3GPaCS1/img.png'>");
+//     document.write("<img src='https://www.animaxtv.co.kr/sites/animaxtv.co.kr/files/styles/image_800x450/public/20180504_ddiddibbo_ddiddibbo8.jpg?itok=HFnWO6LB'>");
 // },r);
 
 }
@@ -134,7 +146,7 @@ function make(t){
     var out="";
     out += "<div class='station'>";
     out += "<div class='train "+(train_color[station[t]])+"'>  <i class='fa-solid fa-train'></i>  </div>";
-    out += "<div class='mark' onclick='info()' data-idx='"+t+"'><div class='rail "+w95+"'></div>"+
+    out += "<div class='mark' onclick='info("+t+")'><div class='rail "+w95+"'></div>"+
             "<span class='stop '><i class='fa-regular fa-square "+(train_color[station[t]])+"'></i></span>";
     
      out += "</div>";
