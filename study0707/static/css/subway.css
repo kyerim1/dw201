@@ -59,3 +59,18 @@
 .right{
     border-style: none none none solid;
 }
+.train{
+    color:#fff;
+}
+.t-gold{ /* 1번차량 */
+    color:gold;
+}
+.t-tomato{/*2번차량*/
+    color:tomato;
+}
+.t-lime{/* 3번차량*/
+    color:lime;
+}
+.t-hotpink{/* 4번차량*/
+    color:hotpink;
+}
