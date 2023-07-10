@@ -1,0 +1,101 @@
+<!--  style_ani.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{background:black;}
+    #ghost{
+        width:200px;
+        height:200px;
+        background:red;
+        position:absolute;
+        /*animation: move 3s infinite;*/
+        animation-name:move;  /* 애니메이션에 사용할 keyframes 이름 */
+        animation-duration: 2s; /* 애니메이션 적용 시간 */
+        animation-timing-function: ease; /* 애니메이션 흐름속도 */
+        /*  ease, linear, ease-in, ease-out, ease-in-out, step-start, step-end */
+        animation-delay: 2s;/*  지정된 시간 이후에 실행 */
+        animation-iteration-count: infinite; /* 애니메이션 반복횟수 */
+        animation-direction: alternate;/* 애니메이션 방향 설정, 편도, 역방향, 왕복 */
+        /* normal-편도 , reverse - 역방향, alternate-왕복 */
+    }
+
+    @keyframes move{
+        from{ left:0px; }
+        to { left:300px;}
+    }
+
+#ball{
+    width:100px;
+    height:100px;
+    background:#fff;
+    border-radius: 50%;
+    position:absolute;
+    top:0;
+    left:550px;
+    animation:zombie 1s ease-in infinite alternate;
+}
+
+@keyframes zombie{
+    0%{
+        top:0px;
+    }
+    95%{
+        width:500px;
+    }
+    to{
+        background:url(https://blog.kakaocdn.net/dn/UjlMi/btqYQw0TarA/3SXTiUQZjYiheRw3GPaCS1/img.png);
+        background-size: cover;
+        width:505px;
+        top:300px;
+        height:400px;
+    }
+}
+
+#space{
+    width:300px;
+    height:300px;
+    border-radius: 50%;
+    position:absolute;
+    top:300px; left:50px;
+    box-shadow: 
+        0 0 20px #fff,
+        -20px 0 80px #f0f,
+        20px 0 80px #0ff,
+        inset 0 0 50px #fff,
+        inset 50px 0 80px #0ff,
+        inset -50px 0 80px #f0f,
+        inset 50px 0 300px #f0f,
+        inset -50px 0 300px #0ff;
+        animation: 찬란 6s linear infinite;
+}
+
+@keyframes 찬란{
+    50%{
+        box-shadow: 
+        0 0 20px #fff,
+        -20px 0 80px #f0f,
+        20px 0 80px #0ff,
+        inset 0 0 50px #fff,
+
+        inset -50px 0 80px #f0f,
+        inset 50px 0 80px #0ff,
+
+        inset -50px 0 300px #f0f,
+        inset 50px 0 300px #0ff;
+        
+    }
+}
+</style>
+</head>
+<body>
+    <div id="ghost">
+
+    </div>
+    <div id="ball"></div>
+    <div id="space"></div>
+</body>
+</html>

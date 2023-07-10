@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+    @keyframes bg{
+        50%{ background: #ffe6f2;}
+    }
+    @keyframes beat{
+        0%{
+            transform: scale(1) rotate(-45deg);
+        }
+        50%{
+            transform: scale(0.6) rotate(-45deg);
+        }
+    }
+    .back{
+        position:fixed;
+        padding:0;
+        margin:0;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background:white;
+        animation: bg 1s infinite;
+    }
+    .heart{
+        position: absolute;
+        margin:auto;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        background: pink;
+        width:50px;
+        height:50px;
+        transform: rotate(-45deg);
+        animation: beat 1s infinite;
+    }
+    .heart:after{
+        background: pink;
+        content: "";
+        border-radius: 50%;
+        position:absolute;
+        width:50px;
+        height:50px;
+        top:0;
+        left:25px;
+    }
+    .heart::before{
+        background: pink;
+        content: "";
+        border-radius: 50%;
+        position:absolute;
+        width:50px;
+        height:50px;
+        top:-25px;
+        left:0;
+    }
+    #a{ width:100px; height:100px; background:red; transition: width 2s;}
+    #a:hover { width:300px;}
+</style>
+
+</head>
+<body>
+    <!-- <div class="back"></div>
+    <div class="heart"></div> -->
+
+    <div id="a"></div>
+
+    
+</body>
+</html>
