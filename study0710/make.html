@@ -1,0 +1,35 @@
+<!-- make.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="input">
+        줄 : <input type="number" id="row">
+        칸 : <input type="number" id="col">
+    </div>
+    <button onclick="send()">만들기</button>
+
+</body>
+</html>
+<script>
+    function send(){
+        var row = document.getElementById("row").value;
+        var col = document.getElementById("col").value;
+        var out="<table>";
+        for(var line=1; line <= row; line++){
+            out+="<tr>";
+            for(var cell=1; cell<=col; cell++){
+                out+="<td></td>";
+            }
+            out += "</tr>";
+        }
+
+        out +="</table>";
+        opener.document.getElementById("myTable").innerHTML=out;
+    }
+</script>
