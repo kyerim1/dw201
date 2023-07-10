@@ -5,8 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<link rel="stylesheet" href="./static/css/object.css">
+<script src="./static/js/object.js"></script>
 </head>
 <body>
-    
+ 
+    <!--
+        DOM  구조  
+        - document object model
+        - html의 모든 태그를  스크립트에서 object로 다루기위한 구조
+        - html태그는 - element node , 요소, object
+        -  html태그안의 text는 - text node 
+
+        - property - html 태그의 속성(class, id, width, height,...)
+        - method - html태그를 제어하기 위한 함수
+        - style - html 태그에 적용된 css 에 접근
+        - evet listener - html 태그의 이벤트 ( onclick, onchange, onmouseover ,..)
+        
+
+자바스크립트 객체
+BOM(browser obejct model)
+    window객체 
+       - 브라우저전체를 window객체라고한다.
+       - window라는 용어는 탐색창, 그림판,메모장,한글,엑셀등등
+         프로그램이 실행되는 창을 의미한다. 
+
+    -->
+
+
+    <button onclick="exit()">브라우저 닫기</button>
+<button onclick="winopen()">새창열기</button>
 </body>
 </html>
