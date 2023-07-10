@@ -29,11 +29,33 @@ BOM(browser obejct model)
        - 브라우저전체를 window객체라고한다.
        - window라는 용어는 탐색창, 그림판,메모장,한글,엑셀등등
          프로그램이 실행되는 창을 의미한다. 
-
+    window.close() - 현재 브라우저 닫기
+    window.open() - 새 창 열기
+        새창은 부모창에 의해 자식 창이 열리게 된다.
+        부모입장에서 자식 창을 제어하려면
+           var a= window.open();  
+           위와 같이 open함수의 결과를 변수에 저장해두면 
+           부모가 자식창을 제어할수 있다.
+           a.document.getElementById("bb");
+           자식페이지에 id가 bb인 태그를 부모가 가져온다.
+        자식입장에서 부모를 사용하려면 opener로 표현한다.
+         opener.document.getElementsByClassName("ddd");
+         부모페이지에 class가 ddd인 태그를 자식이 가져온다.
     -->
 
 
     <button onclick="exit()">브라우저 닫기</button>
 <button onclick="winopen()">새창열기</button>
+<br>
+<button onclick="child_write()">자식창에 넣기</button>
+<button onclick="child_getName()">이름 가져오기</button>
+<button onclick="child_close()">자식창 닫기</button>
+
+
+<div id="name"></div>
+<div>
+    <input type="text" id="animal">
+</div>
+
 </body>
 </html>

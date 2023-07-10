@@ -1,0 +1,32 @@
+<!--  child.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업창</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <div id="title">
+            <h2>귀신 컴온!</h2>
+        </div>
+        <div id="message"></div>
+        <div class="input">
+            <input type="text" id="name">
+        </div>
+        <div>
+            <button onclick="getParent()">부모값 가져오기</button>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+    function getParent(){
+    // 새창에서  opener는 자신을 열어준 브라우저(부모창)을 의미
+        var animal = opener.document.getElementById("animal").value;
+        document.getElementById("name").value=animal;
+    }
+</script>
