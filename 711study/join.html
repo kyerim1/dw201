@@ -1,0 +1,117 @@
+<!-- join.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        *{padding:0; margin:0; box-sizing: border-box;}
+        #wrap{
+            width:300px;
+            margin:100px auto;
+        }
+        #join_wrap{
+            width:100%;
+        }
+        .join_box{
+            display:flex;
+        }
+        .title{
+            width:100px;
+            border-right:1px solid black;
+            padding-right:10px;
+            text-align: right;
+            display:flex;
+            flex-direction: column;
+            row-gap:5px;
+        }.title label{height:22px;}
+        .input_box{
+            width:200px;
+            padding-left:10px;
+            row-gap:5px;
+            display:flex;
+            flex-direction: column;
+        }
+        .input_box input{height:22px;}
+        .join_bt{width:100%; padding:10px 0px;display:flex;}
+        .join_bt a:nth-child(1){
+            text-decoration: none;
+            background:#f1506e;
+            color:#fff;
+            width:50px;
+            text-align:center;
+            padding:5px 0;
+            border-radius: 5px;
+            margin:0 50px;
+        }
+        .join_bt a:nth-child(2){
+            display:block;
+            width:130px;
+            text-align:center;
+            background:#222845;
+            color:#fff;
+            font-size:19px;
+            padding:5px 0;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div  id="wrap">
+
+        <form name="joinf" id="joinf" method="get" action="join_save.html">
+            <div id="join_wrap">
+                <div class="join_box">
+                    <div class="title">
+                        <label>아이디</label>
+                        <label>비밀번호</label>
+                        <label>이메일</label>
+                        <label>연락처</label>
+                        <label>생년월일</label>
+                    </div>
+                    <div class="input_box">
+                        <input type="text" name="id" id="id">
+                        <input type="password" name="pw" id="pw">
+                        <input type="email" name="email" id="email">
+                        <input type="text" name="tel" id="tel">
+                        <input type="date" name="birth" id="birth" value="2000-01-01">
+                    </div>
+                </div>
+                <div class="join_bt"> 
+                    <a href="javascript:cancel();">취소</a>
+                    <a href="javascript:check();">회원가입</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    function check(){
+        var fm = document.joinf;
+        if(fm.id.value==""){
+            alert("아이디를 입력하세요");
+            fm.id.focus();
+        }else if(fm.pw.value==""){
+            alert("비밀번호를 입력하세요");
+            fm.pw.focus();
+        }else if(fm.email.value==""){
+            alert("이메일을 입력하세요");
+            fm.email.focus();
+        }else if(fm.tel.value==""){
+            alert("연락처를 입력하세요");
+            fm.tel.focus();
+        }else if(fm.birth.value==""){
+            alert("생년월일을 선택하세요");
+        }else{
+            fm.submit();
+        }
+    }
+    function cancel(){
+        location.href="script_object3.html";
+// location 객체는 주소담당 객체, 
+//location객체를 통해 현재 주소를 변경 할 수 있다.
+    }
+</script>
