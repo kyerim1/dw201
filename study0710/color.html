@@ -24,5 +24,20 @@
 </body>
 </html>
 <script>
-  
+    function sel(obj){
+        bg = obj.style.background; //클릭한 버튼의 this값을 sel함수에 obj변수에 저장했다.
+         //obj는 내가 클릭한 버튼 태그이다. 
+        opener.document.getElementsByTagName("table")[0].style.background=bg; 
+    }
+    var list = document.getElementById("colorList");
+    var out="";
+    //8가지 랜덤색상 배경을 가진 버튼 만들기
+    for(i=1; i<=8; i++){
+        r=Math.floor(Math.random()*256);
+        g=Math.floor(Math.random()*256);
+        b=Math.floor(Math.random()*256);
+        out+= "<button onclick='sel(this)' style='background:rgb("+r+","+g+","+b+");'></button>";
+    }
+
+    list.innerHTML=out;
 </script>
