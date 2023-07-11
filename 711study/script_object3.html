@@ -1,0 +1,139 @@
+<!-- script_object3.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding:0; margin:0; box-sizing: border-box;}
+        #wrap{
+            width:900px;
+            margin:0 auto;
+        }
+        #header{
+            position:relative;
+            padding:10px 0;
+        }
+        #nav{
+            width:100%;
+            position:relative;
+        }
+        #menu{
+            list-style:none;
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #menu a{
+            text-decoration: none;
+        }
+        #section{
+            display:flex;
+            width:100%;
+            column-gap: 10px;
+        }
+        .content{
+            width:690px;
+        }
+        .side{
+            width:200px;
+            position:relative;
+        }
+        .login{
+            width:100%;
+            padding:10px;
+            position:relative;
+        }
+        .login_box{
+            display:flex;
+            flex-direction: column;
+            width:100%;
+        }
+        .input{
+            position:relative;
+            width:100%;
+        }
+        .input input{
+            width:100%;
+            height:25px;
+            font-size:17px;
+            outline: none;
+        }
+        .input label{
+            position:absolute;
+            top:3px;
+            left:5px;
+            font-size:14px;
+            opacity: 0.5;
+        }
+        .input input:focus ~ label{
+            opacity: 0;
+        }
+        .login_bt{ width:100%;}
+        .login_bt a{
+            display:block;
+            text-decoration: none;
+            font-size:15px;
+            font-weight:800;
+            color:#fff;
+            text-align:center;
+            background:#222845;
+            border-radius: 3px;
+            padding:5px 0;
+        }
+        .join_find{
+            display:flex;
+            font-size:10px;
+            justify-content: space-between;
+            padding:10px 0;
+        }
+        .join_find a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <nav id="nav">
+                <ul id="menu">
+                    <li class="menuTitle"><a href="">인피니티건틀릿</a></li>
+                    <li class="menuTitle"><a href="">은선이는</a></li>
+                    <li class="menuTitle"><a href="">을 장착했다.</a></li>
+                    <li class="menuTitle"><a href="">선향이는</a></li>
+                    <li class="menuTitle"><a href="">인피니티에빠졌다.</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="section">
+            <div class="content">
+
+            </div>
+            <div class="side">
+                <div class="login">
+                    <div class="login_box">
+                        <div class="input">
+                            <input type="text" name="id" id="id">
+                            <label>아이디</label>
+                        </div>
+                        <div class="input">
+                            <input type="password" name="pw" id="pw">
+                            <label>비밀번호</label>
+                        </div>
+                        <div class="login_bt">
+                            <a href="">로그인</a>
+                        </div>
+                        <div class="join_find">
+                            <a href="">회원가입</a>
+                            <a href="">아이디/비밀번호찾기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ad"></div>
+            </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+</html>
