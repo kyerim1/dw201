@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+
+const id_list=["aa","god","sky","note","skyblue","abcd","ksh","s3","gold1234"];
+
+var url = location.href;  // 현재 브라우저의 주소전체를 가져와라.
+var params = url.split("?"); // 현재 주소에서 파라미터 부분 분리- 파라미터는
+                               //  ? 뒤에 붙는다.
+if(params.length==2){
+    params = params[1];
+    id = getParam("id",params);
+    password = getParam("pw",params);
+
+    if(id_list.indexOf(id) != -1 )
+    {
+        alert("등록된 아이디입니다.");
+        history.back();
+        //history 객체는 브라우저에서 방문한 페이지를 기록해두는객체이다.
+
+        // screen, navigator
+        //location.href="join.html";
+    }
+
+
+    document.write("아이디 : "+id+"  비밀번호 : "+password);
+}
+function getParam(name, parameter){
+    var temp = parameter.split("&");
+    for(i=0; i< temp.length; i++){
+        if(temp[i].split("=")[0] === name)
+            return temp[i].split("=")[1];
+    }
+}
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>
