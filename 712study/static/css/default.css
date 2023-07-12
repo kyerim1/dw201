@@ -18,12 +18,14 @@ a:visited{color:transparent;}
     position:absolute;
     top:0;
     width:100%;
+    z-index:10;
 }
 #logo{
     position:absolute;
     width:120px;
     top:48px;
     left:10%;
+    z-index:100;
 }
 #logo a{
     width:100%;
@@ -47,8 +49,94 @@ a:visited{color:transparent;}
     width:96%;
     margin:0 auto;
     display:flex;
+    align-items:center;
 }
-
+.top_wrap .hours{
+    display:flex;
+    color:#fff;
+    align-items:center;
+    width:310px;
+}
+.top_wrap .hours a{
+    background:#558000;
+    color:#fff;
+    display:block;
+    padding:8px 12px;
+    margin-left:10px;
+    text-shadow: -1px -1px 1px #230;
+}
+.top_wrap .top_linkes{
+    width: calc(100% - 310px - 30px);
+    display:flex;
+    justify-content: end;
+    padding: 3px 0;
+    padding-right:10px;
+    align-items: center;
+    border-right:1px dotted #fff;
+}
+.top_wrap .top_linkes a{
+    color:#f90;
+    display:inline-block;
+    padding:0 10px;
+}
+.top_wrap .top_linkes .become{
+    color:#000;
+    background:#f90;
+    border-radius: 4px;
+    padding:4px 8px;
+    font-weight: 800;
+    margin:4px;
+}
+.top_wrap .search_button{
+    color:#f90;
+    font-size:20px;
+    padding:0 12px;
+    cursor:pointer;
+}
+.top_wrap .search_bar{
+    position: absolute;
+    z-index:11;
+    top:0;
+    left:0;
+    width:100%;
+    padding:200px 6%;
+    background:#000;
+}
+.top_wrap .search_bar div{
+    width:800px;
+    margin:0 auto;
+    position:relative;
+}
+.top_wrap .search_bar #s{
+    width:100%;
+    font-size:30px;
+    padding:5px;
+    height:60px;
+}
+.top_wrap .search_bar .srh_button{
+    position:absolute;
+    top:0;
+    right:0;
+    height:60px;
+    width:26%;
+    border:0;
+    background:#f90;
+    font-size:20px;
+    color:#fff;
+    cursor:pointer;
+    font-weight:900;
+}
+.top_wrap .search_bar .search_close{
+    color:#f90;
+    font-size:20px;
+    font-weight:900;
+    position:absolute;
+    top:4px;
+    width:calc(100% - 12%);
+    display:flex;
+    justify-content: end;
+    cursor:pointer;
+}
 #nav{
 
 }
