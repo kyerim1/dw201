@@ -1,0 +1,63 @@
+#content{
+    background:#fff;
+    position: relative;
+    width:100%;
+}
+#main{
+    position: relative;
+    width:100%;
+    color:#333;
+}
+
+.happening{
+    width:98%;
+    margin:0 auto;
+    position:relative;
+    z-index:999;
+    padding-bottom:30px;
+    background:#fff;
+    top:-90px;
+}
+.happening .headline{
+    background:#690;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#fff;
+}
+.happening .headline h2{
+    font-size:37px;
+    padding:5px 35px;
+}
+.happening .headline .email_button{
+    padding-right:30px;
+}
+.happening .headline .email_button a{
+    color:#fff;
+    background:#4b7000;
+    display:inline-block;
+    padding:7px 15px;
+    margin-left:15px;
+    font-weight:900;
+}
+
+#slider{
+    margin:15px 14px;
+    position:relative;
+    min-height: 200px;
+}
+#slider .viewport{
+    overflow: hidden;
+    position: relative;
+}
+#slider .viewport .eventslide{
+    display:flex;
+}
+
+
+.homebottom{
+
+}
+.homesocial{
+
+}
