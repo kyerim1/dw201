@@ -107,9 +107,8 @@
     cursor: pointer;
 }
 #slider .viewport .eventslide{ 
-    position:relative; 
-    left:0;
-    transition: left 1s ease;
+    transform: translate3d(0px ,0px, 0px);
+    transition: transform 1s ease;
 }
 /* 
     하나씩 슬라이드 이동
