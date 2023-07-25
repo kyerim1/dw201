@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <style>p{font-size:50px; position:relative;}
+    span{color:red; font-weight:900;}
+    b{color:blue; font-weight:900;}
+    .show{color:black;font-weight:600;}
+    .open{display:none;}
+    .person{opacity: 1; transition: opacity 30s steps(10);}
+    .box{
+        display: inline-block;
+    position: absolute;
+    top: 0;
+    /* right: 0; */
+    left: 520px;
+    width: 170px;
+    height: 70px;
+    background: #fff;
+    transition: height 30s ease;
+    }
+    .hide{opacity: 0; width:0;}
+    </style>
+</head>
+<body>
+    <h1>발표 순서 및 발표자 뽑기</h1>
+    <button onclick="ok()">뽑기</button>
+    <div id="res">
+        <p class="open"> 
+            1 번째 : <span class="group"></span>조 - <span class="show">발표자</span> : <b class="person hide"></b><b class="box"></b>
+        </p>
+        <p class="open"> 
+            2 번째 : <span class="group"></span>조 - <span class="show">발표자</span> : <b class="person hide"></b><b class="box"></b>
+        </p>
+        <p class="open"> 
+            3 번째 : <span class="group"></span>조 - <span class="show">발표자</span> : <b class="person hide"></b><b class="box"></b>
+        </p>
+        <p class="open"> 
+            4 번째 : <span class="group"></span>조 - <span class="show">발표자</span> : <b class="person hide"></b><b class="box"></b>
+        </p>
+        <p class="open"> 
+            5 번째 : <span class="group"></span>조 - <span class="show">발표자</span> : <b class="person hide"></b><b class="box"></b>
+        </p>
+        <p class="open"> 
+            6 번째 : <span class="group"></span>조 - <span class="show">발표자</span> : <b class="person hide"></b><b class="box"></b>
+        </p>
+    </div>
+
+</body>
+</html>
+
+<script>
+const m = [ ["김태형","이영주"], ["안태균","정길원"], ["정예림","김승겸"],["김선향","신상수"],
+["송은선"],["임민지","이상준","김철환"]];
+let count=0;
+let okgrp=new Array();
+let a=0;
+function ok(){
+    a=setInterval(function(){
+        count++;
+        var group=Math.floor(Math.random()*6)+1;
+        while(okgrp.indexOf(group)!=-1){
+            group=Math.floor(Math.random()*6)+1;
+        }
+        okgrp.push(group);
+        var person = Math.floor(Math.random()*m[group-1].length); 
+
+        $(".open").eq(count-1).css("display","block");
+        $(".open").eq(count-1).find(".group").text(group);
+        $(".open").eq(count-1).find(".person").text(m[group-1][person]);
+        if(count==6) clearInterval(a);
+    },5000);
+}
+$(".show").click(function(){
+    $(this).next().removeClass("hide");
+    $(this).next().next().css('height',"0px");
+});
+
+</script>
