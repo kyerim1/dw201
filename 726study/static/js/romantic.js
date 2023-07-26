@@ -17,6 +17,7 @@ date_list.prototype.view=function(){
     "<span class='period_vw'>"+this.period+"</span>"+
     "<span class='stf_vw'>"+this.satisfaction+"</span>"+
     "<b class='update'><i class='bi bi-wrench'></i></b>"+
+    "<b class='save_again hide'><i class='bi bi-arrow-through-heart-fill'></i></b>"+
     "<b class='del'><i class='bi bi-trash3'></i></b>";
 }
 
@@ -57,14 +58,31 @@ function screen_show(){
 
     update_tag = document.querySelectorAll(".update");
     del_tag =document.querySelectorAll(".del");
+    save_tag =document.querySelectorAll(".save_again");
 
+    for(var i=0; i<update_tag.length; i++)
+        save_tag[i].addEventListener("click",resave_list);
     for(var i=0; i<update_tag.length; i++)
         update_tag[i].addEventListener("click",update_list);
     for(var i=0; i<del_tag.length; i++){
         del_tag[i].addEventListener("click",delete_list);
     }
 }
+function resave_list(){
+
+}
 function update_list(){
+    var sibling = this.nextSibling; // 뒤에 있는 형제태그
+    this.classList.add("hide"); //수정아이콘 감추기
+    sibling.classList.remove("hide"); // 저장아이콘 보이기
+    var idx = this.parentNode.dataset.idx; //현재 수정할 배열의 인덱스 찾기
+    var parent = this.parentNode;
+
+    parent.innerHTML="<input type='text' id='re_place' value='"+list[idx].place+"'>"+
+    "<input type='text' id='re_money' value='"+list[idx].money+"'>"+
+    "<input type='text' id='re_period' value='"+list[idx].period+"'>"+
+    "<select id='re_satisfaction'><option value='1'>1</option><option value='2'>2</option>"+
+    "<option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select>";
 
 }
 function delete_list(){

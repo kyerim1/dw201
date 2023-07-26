@@ -102,3 +102,10 @@ label{ display:inline-block;}
 .del{width:5%;}
 .update:hover{color:blue;}
 .del:hover{color:red;}
+
+.hide{
+    display:none;
+}
+.save_again{width:5%;}
+.save_again:hover{color:pink;}
+
