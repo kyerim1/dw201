@@ -94,8 +94,13 @@ label{ display:inline-block;}
     justify-content: space-between;
     padding:10px 0;
 }
-.place_vw{ width:25%; overflow: hidden;}
-.money_vw{ width:25%;}
+
+.text{width:90%;  }
+.text span{display:inline-block;}
+.text input{border-bottom:1px solid #acacac; margin-right:10px;}
+
+.place_vw{ width:35%; overflow: hidden;}
+.money_vw{ width:35%;}
 .period_vw{width:15%;}
 .stf_vw{width:15%;}
 .update{ width:5%;}

@@ -12,10 +12,10 @@ function date_list(place, money, period, satisfaction){
     this.satisfaction=satisfaction;
 }
 date_list.prototype.view=function(){
-    return "<span class='place_vw'>"+this.place+"</span>"+
+    return "<div class='text'><span class='place_vw'>"+this.place+"</span>"+
     "<span class='money_vw'>"+this.money+"</span>"+
     "<span class='period_vw'>"+this.period+"</span>"+
-    "<span class='stf_vw'>"+this.satisfaction+"</span>"+
+    "<span class='stf_vw'>"+this.satisfaction+"</span></div>"+
     "<b class='update'><i class='bi bi-wrench'></i></b>"+
     "<b class='save_again hide'><i class='bi bi-arrow-through-heart-fill'></i></b>"+
     "<b class='del'><i class='bi bi-trash3'></i></b>";
@@ -76,9 +76,9 @@ function update_list(){
     this.classList.add("hide"); //수정아이콘 감추기
     sibling.classList.remove("hide"); // 저장아이콘 보이기
     var idx = this.parentNode.dataset.idx; //현재 수정할 배열의 인덱스 찾기
-    var parent = this.parentNode;
+    var pre_sibling = this.previousSibling;
 
-    parent.innerHTML="<input type='text' id='re_place' value='"+list[idx].place+"'>"+
+    pre_sibling.innerHTML="<input type='text' id='re_place' value='"+list[idx].place+"'>"+
     "<input type='text' id='re_money' value='"+list[idx].money+"'>"+
     "<input type='text' id='re_period' value='"+list[idx].period+"'>"+
     "<select id='re_satisfaction'><option value='1'>1</option><option value='2'>2</option>"+
