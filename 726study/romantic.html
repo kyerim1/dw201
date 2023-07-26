@@ -1,0 +1,50 @@
+<!--  romantic.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="./static/css/romantic.css">
+
+<script src="./static/js/romantic.js"></script>
+</head>
+<body>
+    
+    <div id="wrap">
+        <div id="input_wrap">
+            <div class="input_box">
+                <label> 데이트장소 </label><input type="text" name="place" id="place">
+            </div>
+            <div class="input_box">
+                <label> 데이트비용 </label><input type="text" name="money" id="money">
+            </div>
+            <div class="input_box">
+                <label> 연애기간 </label><input type="text" name="period" id="period">
+            </div>
+            <div class="input_box">
+                <label> 데이트 만족도</label>
+                <select id="satisfaction" name="satisfaction">
+                    <option value="1" >1</option>
+                    <option value="2" >2</option>
+                    <option value="3" >3</option>
+                    <option value="4" >4</option>
+                    <option value="5" selected>5</option>
+                </select>
+            </div>
+            <div class="bt">
+                <a href="javascript:save();"></a>
+                <span>등록</span>
+            </div>
+        </div>
+        <div id="output_wrap">
+            <ul id="list">
+
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+</html>

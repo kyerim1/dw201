@@ -1,0 +1,90 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-size:20px;
+}
+ul{list-style-type: none;}
+a{text-decoration: none;}
+input{border-width:0;  outline: none;}
+label{ display:inline-block;}
+
+#wrap{
+    width:90%;
+    max-width:1000px;
+    margin:0 auto;
+}
+#input_wrap{
+    position:relative;
+    width:100%;
+    padding:30px 50px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.input_box{
+    width:48%;
+    padding:10px 0;
+}
+.input_box label{
+    text-align:right;
+    font-size:1rem;
+    width:35%;
+}
+.input_box input{
+    border-bottom:2px solid #acacac;
+    width:60%;
+    margin-left:3%;
+    padding:5px;
+}
+.input_box select{
+    width:20%;
+    text-align: center;
+    margin-left:3%;
+}
+.bt{width:100%;}
+.bt a{
+    width:50px;
+    height:50px;
+    background:pink;
+    display:inline-block;
+    text-align: center;
+    transform: rotate(-45deg);
+}
+.bt a:after{
+    content:"";
+    background: pink;
+    border-radius: 50%;
+    width:50px;
+    height:50px;
+    position: absolute;
+    top:0;
+    left:25px;
+}
+.bt a::before{
+    content:"";
+    background:pink;
+    border-radius: 50%;
+    width:50px; height:50px;
+    position: absolute;
+    top:-25px;
+    left:0;
+}
+.bt{position:relative;}
+.bt span{
+    position: absolute;
+    top:0;
+    left:7px;
+    color:#fff;
+    font-weight:900;
+    transition: transform 1s ease;
+}
+.bt a:hover ~ span{
+    color:red;
+    transform: scale(1.5);
+}
+
+#output_wrap{
+    width:100%;
+    margin:50px;
+}
