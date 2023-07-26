@@ -21,7 +21,6 @@ date_list.prototype.view=function(){
 }
 
 
-
 const list = new Array();  // date_list 객체를 저장할 배열 객체 생성
 function save(){
     var place=document.querySelector("#place");
@@ -45,9 +44,11 @@ function save(){
 function screen_show(){
     var ul = document.querySelector("#list");
     //for(var i=0; i<list.length; i++)
+    var out="";
     for(var i in list){
-        list[i]
+        out += list[i].view();
     }
+    ul.innerHTML= out;
 }
 
 
