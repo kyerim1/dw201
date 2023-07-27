@@ -1,0 +1,66 @@
+<!--  index.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가계부</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="./static/css/default.css">
+<link rel="stylesheet" href="./static/css/household.css">
+
+<script src="./static/js/household_function.js"></script>
+<script src="./static/js/household_object.js"></script>
+
+</head>
+<body>
+    
+    <div id="house_wrap">
+        <header id="header">
+            <div id="hold_input">
+                <div class="item">
+                    <input type="date" name="wdate" id="wdate">
+                </div>
+                <div class="item">
+                    <label>금액</label>
+                    <input type="text" name="wmoney" id="wmoney">
+                </div>
+                <div class="item">
+                    <label>분류</label>
+                    <select id="wcategory"></select>
+                </div>
+                <div class="item">
+                    <label>내용</label>
+                    <input type="text" name="wdetail" id="wdetail">
+                </div>
+                <div class="item getcome">
+                    
+                    <div class="expense">
+                        <label>결제방법</label>
+                        <input type="radio" id="Scash">현금
+                        <input type="radio" id="Scard">카드
+                        <div class="payment_box hide"></div>
+                    </div>
+                    <div class="income hide">
+                        <label>수입</label>
+                        <input type="radio" id="income_bank">계좌
+                        <input type="radio" id="income_cash">현금
+                        <select id="mybank" class="hide"></select>
+                    </div>
+                </div>
+            </div>
+            
+        </header>
+        <section id="hold_bt_wrap">
+            <button id="income_bt">수입</button> <button id="expense_bt">지출</button>
+        </section>
+        <section id="hold_list_wrap">
+
+        </section>
+        <section id="loan_wrap">  <!-- 대출 내역-->
+
+        </section>
+    </div>
+
+</body>
+</html>
