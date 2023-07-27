@@ -19,32 +19,32 @@
         <header id="header">
             <div id="hold_input">
                 <div class="item">
-                    <input type="date" name="wdate" id="wdate">
+                    <input type="datetime-local" name="wdate" id="wdate">
                 </div>
                 <div class="item">
-                    <label>금액</label>
+                    <label class="item_title" for="wmoney">금액</label>
                     <input type="text" name="wmoney" id="wmoney">
                 </div>
                 <div class="item">
-                    <label>분류</label>
+                    <label class="item_title">분류</label>
                     <select id="wcategory"></select>
                 </div>
                 <div class="item">
-                    <label>내용</label>
+                    <label class="item_title" for="wdetail">내용</label>
                     <input type="text" name="wdetail" id="wdetail">
                 </div>
                 <div class="item getcome">
                     
                     <div class="expense">
-                        <label>결제방법</label>
-                        <input type="radio" id="Scash">현금
-                        <input type="radio" id="Scard">카드
-                        <div class="payment_box hide"></div>
+                        <label class="getcome_title">결제방법</label>
+                        <input type="radio" name="payment" id="Scash"><label for="Scash">현금</label>
+                        <input type="radio" name="payment" id="Scard"><label for="Scard">카드</label>
+                        <select id="mycard" class="hide"></select>
                     </div>
                     <div class="income hide">
-                        <label>수입</label>
-                        <input type="radio" id="income_bank">계좌
-                        <input type="radio" id="income_cash">현금
+                        <label class="getcome_title">수입</label>
+                        <input type="radio" name="income_method" id="income_bank"><label for="income_bank">계좌</label>
+                        <input type="radio" name="income_method" id="income_cash"><label for="income_cash">현금</label>
                         <select id="mybank" class="hide"></select>
                     </div>
                 </div>
@@ -53,6 +53,8 @@
         </header>
         <section id="hold_bt_wrap">
             <button id="income_bt">수입</button> <button id="expense_bt">지출</button>
+            <br>
+            <button id="write_bt">등록</button>
         </section>
         <section id="hold_list_wrap">
 
