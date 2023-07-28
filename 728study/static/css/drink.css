@@ -1,0 +1,50 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+ul{ list-style-type: none;}
+#wrap{
+    width:1200px;
+    margin:0 auto;
+    display:flex;
+}
+#side{
+    width:300px;
+    padding:100px 10px;
+}
+#soju, #beer, #liquor{
+    background:teal;
+    color:#fff;
+    text-align: center;
+    padding:10px 0;
+}
+#soju_list, #beer_list , #liquor_list{
+    text-align: center;
+    background:sandybrown;
+    display:none;
+}
+#side ul li{
+    padding:5px 0; font-size:19px;
+}
+#middle{
+    width:900px;
+}
+.gallery{
+    margin-top:200px;
+    width:700px;
+    display:flex;
+    justify-content: space-between;
+    position: relative;
+}
+.image{
+    width:200px;
+    position:relative;
+}
+.big{
+    position:absolute;
+    top:-100px;
+    left:200px;
+    z-index:10;
+    display:none;
+}

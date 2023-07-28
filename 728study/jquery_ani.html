@@ -1,0 +1,39 @@
+<!-- jquery_ani.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>#box1{width:100px; height:100px; background:chartreuse;}</style>
+    <button id="start1">애니메이션</button>
+    <div id="box1"></div>
+    <script>
+        $("#start1").click(function(){
+            var box = $("#box1");
+            box.animate( { width:'300px' }, "slow" );
+            box.animate( { height:'300px'},'slow' );
+            box.animate( { width:'100px'}, 'slow');
+            box.animate( {height:'100px'},'slow');
+        });
+    </script>
+
+    <style>
+        #box2{ width:100px; height:50px;  position:relative; background:cornflowerblue;}
+    </style>
+    <button id="start2">커져라</button>
+    <div id="box2">  선향이는 노술 </div>
+
+    <script>
+        $("#start2").click(function(){
+            $("#box2").css("color","red").slideUp(1000).slideDown(2000);
+
+            // var box = $("#box2");
+            // box.animate( { left:'100px', width:'150px', height:'200px'}, 2000);
+            // box.animate( {fontSize:'25px',color:'red'},1000);
+        });
+    </script>
+</body>
+</html>
