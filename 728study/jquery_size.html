@@ -1,0 +1,50 @@
+<!-- jquery_size.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<style>
+    .box{width:100px; height:100px;}
+    #box1{background:red;}
+</style>
+<script>
+
+//width() - 태그의 너비
+// height() - 태그의 높이
+//innerWidth() - 패딩 포함 너비
+// innerHeight() - 패팅 포함 높이
+// outerWidth() - border와 패딩 포함 너비
+// outerHeight() - border와 패딩 포함 높이
+// outerWidth(true) - margin,border, 패딩 포함 너비
+// outerHeight(true) - margin,border, 패딩 포함 높이
+
+    $(function(){
+        $("#copy").click(function(){
+            var width= $("#box1").width();
+            var height = $("#box1").height();
+
+            var r= Math.floor(Math.random()*256);
+            var g= Math.floor(Math.random()*256);
+            var b= Math.floor(Math.random()*256);
+            $("#box_list").append("<div style='width:"+width+"px;height:"+height+
+            "px;background:rgb("+r+","+g+","+b+");'></div>");
+        });
+        $("#box1").click(function(){
+                $(this).animate( {width:'+=50px'});
+        });
+    });
+</script>
+</head>
+<body>
+    <button id="copy">복사</button>
+    <div id="box1" class="box"> </div>
+
+    <div id="box_list">
+
+    </div>
+
+</body>
+</html>
