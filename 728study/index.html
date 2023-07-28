@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>    
+ 
+<script>
+    // window.onload=function(){
+
+    // }
+    // $(document).ready(function(){
+
+    // });
+
+    $(function(){       // window.onload=function(){   }
+        //document.getElementById("box1").innerHTML("야야야야");
+        //document.querySelector("#box1").innerHTML("야야야야");
+        
+        $("#box1").html("야야야야야");
+
+        //var d = document.querySelector("#box1");
+        //d.addEventListener("click", function() {  });
+
+        $("#box1").click(function(){
+              $(this).css("width","200px");          
+        })
+
+        $("#bt").click(function(){
+            $("#box1").hide(2000);
+        });
+        $("#bt2").click(function(){
+            $("#box1").show();
+        });
+
+        $("#bt3").click(function(){
+            $("#box1").toggle(2000);
+        })
+
+        $("#fade_bt1").click(function(){
+            $("#box2").fadeOut("slow");  // fadeOut(초) - slow, fast
+        });
+    });
+
+
+</script>
+
+<style>
+    #box1{width:100px; height:100px; background: pink;}
+    #box2{ width:100px; height:100px; background: red;}
+    #box3{ width:100px; height:100px; background: blue;}
+    #box4{ width:100px; height:100px; background: yellow;}
+</style>
+</head>
+<body>
+    <button id="bt">감추기 </button>
+    <button id="bt2">보이기 </button>
+    <button id="bt3">토글</button>
+    <div id="box1"></div>
+
+<br><br>
+    <button id="fade_bt1">아웃</button>
+    <button id="fade_bt2">인</button>
+    <button id="fade_bt3">토글</button>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+    <script>
+        $("#fade_bt3").click(function(){
+            $("#box2").fadeToggle();
+            $("#box3").fadeToggle(4000);
+            $("#box4").fadeToggle("slow");
+        })
+        $("#fade_bt2").click(function(){
+            $("#box2").fadeIn();
+            $("#box3").fadeIn("slow");
+            $("#box4").fadeIn(2000);
+        });
+        $("#fade_bt1").click(function(){
+            $("#box2").fadeOut();
+            $("#box3").fadeOut("fast");
+            $("#box4").fadeOut(3000);
+        })
+    </script>
+
+<style>
+    #bar{
+        position:absolute;
+        left:50%;
+        top:200px;
+        width:300px;
+    }
+    #green{
+        height:200px;
+        background: mediumspringgreen;
+        display:none;
+    }
+</style>
+    
+    <div id="bar">
+        <button id="s1">다운</button>
+        <button id="s2">업</button>
+        <button id="s3">토글</button>
+        <div id="green"></div>
+    </div>
+<script>
+    $("#s1").click(function(){
+        $("#green").slideDown();
+    })
+    $("#s2").click(function(){
+        $('#green').slideUp();
+    })
+    $("#s3").click(function(){
+        $("#green").slideToggle(5000);
+    });
+</script>
+
+</body>
+</html>
