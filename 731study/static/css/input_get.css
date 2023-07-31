@@ -30,6 +30,7 @@ box-sizing: border-box;}
 }
 #gallery .img_box img{
     width:100%;
+    
 }
 .grid-4n{
     display:grid;
@@ -44,20 +45,34 @@ box-sizing: border-box;}
 
 .slide-active{
     position:relative;
+    overflow: hidden;
+}
+.slide-active #slide_box{
+    display:flex;
+
+}
+.slide-off #slide_box{
+    display:none;
 }
 .slide-active #slide_bt{
     position:absolute;
+    width:100%;
     top:50%;
 }
 .slide-active #slide_bt #left_bt{
-    left:-10px;
+    position:absolute;
+    left:0;
     background:#fff;
     font-size:30px;
     border-radius: 10px;
 }
 .slide-active #slide_bt #right_bt{
-    right:-10px;
+    position:absolute;
+    right:0;
     background:#fff;
     font-size:30px;
     border-radius: 10px;
+}
+.slide-off #slide_bt{
+    display:none;
 }
