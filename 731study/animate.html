@@ -1,0 +1,75 @@
+<!--  animate.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+<style>
+    #box1{ width:100px; height:100px; background:tomato;}
+</style>    
+<fieldset>
+    <legend>jquery 애니메이션1 - 크기변화</legend>
+    <button id="ani1">적용</button>
+    <div id="box1"></div>
+</fieldset>
+<script>
+    $("#ani1").click(function(){
+        $("#box1").animate( { width:"300px"} );
+    })
+</script>
+
+<style>
+    #box2{width:100px; height:100px; background:seagreen; position:relative; }
+</style>
+<fieldset>
+    <legend> jquery 애니메이션2 - 위치 이동</legend>
+    <button id="ani2">이동</button>
+    <div id="box2"></div>
+</fieldset>
+<script>
+    $("#ani2").click(function(){
+        $("#box2").animate( {width:"200px", left:"300px"}  );
+    });
+</script>
+
+
+<style>
+    #box3{width:20px; height:100px; background:darkmagenta;}
+</style>
+<fieldset>
+    <legend>jquery 애니메이션3 - 증가</legend> 
+    <div id="box3"></div>
+</fieldset>
+<script>
+    $("#box3").mouseover(function(){
+        $(this).animate( {width:"+=20px"} );
+    });
+</script>
+
+<style>
+    #box4{ width:100px; height:100px; position:relative;background:plum;}
+</style>
+<fieldset>
+    <legend>jquery 애니메이션4 - 여러개 순차적용 </legend>
+    <button id="ani3">적용</button>
+    <div id="box4"></div>
+</fieldset>
+<script>
+    $("#ani3").click(function(){
+        var box = $("#box4");
+        box.animate( {width:"300px",opacity:"0.5"},2000 );
+        box.animate( {left:"200px", width:"100px"},1000 );
+        box.animate( { height:"300px",opacity:"1"}, "slow");
+        box.animate( { top:"200px", height:"100px"} ,"fast");
+        box.animate( {left:"0"},4000);
+        box.animate( { top:"0"});
+    })
+</script>
+
+</body>
+</html>

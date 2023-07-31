@@ -1,0 +1,78 @@
+<!-- test.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<style>
+    *{margin:0; padding:0; }
+    ul{list-style: none; text-align: center; color:#fff;}
+    #menu_wrap{ width:200px; margin:0 auto;}
+    #html{width:100%; background:goldenrod;font-size:25px; padding:10px 0;}
+    #css { width:100%; background:green;font-size:25px; padding:10px 0;}
+    #javascript{width:100%; background:darkmagenta;font-size:25px; padding:10px 0;}
+    #html_sub{display:none;background: rgba(218, 165, 32, 0.286);}
+    #css_sub{display:none;background:rgba(0, 128, 0, 0.631);}
+    #javascript_sub{display:none;background:rgba(139, 0, 139, 0.738);}
+
+</style>
+<script>
+    $(function(){
+   
+        $("#html").click(function(){
+            $("#html_sub").css("font-size","15px").slideToggle();
+        });
+        $("#css").click(function(){
+            $("#css_sub").slideToggle();
+        })
+        $("#javascript").click(function(){
+            $("#javascript_sub").slideToggle();
+        })
+});
+</script>
+</head>
+<body>
+
+    <div id="menu_wrap">
+        <ul id="menu_list">
+            <li id="html">
+                HTML
+                <ul id="html_sub">
+                    <li>div</li>  <li>legend</li>
+                    <li>form</li> <li>fieldset</li>
+                    <li>input</li>
+                </ul>
+            </li>
+            <li id="css">
+                CSS
+                <ul id="css_sub">
+                    <li>position</li>   <li>background</li>
+                    <li>opacity</li>  <li>transform</li>
+                </ul>
+            </li>
+            <li id="javascript">
+                JAVASCRIPT
+                <ul id="javascript_sub">
+                    <li>변수</li> <li>함수</li>
+                    <li>배열</li> <li>제어문</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--  
+        주메뉴
+           HTML , CSS, JAVASCRIPT
+        각 주메뉴의 서브 메뉴
+          html ->  div, form, input, legend, filedset
+          css - > position , background, opacity, transform
+          javascript -> 변수, 함수, 배열, 제어문
+
+
+        처음 화면에는 주메뉴만 보인다. 
+        각 주메뉴를 클릭하면 해당 메뉴의 서브 메뉴가 펼쳐져서 보여야 한다.
+        (배경색 각각 다르게 줘서 만들고 최대한 css 적용 해보기 )
+    -->
+</body>
+</html>

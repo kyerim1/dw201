@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<script>
+    //window.onload=function(){ } - javascript
+
+    //$(document).ready(function(){ })
+    $(function(){ 
+//        document.getElementById("box1").innerHTML="<b>그려안그려?</b>";
+//        document.querySelector("#box1").innerText="<b>기여아니여</b>";
+
+        
+        // $("#box1").text();
+
+//        var d = document.getElementById("box1");
+//        d.addEventListener("click",function(){  });
+
+//        $("#box1").on("click",function(){        })
+        $("#box1").html("<b>보일까말까</b>");
+
+        $("#box1").click(function(){
+            $("#box2").toggle(2000);
+            //$("#box2").show(5000);
+            //$("#box2").hide(3000); - 해당 태그를 감추기(display:none;)
+        })
+
+
+    })
+
+
+</script>
+</head>
+<body>
+    <style> #box1{width:100px; height:100px; background:magenta;}
+        #box2{ width:100px; height:100px; background:cyan;
+                display:none;
+        }
+    </style>
+    <div id="box1"></div>
+
+    <div id="box2"></div>
+
+
+    <style> #box3{width:100px; height:100px; background:khaki;}</style>
+    <fieldset class="fd1">
+        <legend>fade</legend>
+        <button id="fade_out">out</button>
+        <button id="fade_in">in</button>
+        <button id="fade_toggle">toggle</button>
+        <div id="box3"></div>
+    </fieldset>
+    <script>
+        $("#fade_out").click(function(){
+            $("#box3").fadeOut(2000);
+        });
+        $("#fade_in").click(function(){
+            $("#box3").fadeIn();
+        })
+        $("#fade_toggle").click(function(){
+            $("#box3").fadeToggle();
+        })
+    </script>
+
+
+<style>
+    #box4{ width:300px; height:400px; background:greenyellow; display:none;}
+</style>
+    <fieldset>
+        <legend>slide</legend>
+        <button id="slide_down">펼쳐라</button>
+        <button id="slide_up">닫아라</button>
+        <button id="slide_toggle">펼닫</button>
+        <div id="box4"></div>
+    </fieldset>
+    <script>
+        $("#slide_down").click(function(){
+            $("#box4").slideDown(3000);
+        });
+        $("#slide_up").click(function(){
+            $("#box4").slideUp();
+        })
+        $("#slide_toggle").click(function(){
+            $("#box4").slideToggle();
+        })
+    </script>
+</body>
+</html>
