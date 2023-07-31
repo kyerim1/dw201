@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 <link rel="stylesheet" href="./static/css/input_get.css">
 <script src="./static/js/input_get.js"></script>    
 
@@ -15,8 +15,21 @@
     <div class="input_wrap">
         <input type="text" name="imageName" id="imageName">
         <button id="setImage">등록</button>
+        <div>
+            <button id="3n">3*n</button>
+            <button id="4n">4*n</button>
+            <button id="slide"> slide</button>
+        </div>
     </div>
 
-    <div id="gallery"></div>
+    <div id="gallery" class="grid-4n slide-off">
+
+        <div id="slide_bt">
+            <p id="left_bt"><i class="bi bi-chevron-left"></i></p>
+            <p id="right_bt"><i class="bi bi-chevron-right"></i></p>
+        </div>
+    </div>
+
+
 </body>
 </html>
