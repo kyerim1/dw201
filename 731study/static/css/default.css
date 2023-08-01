@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul{list-style: none;}
+
+#wrap{
+    width:600px;
+    margin:0 auto;
+}
+
+#header{
+    display:flex;
+    position:relative;
+    align-items: center;
+    background:mediumseagreen;
+}
+#menu_wrap{
+    width:500px;
+}
+#menu_icon{
+    font-size:25px;
+    padding:0 20px;
+}
+#menu_list{
+    position:absolute;
+    top:50px;
+    background:mediumseagreen;
+    width:0px;
+    transition: all 1s linear;
+    white-space: nowrap;
+    z-index:-1;
+}
+#menu_list li{text-align: center;}
+#menu_wrap .menu_show{
+    z-index:10;
+    width:100%;
+}
+
+#section{
+
+}

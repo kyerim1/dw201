@@ -1,0 +1,93 @@
+<!--        jquery_family.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<script>
+    $(function(){
+        //  parent() - 상위 태그(부모) 선택
+        // parents() - 상위 모든 태그(html태그까지 선택)
+        // parents("p") - 상위 태그들중에서 p태그만 선택
+        // parents("#i") - 상위 태그들중에서 아이디가 i 인 태그 선택
+        // parentsUntil("div") - 현재 태그와 div태그 사이의 부모들 선택 
+        
+        var parent = $("#child1_1").parents("#origin");
+        parent.css("background","pink");
+
+        $(".grandchild").parentsUntil("#origin").css("background","green");
+
+
+        // children() - 자식태그들 선택
+        // children("p") - 자식태그들 중에서 p 태그만 선택
+        // children(":first") , children().first()  -  첫번째 자식 선택
+        // children(":eq(3)") , children().eq(3)  - 네번째 자식 선택
+        // children().last() - 마지막 자식
+
+        $("#parent2").children(":eq(1)").css("font-size","20px");
+
+        //find("ul") -  하위 태그중에서 ul만 선택
+        //find("*") - 하위 태그 전체 선택
+        //find("li:eq(2)")  -  하위태그중에서 li중에서 세번째 li태그만 선택
+
+        $("#parent2").find(".child_li:eq(1)").css("background","lightblue");
+
+
+        //siblings() - 형제(자매)들 선택 
+        // next() - 다음 형제 태그 선택
+        // prev() - 이전 형제 태그 선택
+        // nextAll() - 뒤에 있는 모든 형제 태그 선택
+        // prevAll() - 앞에 있는 모든 형제 태그 선택
+        // nextUntil("a") - 뒤에 있는 형제들 중 a 태그 와 나 사이의 모든 형제
+        // prevUntil("a") - 앞에 있는 형제들 중 a 태그와 나사이의 모든 형제
+
+        $("#child1_1").click(function(){
+            //$(this).siblings("#child1_2").children("span:eq(1)").css("display","block");
+            $(this).next().children("span:eq(1)").css("color","red");
+        });
+
+// 선택자 - div, p, ul, li, #box, .list_slide 등등등
+
+        // $("선택자").first() - 선택자 중에 첫번째 태그 선택
+        // $("선택자").last() - 선택자중에 마지막 태그 선택
+        // $("선택자").eq(3) - 선택자중에 3번인덱스(네번째) 태그 선택
+        // $("선택자").filter("선택자2") - 선택자중에서 선택자2인 모든 태그
+        // $("선택자").not("선택자2") - 선택자중에서 선택자2 제외한 모든 태그
+        
+        $("li").first().css("color","red");
+        $("li").last().css("color","blue");
+        $("li").eq(2).css("color","yellow");
+
+        $("li").filter(".child_li").css("background","orange");
+        $("li").not(".child_li").css("background","brown");
+
+    });
+</script>
+</head>
+<body>
+    
+    <div id="origin">
+        <div id="parent1" style="font-size:50px;">
+            <b id="child1_1">child1_1</b>
+            <p id="child1_2">
+                <span class="grandchild">나 증손이야(딸)</span>
+                <span class="grandchild">나 증손이야(아들)</span> 
+            </p>
+        </div>
+        <div id="parent2">
+            <div id="child2_1"> 승겸어디갔어?</div>
+            <ul id="child2_2">
+                <li class="child_li">공부공부공부</li>
+                <li class="child_li">공부해서 남주나?</li>
+                <li class="child_li">방법이 잘못되었으면 다른방법으로...</li>
+                <li>좋으니 사랑해서</li>
+                <li>사랑을 시작할 때</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
