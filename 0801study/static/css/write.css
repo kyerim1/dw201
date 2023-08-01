@@ -1,0 +1,94 @@
+/*
+디자인은 알아서 하시오.
+단,  header는 브라우저 화면의 항상 위에 표시되게 하기
+
+클래스명이 story 인 div 태그안에 h3에는 문학분류와 제목을 입력하고 
+( 문학분류는 select에 있는것만)
+p 태그에는 내용입력하세요  
+
+기능 
+ - 입력한 키워드에 맞는 story만 보여야 한다.
+ - 제목을 선택하고 키워드 입력하면 제목에 해당 키워드를 포함하는 story만 보이기
+ - 내용을 선택하고 키워드 입력하며 내용에 해당 키워드를 포함하는 story만 보이기
+ - 제목/내용 선택하고 키워드 입력하면 제목과 내용 둘중 하나에 키워드를 포함하는 story보이기
+
+ - 분류 선택하면 해당 분류인 story 만 보이기
+ - 분류 선택하고 키워드 입력하면  선택한 분류내에서 키워드 포함하는 story보이기
+ - 분류 선택하고 키워드 입력하고 내용 선택했으면 키워드 포함하는 story보이기
+
+*/
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body,html{height:100%;}
+#header{
+    position:sticky;
+    top:0;
+    width:100%;
+    background:#222845;
+}
+#header_box{
+    max-width:800px;
+    min-width:600px;
+    margin:0 auto;
+    padding:10px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    column-gap: 1%;
+}
+#header input{
+    width:66%;
+    padding:3px 10px;
+    height:30px;
+    font-size:18px;
+}
+#header select{
+    width:15%;
+    min-width:100px;
+    text-align:center;
+    height:30px;
+    font-size:18px;
+}
+
+#content{
+    width:100%;
+    min-height:100%;
+    background:#148e8f;
+    padding:50px 30px;
+}
+#text_box{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    color:#fff;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    column-gap: 5px;
+    row-gap:5px;
+}
+.story{
+    width:200px;
+    height:200px;
+    padding:10px 15px;
+    box-shadow: 1px 2px 2px #222845;
+    overflow: hidden;
+}
+.story h3{
+    font-size:20px;
+    text-shadow: 1px 2px 3px #222845;
+}
+.story p{
+    height:155px;
+    padding:8px 0;
+    overflow: hidden;
+    white-space: wrap;
+    display:-webkit-box;
+    word-wrap: break-word;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
