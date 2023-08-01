@@ -1,0 +1,68 @@
+
+/*
+ ui 자유롭게  꾸미기
+
+ input에 입력한 텍스트를 포함하는 모든 이미지 검색할수 있게 만들기
+
+
+*/
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+ul{
+    list-style-type: none;
+}
+input{ border:0; outline: none;}
+#wrap{
+    position: relative;
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:50px 0;
+}
+#search_wrap{
+    margin:20px auto;
+    padding-left:20px;
+    display:flex;
+    border: 3px solid #ddd;
+    width:50%;
+    height:40px;
+    min-width:400px;
+    align-items: center;
+    position:relative;
+    border-radius: 10px;
+}
+#search_wrap label{
+    position:absolute;
+    left:20px;
+}
+#search_wrap i{
+    padding:0 10px;
+    font-size:20px;
+}
+#keyword{
+    width:100%;
+    height:30px;
+    font-size:18px;
+}
+#keyword:focus + label{
+    display:none;
+}
+
+
+#data_box{
+    width:100%;
+}
+
+#data_list{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+.data{
+    width:250px;
+}
