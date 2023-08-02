@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script>
+    // JSON   - javascript object notaion
+
+// i={ name:"김승겸" }
+
+// function person(name,age){
+//     this.name=name;
+//     this.age=age;
+// }
+
+// a = new Object();
+// a.name="상수";
+
+
+let 정예림 = { age:23, coffee:"아아" , keyboard:"동그라미키", blanket:"zebra"};
+var j = JSON.stringify(정예림);
+
+console.log(정예림);
+console.log(j);
+console.log(JSON.parse(j))
+
+let jdata="";
+
+ //a=["김선향","바보다","쯧쯔스"]
+
+
+$(function(){
+    $.getJSON("./test_json.json",function(data){
+//        console.log(data);
+
+// 그럼 만들어보세요
+// 나이가 20대인 사람들만 출력하기
+//20살 이상중 삼성 노트북 사용하는 사람 만 출력
+
+
+        $.each( data.person , function(i,item){   // i는 배열의 인덱스, item은 배열의 각 공간 p[3] == item
+            if( item.age>=20 && item.notebook==="삼성" ){
+                $("#list").append("<tr><td>"+item.name+"</td><td>"+
+                    item.notebook+"</td><td>"+item.age+"</td></tr>");
+            }
+        } );
+
+
+        
+    });
+});
+</script>
+</head>
+<body>
+    <table id="list">
+
+    </table>
+</body>
+</html>
