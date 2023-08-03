@@ -25,6 +25,7 @@
 
 
 #modal{
+    display:none;
     position:fixed;
     top:0;
     left:0;
@@ -72,4 +73,29 @@
 .info_wrap:nth-child(3), .info_wrap:nth-child(6){
     display:flex;
     align-items: center;
+}
+
+#modal_close{
+    position:relative;
+    top:calc( 50% - 200px);
+    left:calc(50% + 200px);
+    width:30px;
+    height:30px;
+    cursor: pointer;
+}
+#modal_close::before{
+    content:"";
+    border:2px solid #fff;
+    width:100%;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    display:block;
+}
+#modal_close::after{
+    content:"";
+    border:2px solid #fff;
+    width:100%;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+    display:block;
 }
