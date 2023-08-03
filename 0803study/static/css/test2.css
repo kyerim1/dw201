@@ -1,0 +1,75 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+#person_wrap{
+    width:1000px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap: wrap;
+    align-items:center;
+    gap:10px;
+}
+#person_wrap .name{
+    width:190px;
+    padding:8px 0;
+    text-align:center;
+    border:1px solid #adadad;
+    border-radius: 10px;
+}
+#person_wrap .name:hover{
+    background:cadetblue;
+    color:#fff;
+}
+
+
+#modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+#modal_bg{
+    position:absolute;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.5);
+    width:100%;
+    height:100%;
+}
+#info{
+    position:relative;
+    width:400px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background:#eee;
+    border-radius: 15px;
+    padding:10px;
+    box-shadow: 5px 5px 5px #444 ;
+    display:flex;
+    flex-direction: column;
+    row-gap:10px;
+}
+#info label{
+    display:inline-block;
+    padding-right:5px;
+}
+
+#info .info_wrap:first-child{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info_wrap b{ 
+    font-size:17px; 
+    border-bottom:1px solid #ddd;
+    padding-left:5px;
+}
+
+.info_wrap:nth-child(3), .info_wrap:nth-child(6){
+    display:flex;
+    align-items: center;
+}

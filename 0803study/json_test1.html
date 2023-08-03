@@ -1,0 +1,71 @@
+<!--  json_test.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <style>
+        #input_box{
+            width:400px;
+            display:flex;
+            flex-wrap:wrap;
+            margin: 0 auto;
+            gap:10px;
+        }
+        table{
+            border-collapse: collapse;
+            width:600px;
+            margin:30px auto;
+        }
+        td,th{ border:1px solid #ddd; padding:5px 0;}
+        td{text-align:center;}
+        tr:nth-child(even){
+            background:#666;
+            color:#ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="input_box">
+        <input type="text" name="userId" id="userId" placeholder="enter userId">
+        <input type="text" name="title" id="title" placeholder="enter title">
+        <input type="text" name="completed" id="completed" placeholder="enter completed">
+        <button id="bt">send</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>userID</th> <th>id</th> <th>title</th> <th>completed</th>
+            </tr>
+        </thead>
+        <tbody id="list"></tbody>
+    </table>
+</body>
+</html>
+<script>
+    $.getJSON("https://jsonplaceholder.typicode.com/todos",function(data){
+        $.each(data, function(i,item){
+            $("#list").append("<tr><td>"+item.userId+"</td><td>"+item.id+"</td><td>"+
+                item.title+"</td><td>"+item.completed+"</td></tr>");
+        });
+    });
+
+    $("#bt").click(function(){
+        var param="";
+        if( $("#userId").val() != '' )  param+="userId="+$("#userId").val();
+        if( $("#title").val() != '') param += (param==''?'':'&') +"title="+$("#title").val();
+        if($("#completed").val()!='') param+=(param==''?'':'&')+"completed="+$("#completed").val();
+
+        $("#list").empty();
+        $.getJSON("https://jsonplaceholder.typicode.com/todos?"+param,function(data){
+            $.each(data, function(i,item){
+                $("#list").append("<tr><td>"+item.userId+"</td><td>"+item.id+"</td><td>"+
+                    item.title+"</td><td>"+item.completed+"</td></tr>");
+            });
+        });
+    })
+</script>
