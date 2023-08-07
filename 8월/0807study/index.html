@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건강센터</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./static/image/hicon.ico">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    
+<link rel="stylesheet" href="./static/css/health.css">
+<script src="./static/js/health.js"></script>
+</head>
+<body>
+    
+    <div id="Hwrap">
+        <header id="header">
+            <div id="defaultSearch">
+                <div class="searchInput">
+                    <input type="text" name="searchWord" id="searchWord">
+                    <i class="bi bi-search"></i>
+                </div>
+            </div>
+            <div id="searchFilter">
+                
+                <div class="filterDetail hide">
+                    <h3>상세검색</h3>
+                    <div id="detailBox" class="detailContainer">
+                        <dl class="detailList">
+                            <dt class="itemDt">센터구분</dt>
+                            <dd class="itemDd">
+                                <input type="checkbox" name="classify" value="정신보건">
+                                <label>정신보건</label>
+                                <input type="checkbox" name="classify" value="건강증진">
+                                <label>건강증진</label>
+                            </dd>
+                        </dl>
+                        <dl class="detailList">
+                            <dt class="itemDt">지역</dt>
+                            <dd class="itemDd">
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="경기도">
+                                    <label>경기도</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="충청북도">
+                                    <label>충청북도</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="충청남도">
+                                    <label>충청남도</label>
+                                </span>
+                                <span  class="item_d">
+                                    <input type="checkbox" name="location" value="전라북도">
+                                    <label>전라북도</label>
+                                </span>
+                                <span  class="item_d">
+                                    <input type="checkbox" name="location" value="전라남도">
+                                    <label>전라남도</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="경상북도">
+                                    <label>경상북도</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="경상남도">
+                                    <label>경상남도</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="강원도">
+                                    <label>강원도</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="서울">
+                                    <label>서울</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="인천">
+                                    <label>인천</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="대전">
+                                    <label>대전</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="광주">
+                                    <label>광주</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="대구">
+                                    <label>대구</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="부산">
+                                    <label>부산</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="location" value="울산">
+                                    <label>울산</label>
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl class="detailList">
+                            <dt class="itemDt">
+                                업무
+                            </dt>
+                            <dd class="itemDd" id="business">
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="금연">
+                                    <label>금연</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="자살예방">
+                                    <label>자살예방</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="절주">
+                                    <label>절주</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="도박">
+                                    <label>도박</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="약물">
+                                    <label>약물</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="아동청소년정신건강">
+                                    <label>아동청소년정신건강</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="임산부">
+                                    <label>임산부</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="비만">
+                                    <label>비만</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="노인정신건강">
+                                    <label>노인정신건강</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="아토피">
+                                    <label>아토피</label>
+                                </span>
+                                <span class="item_d">
+                                    <input type="checkbox" name="task" value="영양">
+                                    <label>영양</label>
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl class="detailList">
+                            <dt class="itemDt">간호사수</dt>
+                            <dd class="itemDd">
+                                <input type="radio" name="nurse" value="5">
+                                <label>5명 이상</label>
+                                <input type="radio" name="nurse" value="10">
+                                <label>10명 이상</label>
+                            </dd>
+                        </dl>
+                        <dl class="detailList">
+                            <dt class="itemDt">사회복지사수</dt>
+                            <dd class="itemDd">
+                                <input type="radio" name="social" value="5">
+                                <label>5명 이상</label>
+                                <input type="radio" name="social" value="10">
+                                <label>10명 이상</label>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="filterMore moreDown">
+                    <i class="bi bi-chevron-compact-down"></i>
+                    <i class="bi bi-chevron-compact-up"></i>
+                </div>
+            </div>
+        </header>
+
+        <section id="sort_wrap">
+            <div class="centerName asc">센터명<i class="bi bi-caret-up"></i><i class="bi bi-caret-down"></i></div>
+            <div class="addr asc">주소<i class="bi bi-caret-up"></i><i class="bi bi-caret-down"></i></div>
+            <div class="nurseCount asc">간호사수<i class="bi bi-caret-up"></i><i class="bi bi-caret-down"></i></div>
+            <div class="doctorCount asc">의사수<i class="bi bi-caret-up"></i><i class="bi bi-caret-down"></i></div>
+        </section>
+        <section id="section">
+            
+        </section>
+    </div>
+
+</body>
+</html>

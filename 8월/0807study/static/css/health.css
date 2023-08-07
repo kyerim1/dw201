@@ -1,0 +1,98 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+#Hwrap{
+    width:800px;
+    margin:0 auto;
+    position:relative;
+}
+#header{
+    padding:20px 0;
+    width:100%;
+    position:relative;
+}
+#defaultSearch{
+    width:100%;
+    padding:0 50px;
+    padding-bottom:10px;
+    border-bottom:2px solid #888;
+}
+#defaultSearch .searchInput{
+    display:flex;  
+    height:30px;
+    font-size:17px;
+    width:100%;
+    border:1px solid #bbb;
+    border-radius: 10px;
+    padding:0 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+#searchWord{
+    border:0;
+    outline: none;
+    height:100%;
+    width:100%;
+}
+#searchFilter{
+    position: relative;
+    width:100%;
+    padding:20px 50px;
+   
+}
+#searchFilter .filterMore{
+    text-align: center;
+    position:relative;
+    font-size:25px;
+    cursor: pointer;
+}
+#searchFilter .moreDown{top:-20px;}
+#searchFilter .moreUp{top:0; border-bottom:2px solid #888;}
+#searchFilter .moreDown .bi-chevron-compact-up{
+    display:none;
+}
+#searchFilter .moreUp .bi-chevron-compact-down{
+    display:none;
+}
+
+#searchFilter .filterDetail{
+    width:100%;
+    position:relative;
+}
+#searchFilter .filterDetail h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+#detailBox{
+    width:100%;
+    position:relative;
+    border:1px solid #444;
+}
+#detailBox .detailList{
+    border-top:1px solid #999;
+    display:flex;
+    align-items: center;
+   
+}
+#detailBox .detailList .itemDt{
+    align-self:stretch;
+    display:flex;
+    align-items:center;
+    padding-left:10px;
+    width:140px;
+    background:seagreen;
+    color:#fff;
+}
+#detailBox .detailList .itemDd{
+    width:560px;
+    padding:13px 8px;
+}
+.itemDd:nth-child(2), .itemDd:nth-child(3){
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 5px;
+}
+.hide{display:none;}
