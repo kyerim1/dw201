@@ -57,13 +57,43 @@
 ["김승겸",30,"은행동"], ["임민지",28,"문화동"],["이상준",33,"선화동"],
 ["김선향",34,"가양동"],["송은선",21,"태평동"]  ];
 
+data_view();
 
-$.each(arr,function(i,data){
-    $("#person").append("<tr><td>"+data[0]+"</td><td>"+data[1]+"</td><td>"+
-        data[2]+"</td></tr>");
+function data_view(){
+    $("#person").empty();
+    $.each(arr,function(i,data){
+        $("#person").append("<tr><td>"+data[0]+"</td><td>"+data[1]+"</td><td>"+
+            data[2]+"</td></tr>");
+    });
+}
+
+
+
+$("#sort_age").click(function(){ //나이 클릭
+    $(this).toggleClass("asc");  //오름차순 아이콘 표시
+    $(this).toggleClass("desc"); //내림차순 아이콘
+    var has = -1;
+    if( $(this).hasClass("asc") ) has=1;
+    arr.sort(function(a,b){
+        return  (a[1] - b[1]) * has;
+    });
+
+    data_view();
 });
 
+$("#sort_addr").click(function(){  //주소 클릭
+    $(this).toggleClass("asc");  //오름차순 아이콘
+    $(this).toggleClass("desc"); //내림차순 아이콘
+    var has = -1;
+    if( $(this).hasClass("asc") ) has=1;
+    arr.sort(function(a,b){
+        if( a[2] < b[2] ) return -1*has;
+        if( a[2] > b[2] ) return 1*has;
+        if(a[2]===b[2]) return 0*has;
+    });
 
+    data_view();
+});
 
 
 //     //"정예림","신상수","김승겸","임민지","이상준","김선향","송은선"
