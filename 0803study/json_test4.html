@@ -19,14 +19,23 @@
         width:400px;
         margin:0 auto;
     }
-
+    #sort_age, #sort_addr{
+        cursor: pointer;
+        border:1px solid black;
+    }
+    .asc .bi-caret-down{
+        display:none;
+    }
+    .desc .bi-caret-up{
+        display:none;
+    }
 </style>
 
 </head>
 <body>
     <div id="option">
-        <div id="sort_age">나이<i class="bi bi-caret-up"></i><i class="bi bi-caret-down"></i></div>
-        <div id="sort_addt">사는곳<i class="bi bi-caret-up"></i><i class="bi bi-caret-down"></i></div>
+        <div id="sort_age" class="asc">나이<i class="bi bi-caret-up"></i><i class="bi bi-caret-down"></i></div>
+        <div id="sort_addr" class="asc">사는곳<i class="bi bi-caret-up"></i><i class="bi bi-caret-down"></i></div>
     </div>
     <table id="list">
         <thead>
@@ -53,6 +62,7 @@ $.each(arr,function(i,data){
     $("#person").append("<tr><td>"+data[0]+"</td><td>"+data[1]+"</td><td>"+
         data[2]+"</td></tr>");
 });
+
 
 
 
