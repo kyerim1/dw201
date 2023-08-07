@@ -1,0 +1,45 @@
+<!-- json_test3.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+   <link rel="stylesheet" href="./static/css/test3.css">
+   <script src="./static/js/test3.js"></script> 
+</head>
+<body>
+    <!--
+url - https://jsonplaceholder.typicode.com/photos
+img태그에 thumbnail 이미지 보이기
+썸네일 이미지 클릭하면 본 이미지 가 보여하고, 제목과 앨범id도 출력되어야한다.
+photos에는 총 5000개 가 있다.  이중 랜덤하게 10개만 화면에 띄운다.
+
+단,  이미지 url에서 via. 은 제거해야 정상적으로 이미지가 보인다.
+    -->
+    <div id="list">
+        <img src="" alt="" class="thumbnail">
+        <img src="" alt="" class="thumbnail">
+        <img src="" alt="" class="thumbnail">
+        <img src="" alt="" class="thumbnail">
+        <img src="" alt="" class="thumbnail">
+        <img src="" alt="" class="thumbnail">
+        <img src="" alt="" class="thumbnail">
+        <img src="" alt="" class="thumbnail">
+        <img src="" alt="" class="thumbnail">
+        <img src="" alt="" class="thumbnail">
+    </div>
+    <div id="modal">
+        <div id="modal_bg"></div>
+        <div id="image">
+            <div class="image_box">
+                <img id="original">
+            </div>
+            <h3 id="title"></h3>
+            <b id="albId"></b>
+        </div>
+    </div>
+</body>
+</html>

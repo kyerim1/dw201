@@ -1,0 +1,119 @@
+<!--    json_test4.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+<style>
+    #option{
+        display:flex;
+        width:400px;
+        justify-content: space-around;
+        margin:0 auto;
+    }
+    #list{
+        width:400px;
+        margin:0 auto;
+    }
+
+</style>
+
+</head>
+<body>
+    <div id="option">
+        <div id="sort_age">나이<i class="bi bi-caret-up"></i><i class="bi bi-caret-down"></i></div>
+        <div id="sort_addt">사는곳<i class="bi bi-caret-up"></i><i class="bi bi-caret-down"></i></div>
+    </div>
+    <table id="list">
+        <thead>
+            <th>이름</th><th>나이</th><th>주소</th>
+        </thead>
+        <tbody id="person"></tbody>
+    </table>
+</body>
+</html>
+
+<script>
+/*
+    1. 아이콘은 오름차순만 표시하기 
+    2. 나이 또는 사는곳을 클릭하면  현재 아이콘의 반대 아이콘으로 표시하기
+    3. 현재 화면에 표시되는 아이콘에 맞춰서 정렬된 데이터들이 화면에 출력될수 있게 만들기
+*/
+
+    const arr=[  ["정예림",24,"중리동"], ["신상수",29,"대흥동"],
+["김승겸",30,"은행동"], ["임민지",28,"문화동"],["이상준",33,"선화동"],
+["김선향",34,"가양동"],["송은선",21,"태평동"]  ];
+
+
+$.each(arr,function(i,data){
+    $("#person").append("<tr><td>"+data[0]+"</td><td>"+data[1]+"</td><td>"+
+        data[2]+"</td></tr>");
+});
+
+
+
+//     //"정예림","신상수","김승겸","임민지","이상준","김선향","송은선"
+
+
+//     $.each(arr,function(i,data){
+//         $("#before").append("<div>"+data+"</div>");
+//     });
+
+//     // for(var i=1; i<= arr.length-1; i++){
+//     //     for(var k=0; k< arr.length-i; k++){
+//     //         if( arr[k][1]  >  arr[k+1][1]){
+//     //             temp = arr[k];
+//     //             arr[k] = arr[k+1];
+//     //             arr[k+1] = temp;
+//     //         }
+//     //     }
+//     // }
+//         arr.sort(function(a,b){
+//             if( a[2] < b[2] ) return -1;
+//             if( a[2] > b[2] ) return 1;
+//             if(a[2]===b[2]) return 0;
+//         });
+
+
+//     $.each(arr,function(i,data){
+//         $("#after").append("<div>"+data+"</div>");
+//     })
+
+
+
+// // // arr.sort(function(a,b){ return b-a;})
+
+// //     arr.sort(function(a,b){
+// //         if(a < b) return 1;
+// //         if( a > b) return -1;
+// //         if( a=== b) return 0;
+// //     });
+
+
+//     $.getJSON("./전국건강증진센터표준데이터.json",function(data){
+//         console.log(data);
+
+//         var keySet = Object.keys(data.records[0]);
+//         console.log(keySet);
+
+//         console.log(data.records[2][keySet[0]]);//data.records[0].건강증진센터명
+
+//         var search = data.records.filter(item => item[keySet[2]].indexOf("대전") != -1  );
+
+//         console.log(search);
+
+
+
+//         // $.each(data.records,function(i,item){
+//         //     console.log(item);
+//         //     var search = item
+         
+//         //     console.log(search);
+//         // })
+        
+//     });
+</script>
