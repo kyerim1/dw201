@@ -19,7 +19,7 @@ async function getData(){
         //     d =data.records;
         // });
         // return d;
-        var data = await fetch("./전국건강증진센터표준데이터.json").then(function(res){ return res.json();}).then(function(r){return r;});
+        var data = await fetch("https://api.odcloud.kr/api/15031992/v1/uddi:3c46e4ef-78dc-4da6-97b1-ad226624eff5_201911131644?page=1&perPage=500&serviceKey=aU2M7WTPerUiHviK%2Bo%2FXiW8lJKziToXUzCR94DRarfLfWW6nbPM%2FkuOYo%2Fntj30U24svccnw4EMvwXj3ccN%2Bxg%3D%3D").then(function(res){ return res.json();}).then(function(r){return r;});
         console.log(data.records);
         return data.records;
 }
@@ -66,6 +66,9 @@ addr:"소재지도로명주소" , nurseCount:"간호사수", doctorCount:"의사
     $("input[type=checkbox]").change(function(){
         search();
     });
+    $("input[type=radio]").change(function(){
+        search();
+    });
 
 });
 
@@ -89,9 +92,9 @@ function search(){
 
         if(word!=''){
             var addr = $(this).find(".item_detail").children("li:eq(1)");
-            var task = $(this).find(".item_detail").children("li:eq(2)");
+            var task1 = $(this).find(".item_detail").children("li:eq(2)");
             var hasAddr = addr.text().indexOf(word) > -1;
-            var hasTask = task.text().indexOf(word) > -1;
+            var hasTask = task1.text().indexOf(word) > -1;
             isShow= hasAddr || hasTask;
         }
         
@@ -106,6 +109,25 @@ function search(){
                 }
             }
         }
+
+        if( task.length!=0 && isShow ){ //업무 상세검색
+            isShow=false;
+            for(var i=0; i<task.length; i++){
+                if( data_list[idx].건강증진업무내용.indexOf(task[i]) > -1 ){
+                    isShow=true;
+                    break;
+                }
+            }
+        }
+        if(nurse.length!=0 && isShow){  // 간호사수 상세검색
+            if (Number(data_list[idx].간호사수) >= Number(nurse[0])) isShow=true;
+            else isShow=false;
+        }
+        if(social.length!=0 && isShow){  // 간호사수 상세검색
+            if (Number(data_list[idx].사회복지사수) >= Number(social[0])) isShow=true;
+            else isShow=false;
+        }
+
 
         $(this).toggle( isShow );
     });
@@ -125,3 +147,15 @@ function view(data_list){
         );
    });
 }
+
+
+
+/*
+인천광역시 인공어초시설 현황 데이터 활용
+
+어초 종류, 어초수량, 설치년도  별로 검색 가능 하게 만들기
+checkbox로 !!!!!!!!!!!!
+
+
+
+*/
