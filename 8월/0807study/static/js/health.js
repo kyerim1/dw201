@@ -19,4 +19,35 @@ $(function(){
             );
        });
     });
+
+// 전체 텍스트에 대한 검색이 아니라
+//  소재지주소와 업무내용에 한해서만  검색이 가능하게 변경하시오
+    $("#searchWord").on("keyup",function(){
+        const word = $(this).val();
+        $(".item_short").filter(function(){
+            var addr = $(this).find(".item_detail").children("li:eq(1)");
+            var task = $(this).find(".item_detail").children("li:eq(2)");
+            var hasAddr = addr.text().indexOf(word) > -1;
+            var hasTask = task.text().indexOf(word) > -1;
+            $(this).toggle( hasAddr || hasTask );
+        });
+    });
+
+
+    $(".centerName").click(function(){
+        $(this).toggleClass("asc");
+        $(this).toggleClass("desc");
+    });
+    $(".addr").click(function(){
+        $(this).toggleClass("asc");
+        $(this).toggleClass("desc");
+    });
+    $(".nurseCount").click(function(){
+        $(this).toggleClass("asc");
+        $(this).toggleClass("desc");
+    })
+    $(".doctorCount").click(function(){
+        $(this).toggleClass("asc");
+        $(this).toggleClass("desc");
+    })
 });
