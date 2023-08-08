@@ -58,20 +58,39 @@ addr:"소재지도로명주소" , nurseCount:"간호사수", doctorCount:"의사
         var has = -1;
         if( $(this).hasClass("asc") ) has=1;
         
-        $.getJSON("./전국건강증진센터표준데이터.json",function(data){
-            const data_list = data.records;
-           
-            data_list.sort(function(a,b){
-                if( a[sort_type[name]] > b[sort_type[name]]) return 1*has;
-                if( a[sort_type[name]] < b[sort_type[name]]) return -1*has;
-                if(a[sort_type[name]]===b[sort_type[name]]) return 0;
-            });
-
-           view(data_list);
-           
+        data_list.sort(function(a,b){
+            if( a[sort_type[name]] > b[sort_type[name]]) return 1*has;
+            if( a[sort_type[name]] < b[sort_type[name]]) return -1*has;
+            if(a[sort_type[name]]===b[sort_type[name]]) return 0;
         });
+
+        view(data_list);
+      
     });
    
+
+    /* 상세검색 부분 */
+    $("input[name=classify]").change(function(){
+        var value=new Array();
+        $("input[name=classify]:checked").each(function(){
+            value.push($(this).val());
+        })
+        console.log(value.length);
+
+        $.each(data_list,function(i, item){
+            if( value.length==0)
+                $(".item_short").eq(i).removeClass("hide");
+            else if(value.indexOf(item.건강증진센터구분) == -1){
+                $(".item_short").eq(i).addClass("hide");
+            }
+            //  if( $(".item_short").eq(i).css("display") !="none"){
+            //     if( value.indexOf(item.건강증진센터구분) == -1 )
+            //         $(".item_short").eq(i).hide();
+
+            //  }
+        });
+
+    });
 
 });
 

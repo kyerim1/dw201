@@ -95,7 +95,7 @@
     column-gap: 20px;
     row-gap: 5px;
 }
-.hide{display:none;}
+
 
 
 #sort_wrap{
@@ -136,3 +136,5 @@
     width:295px;
     padding:0 5px 0 30px;
 }
+
+.hide{display:none;}
