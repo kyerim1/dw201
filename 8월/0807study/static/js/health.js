@@ -38,14 +38,7 @@ $(async function(){
 // 전체 텍스트에 대한 검색이 아니라
 //  소재지주소와 업무내용에 한해서만  검색이 가능하게 변경하시오
     $("#searchWord").on("keyup",function(){
-        const word = $(this).val();
-        $(".item_short").filter(function(){
-            var addr = $(this).find(".item_detail").children("li:eq(1)");
-            var task = $(this).find(".item_detail").children("li:eq(2)");
-            var hasAddr = addr.text().indexOf(word) > -1;
-            var hasTask = task.text().indexOf(word) > -1;
-            $(this).toggle( hasAddr || hasTask );
-        });
+            search();
     });
 
 
@@ -70,29 +63,54 @@ addr:"소재지도로명주소" , nurseCount:"간호사수", doctorCount:"의사
    
 
     /* 상세검색 부분 */
-    $("input[name=classify]").change(function(){
-        var value=new Array();
-        $("input[name=classify]:checked").each(function(){
-            value.push($(this).val());
-        })
-        console.log(value.length);
-
-        $.each(data_list,function(i, item){
-            if( value.length==0)
-                $(".item_short").eq(i).removeClass("hide");
-            else if(value.indexOf(item.건강증진센터구분) == -1){
-                $(".item_short").eq(i).addClass("hide");
-            }
-            //  if( $(".item_short").eq(i).css("display") !="none"){
-            //     if( value.indexOf(item.건강증진센터구분) == -1 )
-            //         $(".item_short").eq(i).hide();
-
-            //  }
-        });
-
+    $("input[type=checkbox]").change(function(){
+        search();
     });
 
 });
+
+function search(){
+    const word = $("#searchWord").val();
+    let classify=new Array();
+    let location=new Array();
+    let task = new Array();
+    let nurse = new Array();
+    let social = new Array();
+    $("input[name=classify]:checked").each(function(){ classify.push($(this).val());});
+    $("input[name=location]:checked").each(function(){ location.push($(this).val());});
+    $("input[name=task]:checked").each(function(){ task.push($(this).val());});
+    $("input[name=nurse]:checked").each(function(){ nurse.push($(this).val());});
+    $("input[name=social]:checked").each(function(){ social.push($(this).val());});
+
+    $(".item_short").filter(function(){
+        
+        var isShow=true;
+        var idx = $(this).index();
+
+        if(word!=''){
+            var addr = $(this).find(".item_detail").children("li:eq(1)");
+            var task = $(this).find(".item_detail").children("li:eq(2)");
+            var hasAddr = addr.text().indexOf(word) > -1;
+            var hasTask = task.text().indexOf(word) > -1;
+            isShow= hasAddr || hasTask;
+        }
+        
+        if(classify.length!=0 && isShow){
+            if( classify.indexOf(data_list[idx].건강증진센터구분) == -1) isShow=false;
+        }
+        if(location.length!=0 && isShow){
+            isShow=false;
+            for(var i=0; i< location.length; i++){
+                if( data_list[idx].소재지도로명주소.indexOf(location[i]) > -1){
+                    isShow=true; break;
+                }
+            }
+        }
+
+        $(this).toggle( isShow );
+    });
+}
+
 
 function view(data_list){
     $("#section").empty();
