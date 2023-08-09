@@ -1,6 +1,6 @@
 let data=[];  // json 데이터 저장할 변수
 let fire_stat=new Object();
-
+var i=50;
 async function getData(){
     var temp = await fetch("./traffic.json").then((r)=>r.json());
     //console.log(temp);
@@ -39,7 +39,34 @@ $(async function(){
     var cv = $("#Canvas")[0];
     var ctx = cv.getContext("2d");
 
-    
+    $("#rect").click(function(){
+        ctx.fillStyle="pink";
+        ctx.fillRect(10,10,100,150);
+    });
+    $("#circle").click(function(){
+        ctx.beginPath();
+        ctx.ellipse(100,100,50,75,Math.PI / 4,0,Math.Pi*2);
+        ctx.stroke();
+        ctx.fillStyle="orange";
+        ctx.fill();
+    });
+    var id;
+    var step=10;
+    $("#move").click(function(){
+  
+            id=setInterval(function(){
+                
+                    ctx.clearRect(0,0,500,500);
+                    ctx.beginPath();
+                    ctx.arc(i,100, 50,0,2*Math.PI);
+                    ctx.stroke();
+                    ctx.fillStyle="orange";
+                    ctx.fill();
+                    i+=step;
+                    if(i==450 || i==50) step*=-1;
+            },50);
+        
+    });
 
 //     ctx.moveTo(0,0);
 //     ctx.lineTo(100,50);
@@ -78,3 +105,7 @@ $(async function(){
 //     ctx.fillStyle=grd;
 //     ctx.fillRect(50,300,100,200);
 });
+
+function draw(i,ctx){
+    
+}
