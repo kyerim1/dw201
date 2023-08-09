@@ -1,0 +1,20 @@
+
+#view{
+    width:1300px;
+    margin:0 auto;
+}
+#gp{
+    width:100%;
+    border-collapse: collapse;
+}
+#gp tr td{
+    border:1px solid #aaa;
+}
+
+#gp tr td:nth-child(1){border-left:2px solid #333;}
+.name{width:100px;}
+#gp tr:nth-child(even) td{
+    border-bottom:2px solid #777;
+}
+.red{background:red;}
+.blue{background:blue;}
