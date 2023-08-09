@@ -17,3 +17,9 @@
 }
 .red{background:red;}
 .blue{background:blue;}
+
+#Canvas{
+    width:500px;
+    height:500px;
+    border:1px solid black;
+}
