@@ -1,19 +1,18 @@
 
 #view{
-    width:1300px;
+    width:1800px;
     margin:0 auto;
 }
 #gp{
     width:100%;
     border-collapse: collapse;
-}
-#gp tr td{
-    border:1px solid #aaa;
+    border:2px solid #777;
 }
 
+
 #gp tr td:nth-child(1){border-left:2px solid #333;}
-.name{width:100px;}
-#gp tr:nth-child(even) td{
+.name{width:150px;}
+#gp tr:nth-child(even){
     border-bottom:2px solid #777;
 }
 .red{background:red;}

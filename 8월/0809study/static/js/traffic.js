@@ -22,11 +22,13 @@ $(async function(){
     $.each(keys,function(i,key){
         var td1 = "";
         var td2 = "<tr>";
-        for(var i=1; i<=fire_stat[key].출동건수; i+=5)
+        for(var i=1; i<=fire_stat[key].출동건수; i+=10)
             td1+="<td class='red' width=5></td>";
-        for(var i=1; i<=fire_stat[key].환자수; i+=5)
+        td1+="<td colspan='5' width=60>"+fire_stat[key].출동건수+"건</td>";
+        
+        for(var i=1; i<=fire_stat[key].환자수; i+=10)
             td2+="<td class='blue' width=5></td>";
-        td2+="</tr>";
+        td2+="<td width=60>"+fire_stat[key].환자수+"명</td></tr>";
 
         $("#gp").append("<tr><td class='name' rowspan='2'>"+key+"</td>"+td1+"</tr>");
         $("#gp").append(td2);
