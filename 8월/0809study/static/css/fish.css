@@ -1,0 +1,39 @@
+*{padding:0;margin:0;box-sizing: border-box;}
+#wrap{
+    width:1000px;
+    margin:0 auto;
+}
+#wrap fieldset{
+    width:100%;
+    margin-top:30px;
+    padding:20px;
+}
+.search_box{
+    width:100%;
+    display:flex;
+    align-items: center;
+    border-bottom:1px solid #ccc;
+}
+.search_title{
+    width:150px;
+}
+.search_title ~ div{
+    width:810px;
+    display:flex;
+    flex-wrap:wrap;
+    padding:10px 0;
+    gap:15px;
+}
+.chk{
+    display:inline-block;
+}
+#title{
+    width:100%;
+    margin:10px 0;
+}
+#title span, #list span{ display:inline-block; text-align: center;}
+.num{width:100px;}
+.fyear{width:150px;}
+.ftype{width:200px;}
+.famount{width:100px;}
+.flocation{width:425px;}
