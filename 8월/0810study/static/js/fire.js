@@ -27,10 +27,16 @@ $(async function(){
     ctx.moveTo(1230,70);
     ctx.lineTo(1290,70);
     ctx.stroke();
-    ctx.fillStyle="#000";
+    var grd=ctx.createLinearGradient(1230,85,1290,100);
+    grd.addColorStop(0,"#FF6347");
+    grd.addColorStop(0.5,"#FFD700");
+    grd.addColorStop(1,"#008080");
+    ctx.fillStyle=grd;
     ctx.fillRect(1230,85,60,15);
+    ctx.fillStyle="#000";
     ctx.fillText("환자수",1300,73);
     ctx.fillText("출동건수",1300,95);
+
     var keys=Object.keys(fire_stat);
     var oldx=oldy=0;
     var oldtext=0;
