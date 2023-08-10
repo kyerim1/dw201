@@ -26,6 +26,33 @@ $(function(){
 let oldx=oldy=0;
 function draw(name,tall){
 
+    ctx.beginPath();
+    ctx.moveTo(400,350);
+    ctx.arc(400,350,300,270*Math.PI/180 , 18*Math.PI/180,false);
+    ctx.fillStyle="#B0C4DE";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(400,350);
+    ctx.arc(400,350,300,18*Math.PI/180 , 90*Math.PI/180,false);
+    ctx.fillStyle="blue";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(400,350);
+    ctx.arc(400,350,300,90*Math.PI/180 , 223.2*Math.PI/180,false);
+    ctx.fillStyle="green";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(400,350);
+    ctx.arc(400,350,300,223.2*Math.PI/180 , 270*Math.PI/180,false);
+    ctx.fillStyle="skyblue";
+    ctx.fill();
+}
+/*
+꺽은선
+
     ctx.fillStyle="#000";
     ctx.font="20px Arial";
     ctx.fillText(name,50+100*cnt,680);
@@ -47,8 +74,7 @@ function draw(name,tall){
         oldy=600-tall;
     }
     cnt++;
-}
-/*
+
 세로
     ctx.fillStyle="#000";
     ctx.font="20px Arial";
