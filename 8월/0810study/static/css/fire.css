@@ -1,0 +1,9 @@
+#result{
+    width:1500px;
+    margin:0 auto;
+}
+#graph{
+    width:1500px;
+    height:800px;
+    border:1px solid #aaa;
+}
