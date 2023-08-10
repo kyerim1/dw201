@@ -11,7 +11,10 @@ async function getData(){
 
 $(async function(){
     data = await getData();
+    var total=bike=0;
     $.each(data,function(i,item){
+        total+=Number(item.gutCo);// 전체 사고건수
+        bike+=item.rlifAcdAsmCdNm==="오토바이사고"?Number(item.gutCo):0;
         if( item.rsacGutFsttOgidNm in fire_stat ){
             fire_stat[item.rsacGutFsttOgidNm].출동건수 += item.gutCo;
             fire_stat[item.rsacGutFsttOgidNm].환자수 += item.trnfPcnt;
@@ -62,6 +65,28 @@ $(async function(){
         }
 
     });
+
+    var ctx2 = $("#pi")[0].getContext("2d");
+
+    var pc = 1/(total/bike);
+    var bike_deg= 270+360*pc;
+    bike_deg = Math.round( (bike_deg>360 ? bike_deg-360: bike_deg) *100  )/100;
+    
+    ctx2.beginPath();
+    ctx2.moveTo(350,350);
+    ctx2.arc(350,350,300,270*Math.PI/180 , bike_deg*Math.PI/180,false);
+    ctx2.fillStyle="yellow";
+    ctx2.fill();
+
+    ctx2.beginPath();
+    ctx2.moveTo(350,350);
+    ctx2.arc(350,350,300,bike_deg*Math.PI/180 , 270*Math.PI/180,false);
+    ctx2.fillStyle="orange";
+    ctx2.fill();
+
+    ctx2.fillStyle="#000";
+    ctx2.font="30px Arial";
+    ctx2.fillText(Math.round(pc*1000)/10+"%",450,200);
 });
 
 /*
