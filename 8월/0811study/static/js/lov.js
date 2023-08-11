@@ -1,6 +1,7 @@
 let data=[];//json데이터 저장할 배열
 let tmp_data=new Object(); // 월별 기온 데이터 저장할 객체
 let year=[]; //년도 저장할 배열
+let color=[]; //년도별 색상
 
 
 async function getData(){
@@ -31,6 +32,14 @@ $(async function(){
         oldDay.d=Number(date[2]);
     });
     year = Array.from(y);
+//년도별 색상 생성
+    $.each(year,function(i,y){
+        var r=Math.floor(Math.random()*256);
+        var g=Math.floor(Math.random()*256);
+        var b=Math.floor(Math.random()*256);
+        color.push("rgb("+r+","+g+","+b+")"); 
+    });
+
     console.log( tmp_data );
 
 
@@ -50,15 +59,17 @@ function make_legend(id,ctx){
     //제목
     ctx.font="20px Arial";
     ctx.fillText(id,100,30);
-    var yp=10;
+    var yp=10, x=0;
     for(var i=0; i<year.length; i++){
-        if(i > parseInt(year.length/2)) yp=35;
-        ctx.arc(200,yp, 3, 0, 2*Math.PI);
-        ctx.fillStyle="orange";
+        if(i == parseInt(year.length/2)){ yp=35; x=0; }
+        ctx.beginPath();
+        ctx.arc(200+50*x,yp, 3, 0, 2*Math.PI);
+        ctx.fillStyle=color[i];
         ctx.fill();
         ctx.font="10px Airal";
         ctx.fillStyle="#000";
-        ctx.fillText(year[i]+"년",210 ,yp+3);
+        ctx.fillText(year[i]+"년",210+50*x ,yp+3);
+        x++;
     }
 
 }
