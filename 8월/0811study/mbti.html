@@ -1,0 +1,37 @@
+<!-- mbti.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script src="./static/js/mbti.js"></script>
+<link rel="stylesheet" href="./static/css/mbti.css">    
+</head>
+<body>
+    <div id="chemistry">
+        <label>나 MBTI</label> <input type="text" name="me" id="me">
+        <label>너 MBTI</label><input type="text" name="you" id="you">
+        <button id="result_bt">결과</button>
+    </div>
+    <div id="mbti_chart">
+        <canvas id="mbti" width="900" height="900"></canvas>
+    </div>
+
+
+    <div id="result_box">
+        <div id="result"></div>
+        <div id="detail">
+            <div class="left">
+                <img class="left_img">
+                <p id="left_detail"></p>
+            </div>
+            <div class="right">
+                <img class="right_img">
+                <p id="right_detail"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
