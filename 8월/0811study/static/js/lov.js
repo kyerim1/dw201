@@ -2,7 +2,8 @@ let data=[];//json데이터 저장할 배열
 let tmp_data=new Object(); // 월별 기온 데이터 저장할 객체
 let year=[]; //년도 저장할 배열
 let color=[]; //년도별 색상
-
+let maxmin=[ {max:0,min:0},{max:0,min:0},{max:0,min:0},{max:0,min:0},{max:0,min:0},
+    {max:0,min:0},{max:0,min:0},{max:0,min:0},{max:0,min:0},{max:0,min:0},{max:0,min:0},{max:0,min:0}  ];
 
 async function getData(){
     var temp = await fetch("./static/js/csvjson.json").then((res)=>res.json());
@@ -19,10 +20,21 @@ $(async function(){
         var date = item.날짜.split("-"); // 각 데이터의 날짜를-기준으로분리 배열
         y.add( date[0] ); // 년도만 저장
         keyIn(date);
+       
         if(oldDay.m != Number(date[1]) ){ // 월이 변경 되었을경우
             tmp_data[oldDay.y][oldDay.m].평균기온 = tmp_data[oldDay.y][oldDay.m].평균기온/oldDay.d;
             tmp_data[oldDay.y][oldDay.m].최저기온 = tmp_data[oldDay.y][oldDay.m].최저기온/oldDay.d;
             tmp_data[oldDay.y][oldDay.m].최고기온 = tmp_data[oldDay.y][oldDay.m].최고기온/oldDay.d;
+            if(maxmin[oldDay.m-1].max==0){
+                maxmin[oldDay.m-1].max=tmp_data[oldDay.y][oldDay.m].평균기온;
+                maxmin[oldDay.m-1].min= tmp_data[oldDay.y][oldDay.m].평균기온;
+            }
+            if(maxmin[oldDay.m-1].max < tmp_data[oldDay.y][oldDay.m].평균기온 )
+                maxmin[oldDay.m-1].max = tmp_data[oldDay.y][oldDay.m].평균기온;
+
+            if(maxmin[oldDay.m-1].min >  tmp_data[oldDay.y][oldDay.m].평균기온)
+                maxmin[oldDay.m-1].min = tmp_data[oldDay.y][oldDay.m].평균기온;
+            
         }
         tmp_data[date[0]][Number(date[1])].평균기온 += item.평균기온c;
         tmp_data[date[0]][Number(date[1])].최저기온 += item.최저기온c;
@@ -40,7 +52,7 @@ $(async function(){
         color.push("rgb("+r+","+g+","+b+")"); 
     });
 
-    console.log( tmp_data );
+    console.log( maxmin );
 
 
     //그래프 그리기
@@ -61,8 +73,16 @@ function draw(id,month){  // 각 계절 마다 월에 맞춰서 캔버스에 그
 function draw_data(ctx, month){
     $.each(month,function(i,m){  // 월  - 월부터 시작하는 이유는 그래프의 기준이 월이니까
         $.each(year,function(k,y){ // 년
+            if(y==="2023" && k>=7) return;
+            var t=tmp_data[y][m].평균기온;
+            if(month[0]==12)  // 겨울에는 기온이 - 이기때문에 계산식 따로
+                t=t-maxmin[month[0]-1].min;
+            else
+                t =t- Math.abs(m==9 || m==10||m==11? maxmin[10].min :maxmin[month[0]-1].min);
+            
+            t+=5;
             ctx.beginPath(); // 원그리기 시작하겠다.
-            ctx.arc(); //원그리기
+            ctx.arc( 150+t*30, 200+100*i, 5, 0, 2*Math.PI); //원그리기
             ctx.fillStyle=color[k];//원 색상 정하기
             ctx.fill(); //원 색상 넣기
         });
@@ -70,15 +90,16 @@ function draw_data(ctx, month){
 }
 function draw_axis(ctx,month){
     ctx.moveTo(150,120);
-    ctx.lineTo(800,120);
+    ctx.lineTo(950,120);
     ctx.stroke();
-    var n = month==3? -1 : month==6? 20 :month==9?20:-7;
-    for(var i=0; i<13; i++){
-        ctx.moveTo(150+50*i,120);
-        ctx.lineTo(150+50*i,130);
+    var n = month==9? parseInt(maxmin[10].min) : parseInt(maxmin[month-1].min);
+    n=n-5;
+    for(var i=0; i<27; i++){
+        ctx.moveTo(150+30*i,120);
+        ctx.lineTo(150+30*i,130);
         ctx.stroke();
         ctx.font="10px Arial";
-        ctx.fillText(n,147+50*i,139);
+        ctx.fillText(n,147+30*i,139);
         n++;
     }
 
