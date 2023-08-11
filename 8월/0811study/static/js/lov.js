@@ -53,6 +53,42 @@ function draw(id,month){  // 각 계절 마다 월에 맞춰서 캔버스에 그
     var ctx = $("#"+id)[0].getContext("2d");
     //범례
     make_legend(id, ctx);
+    //월 출력
+    print_month(ctx,month);
+    draw_axis(ctx,month[0]);
+    draw_data(ctx,month);
+}
+function draw_data(ctx, month){
+    $.each(month,function(i,m){  // 월  - 월부터 시작하는 이유는 그래프의 기준이 월이니까
+        $.each(year,function(k,y){ // 년
+            ctx.beginPath(); // 원그리기 시작하겠다.
+            ctx.arc(); //원그리기
+            ctx.fillStyle=color[k];//원 색상 정하기
+            ctx.fill(); //원 색상 넣기
+        });
+    });
+}
+function draw_axis(ctx,month){
+    ctx.moveTo(150,120);
+    ctx.lineTo(800,120);
+    ctx.stroke();
+    var n = month==3? -1 : month==6? 20 :month==9?20:-7;
+    for(var i=0; i<13; i++){
+        ctx.moveTo(150+50*i,120);
+        ctx.lineTo(150+50*i,130);
+        ctx.stroke();
+        ctx.font="10px Arial";
+        ctx.fillText(n,147+50*i,139);
+        n++;
+    }
+
+}
+
+function print_month(ctx,month){
+    $.each(month,function(i,m){
+        ctx.font="20px Arial";
+        ctx.fillText(m+"월",50,200+100*i);
+    });
 }
 
 function make_legend(id,ctx){
