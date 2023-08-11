@@ -1,0 +1,11 @@
+*{padding:0; margin:0; box-sizing: border-box;}
+#board{
+    width:1000px;
+    margin:50px auto;
+}
+#spring,#summer,#fall,#winter{
+    width:1000px;
+    height:500px;
+    box-shadow: 1px 1px 5px #aaa;
+    margin-bottom:20px;
+}
