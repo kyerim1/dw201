@@ -1,0 +1,48 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    background:#222845;
+    color:#eee;
+}
+#wrap{
+    min-width:800px;
+    width:100%;
+    padding:50px;
+    margin:0 auto;
+    position:relative;
+}
+#header{
+    width:100%;
+    position:relative;
+}
+.select_box{
+    display:flex;
+    column-gap: 20px;
+    padding:10px 0;
+    align-items: center;
+}
+.select_box label{
+    margin-right:10px;
+}
+.select_box select{
+    width:200px;
+    height:30px;
+    border-radius: 5px;
+}
+.check_wrap{
+    display:flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+.check_box{
+    display:flex;
+    column-gap: 30px;
+}
+.check_box label{ font-size:17px; font-weight:800;}
+
+
+
+#search_result{
+    width:100%;
+}
