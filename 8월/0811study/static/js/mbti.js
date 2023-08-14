@@ -14,8 +14,37 @@ $(async function(){
     $("#result_bt").click( result );
     $("#result_box").click(function(){
         $(this).toggle();
-    })
+    });
+
+    draw_GO();
 });
+function draw_GO(){
+    var ctx = $("#mbti")[0].getContext("2d");
+    var keys = Object.keys(data);
+    
+    $.each(keys,function(i,k){
+         draw_text(i,k,ctx);
+         draw_rect(i,k,ctx,keys);
+    });
+    
+    //console.log(keys);
+}
+function draw_rect(i,k,ctx,keys){
+    
+    $.each(keys,function(a,b){
+        console.log(color[data[k][b] - 1]);
+        ctx.fillStyle=color[data[k][b] - 1];
+        ctx.fillRect(50+50*a,60+50*i,50,50);
+        ctx.strokeRect(50+50*a,60+50*i,50,50);
+    })
+}
+
+function draw_text(i,k,ctx){
+    ctx.fillStyle="#000";
+    ctx.font="15px Arial";
+    ctx.fillText(k,60+50*i,50);
+    ctx.fillText(k,10,90+50*i);
+}
 
 function result(){
     var me = $("#me").val().toUpperCase();
@@ -29,6 +58,9 @@ function result(){
 
     $(".left_img").attr("src","./static/image/"+me+".png");
     $(".right_img").attr("src","./static/image/"+you+".png");
+
+    $("#left_detail").text(detail[me]);
+    $("#right_detail").text(detail[you]);
     //console.log( state[n-1]);
 }
 
@@ -39,6 +71,9 @@ function result(){
 
 
 const detail={ 
-    ISTJ:"소금형<br>원이원칙적, 계획적.  여행가면 나서서 계획세움."+  
-    "즉흑적인거 싫어함 약속 어기는거 싫어함 협동하고 이런거 싫어함"
+    ISTJ:"소금형",
+    ESTP:"활동가형", ISFJ:"권력형",ESFP:"사교형", ENFP:"스파크형",
+    INFJ:"예언자형", ENTP:"발명가형", INTJ:"과학자형", ESTJ:"사업가형",
+    ISTP:"백과사전형", ESFJ:"친선도모형", ENFJ:"언변능숙형",
+    ISFP:"성인군자형", ENTJ:"지도자형", INFP:"잔다르크형", INTP:"아이디어형"
 };

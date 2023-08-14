@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script src="./static/js/rental.js"></script>
+<link rel="stylesheet" href="./static/css/rental.css">
+</head>
+<body>
+    
+<!--   
+   공공데이터포털 로그인-> 마이페이지
+   API 요청 중 한국토지주택공사_공공임대주택 단지정보 조회 서비스
+   참고문서 다운로드
+   인증키는 첫번째 인증키 활용
+   참고문서에서 활용방법 찾아보기  
+   필수 입력항목 반드시 확인
+   참고문서 압축해제 하면 엑셀파일에 시군구 코드 적혀있다.
+   조회시 데이터 갯수는  500개  
+
+   -------- html---- 내용
+    14개 시도 select로 선택하게 만들기
+    각 시도 선택하면  구군 선택하게 select 값 변환
+    예) 대전 선택하면  구군 select 의 option이  중구,서구,유성구,대덕구,동구
+    가 나와야 한다.
+      서울 선택하면 구군 select의 option이 서울시의 구 만 나와야한다.
+    
+    임대보증금 , 월임대료 입력 값 이상의 공공주택만 검색되게 만들기
+
+    전용면적 , 건물형태, 승강기 - checkbox로 구현하기
+-->
+
+<div id="wrap">
+    <header id="header">
+        <div class="select_box">
+            <div class="select_pl">
+                <label>시도</label><select id="si"></select>
+            </div>
+            <div class="select_pl">
+                <label>구군</label><select id="gu"></select>
+            </div>
+        </div>
+        <div class="check_wrap">
+            <div class="check_box">
+                <label>전용면적</label>
+                <span>~20㎡<input type='checkbox' name="prvusear" value="20"></span>
+                <span>20㎡~40㎡<input type='checkbox' name="prvusear" value="20~40"></span>
+                <span>40㎡~60㎡<input type='checkbox' name="prvusear" value="40~60"></span>
+                <span>60㎡~<input type='checkbox' name="prvusear" value="60"></span>
+            </div>
+            <div class="check_box">
+                <label>주택유형</label>
+                <span>아파트<input type="checkbox" name="housetynm" value="아파트"> </span>
+                <span>오피스텔<input type="checkbox" name="housetynm" value="오피스텔"> </span>
+                <span>다가구주택<input type="checkbox" name="housetynm" value="다가구주택"> </span>
+                <span>다세대주택<input type="checkbox" name="housetynm" value="다세대주택"> </span>
+            </div>
+        </div>
+        <div class="search_wrap">
+            <input type="text" id="rentgtn" placeholder="임대보증금 - 입력 값 이상 조회">
+            <input type="text" id="rntchrg" placeholder="월임대료 - 입력 값 이상 조회">
+        </div>
+    </header>
+    <div id="search_result">
+        <table>
+            <thead>
+                <th>주소</th> <th>준공일자</th><th>전용면적</th><th>공용면적</th>
+                <th>주택유형</th><th>주차수</th><th>보증금</th><th>월임대료</th>
+                <th>세대수</th>
+            </thead>
+            <tbody id="result"></tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
