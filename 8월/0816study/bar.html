@@ -1,0 +1,58 @@
+<!--  bar.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+
+<style>
+    #board{
+        width:800px;
+        height:800px;
+        margin:0 auto;
+    }
+    #input_wrap{
+        margin:0 auto;
+        width:800px;
+        display:flex;
+        flex-wrap:wrap;
+        padding:20px 0;   align-items: center;
+    }
+    .input_box{ width:260px; display:flex; align-items: center;}
+    .input_box input[type='text']{
+        width:200px; border-radius: 5px;
+        outline: none; height:25px;
+        padding:2px 5px;
+    }
+    .input_box input[type='text']+label{
+        display:inline-block;
+        width:40px;
+        text-align: center; font-size:20px;
+    }
+</style>
+</head>
+<body>
+
+<div id="input_wrap">
+    <div class="input_box">
+        <input type="text" id="name"><label for="name">이름</label>
+    </div>
+    <div class="input_box">
+        <input type="text" id="tall"><label for="tall">키</label>
+    </div>
+    <div class="bt">
+        <button id="reg_bt">등록</button>
+    </div>
+</div>
+
+    <div id="board">
+        <canvas id="bar_chart" width="800" height="800"></canvas>
+    </div>
+</body>
+</html>
+<script src="./static/js/bar.js"></script>

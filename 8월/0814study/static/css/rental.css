@@ -38,11 +38,41 @@
 .check_box{
     display:flex;
     column-gap: 30px;
+    align-items: center;
 }
-.check_box label{ font-size:17px; font-weight:800;}
-
-
-
+.check_box .title{ font-size:17px; font-weight:800;}
+input[type="checkbox"] + .on{
+    display:inline-block; padding-right:5px;
+    margin-left:-2px;
+    padding:5px 20px;
+    font-size:17px;
+    cursor: pointer;
+    border-radius: 10px;
+    border:1px solid #eee;
+ }
+input[type="checkbox"]{
+    opacity:0;
+}
+input[type="checkbox"]:checked + .on { background:#eee;color:#222845; }
+.search_wrap{
+    text-align: center;
+    padding:10px 50px;
+}
+.search_wrap input{
+    height:30px;
+    border-radius:5px;
+    background:#eee;
+    padding:3px 5px;
+    width:200px;
+    color:#222845;
+}
 #search_result{
     width:100%;
+}
+#search_result table{
+    width:100%;
+    border-collapse: collapse;
+}
+#search_result table tr th, #search_result table tr td{
+    border:1px solid #eee;
 }

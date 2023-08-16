@@ -4,25 +4,27 @@ const signgu=new Object();
 
 async function getCode(){
     var temp = await fetch("./static/js/sigu.json").then((res)=>res.json());
-    // $.each(temp,function(i,d){
-    //     if(d.시군구코드==='' || d.광역시도코드==36){
-    //         brtc[d.광역시도코드]=d.법정동명;
-    //     }else{
-    //         signgu[d.법정동명]=d.시군구코드;
-    //     }
-    // });
-    console.log(temp);
+    $.each(temp,function(i,d){
+        if(d.시군구코드==='' || d.광역시도코드==36){
+            brtc[d.광역시도코드]=d.법정동명;
+        }else{
+            signgu[d.법정동명]=d.시군구코드;
+        }
+    });
+    //console.log(temp);
 }
 async function getData(brtcCode, signguCode){
     var ServiceKey="aU2M7WTPerUiHviK%2Bo%2FXiW8lJKziToXUzCR94DRarfLfWW6nbPM%2FkuOYo%2Fntj30U24svccnw4EMvwXj3ccN%2Bxg%3D%3D";
-    var url="http://krdrive.ipdisk.co.kr:8000/test/aaa.php?ServiceKey="+ServiceKey+
+    var url="http://krdrive.ipdisk.co.kr:8000/test/a1.php?ServiceKey="+ServiceKey+
     "&brtcCode="+brtcCode+"&signguCode="+signguCode+"&numOfRows=500";
-    var temp = fetch(url).then((res)=>res.json());
+    var temp = fetch(url).then((res)=>res);
+    console.log(temp);
 }
 
 
 $(async function(){
     await getCode();
+    await getData(11,140);
     var brtkey = Object.keys(brtc);
     $("#si").append("<option value=''>시도 선택하세요</option>");
     $.each(brtkey,function(i,k){

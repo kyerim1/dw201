@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+    <style>
+        #board{
+            width:500px;
+            height:500px;
+        }
+    </style>
+</head>
+<body>
+  
+<div id="board">    
+    <canvas id="chart1" width="500" height="500"></canvas>
+</div>
+
+</body>
+</html>
+
+<script>
+const autocolors = window['chartjs-plugin-autocolors'];
+
+Chart.register(autocolors);
+
+    const score = [89,56,45,99];
+    let avg = parseInt((score[0]+score[1]+score[2]+score[3])/4);
+
+    const img = new Image();
+    img.src="./static/image/logo.png";
+
+    img.onload = function(){
+        const ctx = $("#chart1")[0].getContext("2d");
+        const pattern = ctx.createPattern(img,'repeat');
+
+        new Chart(ctx, {
+           
+            type:'bar',
+            data: {
+                labels : ['영희','철수','민수','은정'],
+                datasets:[{
+                    label:'성적표',
+                    data :score,
+                    borderWidth:1,
+                    base:avg
+                }]
+            },
+            options:{
+                plugins:{
+                    autocolors:{
+                        mode:'data'
+                    }
+                },
+                scales:{
+                    y:{
+                        beginAtZero:true
+                    }
+                }
+            }
+        });
+    };
+
+</script>
+
+
+
+<!--
+    9월 1일 까지 할일
+    김선향 - 데이터 검색 
+    김태형 - 빙고 만들기
+    김승겸 - 스크립트 내장 함수 익히기
+    송은선 - 데이터 검색 및 어떤 json데이터파일 이라도 활용할수 있게 하기
+    신상수 - 네이버, 다음등  스크립트 관련 api 익히기
+    안태균 - 데이터 검색
+    이상준 - 스크립트 내장 함수 익히기
+    임민지 - 데이터 검색 및 어떤 json데이터파일 이라도 활용할수 있게 하기
+    이영주 - 영타 200타, 빙고만들기
+    정예림 - 데이터 검색 및 어떤 json데이터파일 이라도 활용할수 있게 하기
+
+    공통 - css 애니메이션, 반응형 까지
+
+    9월 8일(금요일 오후) - 각 조별 주제 및 방향, 내용 검사
+-->
