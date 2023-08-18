@@ -1,0 +1,21 @@
+*{margin:0; padding:0; box-sizing: border-box;}
+#wrap{
+    width:1200px;
+    margin:0 auto;
+}
+#stock_data_input{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#open{ padding:10px 30px;}
+.reg{background:lightcoral; color:aliceblue; border:0}
+#stock_data{
+    width:600px;
+    height:800px;
+    resize: none;
+}
+#chart_board{
+    width:1200px; height:500px;
+}

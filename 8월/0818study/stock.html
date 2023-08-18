@@ -1,0 +1,31 @@
+<!--  stock.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주식</title>
+    <!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<!--chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+
+<link rel="stylesheet" href="./static/css/stock.css">
+<script src="./static/js/stock.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="stock_data_input">
+            <button id="open">입력</button>
+            <textarea id="stock_data" style="display:none"></textarea>
+        </div>
+        <div id="chart_board">
+            <canvas id="stock_chart" width="1200" height="500"></canvas>
+        </div>
+    </div>
+</body>
+</html>
+<!-- 숙제 !  하지마!!!!! -->
