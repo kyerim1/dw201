@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<!--chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+</head>
+<body>
+    <canvas id="ani"></canvas>
+</body>
+</html>
+<script>
+    const labels=["신상수","임민지","김승겸","김선향"];
+    const data1=[0 , 17, 14,3 ];
+    let avg=11;
+
+    const ctx = $("#ani")[0];
+    new Chart(ctx,{
+        type:"bar",
+        data:{
+            labels:labels,
+            datasets:[{
+                label:"평균 연애기간",
+                data:data1,
+                base:avg,
+                backgroundColor:function(context){ 
+                    var idx= context.dataIndex;
+                    var data = context.chart.getDatasetMeta(0)._dataset.data[idx];
+                    console.log(data);
+                    return data>=avg? "LightCoral" :"DodgerBlue";
+                },
+            }]
+        },
+        options:{
+            animations:{ //  y,x, tension, radius, borderWidth, color, borderColor,backgroundColor
+     // 애니메이션 콜백 - onProgress(애니메이션 단계별 호출), onComplete(애니메이션 완료후 호출)          
+                y:{
+                    duration:1000,// 애니메이션 동작 시간(밀리초)
+                    easing:"liner", //감속,가속- liner,easeInQuad,easeInSine,easeOutQuad...등등
+                    from:1 // 애니메이션 시작값
+                    //loop- 반복여부 ,  to - 애니메이션 끝 값
+                },
+                x:{
+                    duration:1500,
+                    from:0
+                }
+            },
+            scales:{ y:{min:0, max:30}}
+        }
+    });
+function avg_color(){
+    var a=[]
+    for(var i=0; i<data1.length; i++) a.push( data1[i]>=avg? "LightCoral" :"DodgerBlue");
+    return a;
+}
+</script>

@@ -1,0 +1,43 @@
+<!--  polar.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<!--chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+</head>
+<body>
+    <canvas id="polar"></canvas>
+</body>
+</html>
+<script>
+    let data=[];
+    for(var i=1; i<=5; i++) data.push(Math.floor(Math.random()*30)+20);
+    let color=["LightCoral","DarkTurquoise","Orange","DodgerBlue","SpringGreen"];
+
+    const ctx = $("#polar")[0];
+    new Chart(ctx,{
+        plugins:[ChartDataLabels],
+        type:"polarArea",
+        data:{datasets:[{
+            data:data,
+            backgroundColor:color,
+            datalabels:{
+                color:"white",
+                backgroundColor:"gray",
+                padding:10,
+                borderRadius:5
+            }
+        }]} ,
+        option:{
+
+        }
+    })
+</script>

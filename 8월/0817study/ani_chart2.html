@@ -5,8 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<!--chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0-beta/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
 </head>
 <body>
-    
+    <canvas id="ani"></canvas>
 </body>
 </html>
+<script>
+
+    var data=[];
+    var prev=100;
+    for(var i=0; i<1000; i++){
+        prev += 5- Math.random()*10;
+        data.push( { x:i, y:prev});
+    }
+
+    var delayBP = 10;
+    var started={};
+    let ctx = $("#ani")[0];
+    var chart = new Chart(ctx, {
+        type:"line",
+        data:{
+            datasets:[{
+                data:data,
+                borderColor:"LightCoral",
+                borderWidth:1,
+                pointRadius:0,
+                fill:false,
+                animation:function(context){
+                    var delay=0;
+                    var idx= context.dataIndex;
+                    var chart = context.chart;                    
+                    if( !started[idx] ){
+                        delay = idx*delayBP;
+                        started[idx]=true;
+                    }
+                    var {x,y} = idx>0 ? chart.getDatasetMeta(0).data[idx-1].
+                    getProps(['x','y'] , true) : {x:0, y:chart.scales.y.getPixelForValue(100)};
+                    
+                    return { 
+                        x:{easing:"linear",duration:delayBP, from:x,delay},
+                        y:{easing:"linear",duration:delayBP*500, from:y,delay},
+                        skip:{type:"boolean",duration:delayBP,from:true,to:false,delay:delay}
+                    };
+                },
+            
+            }]
+        },
+        options:{
+            scales:{
+                x:{type:"linear"}
+            }
+        },
+        plugins:[{
+            id:'force_line_update',
+            beforeDatasetDraw(chart, ctx){
+                ctx.meta.dataset.points = ctx.meta.data;
+            }
+        }]
+    });
+
+</script>

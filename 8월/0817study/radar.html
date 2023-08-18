@@ -1,0 +1,50 @@
+<!-- radar.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<!--chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+</head>
+<body>
+    <canvas id="radar"></canvas>
+</body>
+</html>
+<script>
+    let labels=["애정표현력","눈치력","상상력","썸추진력","19금력",
+"서포터력","표정관리력"];
+    let data=[4,3,5,3,3,1,1];
+    let data2=[2,4,1,1,2,1,5];
+
+    const ctx = $("#radar")[0];
+    new Chart(ctx,{
+        type:"radar",
+        data:{
+            labels:labels,
+            datasets:[{
+                label:"상수연애능력치",
+                data: data,
+                backgroundColor:'rgba(135,206,250,0.4)',
+                pointBackgroundColor:"rgb(54,162,235)",
+                borderColor:"rgb(54,162,235)",
+            },
+            {
+                label:"선향이연애능력치",
+                data:data2,
+                backgroundColor:"rgba(255,105  ,180,0.4)",
+                pointBackgroundColor:"rgb(255,20,147)",
+                borderColor:"rgb(255,0,235)",
+            }
+        ]
+        }
+    });
+
+
+</script>
