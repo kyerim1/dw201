@@ -1,0 +1,30 @@
+<!-- car.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<!--chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+
+<link rel="stylesheet" href="./static/css/car.css">
+</head>
+<body>
+    <div id="board"><canvas id="car" width="1000" height="700"></canvas></div>
+</body>
+</html>
+<script src="./static/js/car.js"></script>
+<!--
+    json파일에서 json 데이터 가져오기
+    json데이터 중에서 용도가 비사업용인 승용차의 연료별로 총합을 구하기
+    연료는  전기, 하이브리드, 휘발유, 경유, 수소  만 구하기 
+    년도별로 나누어서 !!!!
+
+    승용차는 - RIDNG_ODR
+-->
