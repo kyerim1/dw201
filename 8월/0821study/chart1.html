@@ -1,0 +1,165 @@
+<!-- chart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<style>
+    #wrap{width:500px; margin:0 auto;}
+    #content{width:500px; border-collapse: collapse;}
+    #content th{border:1px solid black;}
+    #content td{border:1px solid #aaa;}
+</style>
+</head>
+<body>
+    
+    <div id="wrap">
+        <div class="input_box">
+            <input type="text" id="keyword" name="keyword">
+            <button id="bt">검색</button>
+        </div>
+        <div id="list">
+            <table id="content">
+                <thead>
+                    <th>이름</th> <th>현재상태</th>
+                </thead>
+                <tbody id="state_detail">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+    //json 파일 불러오기
+    // getJSON은 json파일을 열어서 파일안의 내용을 가져오기 위한 함수이다.
+    //getJSON(파일의경로 또는 url , 가져와서 실행할 함수)
+
+    $.getJSON("./data/test.json",function(d){
+        // function(d) 여기서 d는 json파일의 내용이 담겨져있는 매개변수이다.
+        //  d에 무엇이 들어 있는지 알고 싶다면,!!!console.log!!!!
+        // d는 그냥 내가 만든 이름일뿐,  다른 이름으로 바꾸어도 된다. 이름일뿐이다.
+        
+        console.log(d);
+        console.log( d.송은선 );
+        // json파일을 자바스크립트의 객체로 가져왔기 때문에 이후 의 코드는
+        // 자바스크립트의 제어문, 함수 등을 활용하면 된다.
+        //input에 입력하여 검색하기 만들기  하려면 머부터 해야할까요?
+        // 1. json파일 내용 가져오기
+        //   - getJSON과 같은 json파일 읽어올수있는 함수 사용하기
+        //   - json 파일 내용 잘가지고 왔는지 확인하기
+        // 2. 가지고온 객체를 화면에 띄우기
+        //   - 화면에 표시하려면 json데이터가 어떤 내용을 가지고있는지 확인하고
+        //     그에 맞는 html을 구상해야한다. 
+        //   - 지금 json내용은 key부분이 이름이고, value부분이 감정 이니까
+        //     화면에 표시될 내용은 두가지뿐이다 .
+        //    table을 활용할것인지  div를 활용할것인지 ul,ol,dl을 활용할것인지
+        //    선택해야한다.  어떤것을 사용해야할지는 알아서판다!!
+        //    많이 만들어봐야  지금 데이터에는 어떤 태그사용이 좋을지 알수있다.
+        //    
+        // 3. 검색 기능 만들기
+        //  - 검색은  어느 범위까지 적용할것인지 정해야한다.
+        //  -  모든 내용에 적용할것인지 아니면  특정 부분에만 적용할것인지
+        //  - 지금 json내용에서  이름만 검색이 가능하게 만들것이냐
+        //    감정 내용 만 검색이 가능하게 만들것이냐,  아니면 둘다 검색이 가능하게
+        //    만들것이냐!!!!
+
+        // json 내용 화면에 띄우기
+        // 객체의 키를 배열로 가져오기  Object.keys()
+        var key_arr = Object.keys(d); 
+        console.log(key_arr);// 객체의 key만 들어있다.
+
+        // $("#state_detail").append("<tr> <td>"+key[0]+"</td> <td>"+d[key[0]]+"</td> </tr>");
+        // $("#state_detail").append("<tr> <td>"+key[1]+"</td><td>"+d[key[1]]+"</td></tr>");
+        // $("#state_detail").append("<tr> <td>"+key[2]+"</td><td>"+d[key[2]]+"</td></tr>");
+        // $("#state_detail").append("<tr> <td>"+key[3]+"</td><td>"+d.김승겸+"</td></tr>");
+
+        // for( var i=0; i<key_arr.length; i++){
+        //     $("#state_detail").append("<tr><td>"+key_arr[i]+"</td><td>"+d[key_arr[i]]+"</td></tr>");
+        // }
+        $.each( key_arr, function(인덱스,데이터){
+            $("#state_detail").append("<tr class='data_row'><td class='name'>"+
+                데이터+"</td><td class='state'>"+d[데이터]+"</td></tr>");
+        });
+    });
+
+    $("#bt").click(function(){  // 검색은 검색 버튼을 클릭하면 검색이 되어야하기때문에
+                                //버튼에 클릭이벤트를 등록한다.
+        var word = $("#keyword").val(); // input태그에 입력값 가져오기
+        //input 태그에 입력한 text가 포함되어있는월요일 또는 일치하는  text를 tbody에서 찾아야한다.
+        // 찾아서 해당 tr만 화면에 표시, 나머지는 감추기를 해야한다.
+        // filter 함수를 사용한다.  
+        // filter()의  () 안에는  태그, 함수, 선택자를 넣어줄수있다.
+        // filter함수에 입력한 값과 일치하는 태그(요소)를 찾는다.
+       
+        $("#state_detail>tr").filter(function(idx){
+            //console.log( idx); // tr태그안의 text
+            //return idx==0 || idx==3;
+            flag = $(this).children(".name").text().indexOf(word) > -1;
+            $(this).toggle(flag); //filter를 통해  show, hide를 적용할수 있지만
+            //  fliter().show(), filter().hide(), filter().toggle() 
+            // 위 와 같이 사용할수 있지만 filter의 결과 에 따라 동작하기 때문에
+            // filter().toggle() 정상적으로 동작하지 않는다. 
+            // filter함수 자체가  반복의 역할도 할수 있기때문에 함수내부에서 직점 toggle을
+            // 수행한다.
+        })
+
+        // #state_detail -> id가 state_detail인 태그
+        // #state_detail>tr  -> id가 state_detail인 태그의 하위태그중 tr 태그
+        // :nth-child(even)  -> 하위태그중 짝수번째 태그 
+    });
+</script>
+
+<!--
+// json파일의 내용 전부 가져오는건 어렵지 않죠?
+        //그럼 json파일을 다룰때 어려운게 무엇인가요?
+
+    정예림 - 검색?????filter??????
+    송은선 - 데이터 추출
+    임민지 - 데이터 추출
+
+
+    json 은  자바스크립트 객체를 문서로 저장한 파일 형식이다.
+    문서(파일)에 저장되려면 일반적으로 문자열 형식이여야 한다.
+    
+    자바스크립트의 객체는  key와 value로 이루어져있다. 
+    { 신상수:"기분이좋다", 송은선:"기분이별로다" } 
+    신상수와 송은선이  key에 해당하고  
+    "기분이좋다" 와 "기분이별로다"는  value에 해당한다.
+
+    객체의 key는 데이터로서의 활용보다는 참조 의 역할이 강하다.
+    데이터로서의 역할은 value를 사용한다.
+    key를 이용하여 value를 사용한다.
+
+    사물함에 서로 다른 자물쇠가 있다면 특정 사물함을 열기 위해서는
+    그 사물함에 채워져있는 자물쇠에 맞는 키가 필요하다. 
+    올바른, 알맞은 키를 사용해야 안에 내용물을 볼수 있다.
+
+    자바스크립트의 객체에서 key통해 value를 얻고자한다면 
+    객체명.key  를  작성해야 해당key에 맞는 value를 얻을수 있다.
+    
+    let 신상수={ 어제:"우울" ,  오늘:"좋음" , 내일:"행복" }
+    console.log( 신상수.어제 )  
+     콘솔의 결과는 우울 이다.  
+
+    자바스크립트의 객체를
+    { 어제:"우울" ,  오늘:"좋음" , 내일:"행복" }
+
+    json파일로 저장하기 위해  문자열로 변환한다.
+    { "어제":"우울" ,  "오늘":"좋음" , "내일":"행복" }
+
+    객체의 key와value 모두 문자열로 변환된다. 단, 숫자는 그냥 숫자로
+
+    객체가 어떻게 생겼고  json에는 머가 저장 되는지 알겠나요?? 
+
+    그럼 json을 직접 만들어보기
+합니다.
+
+
+-->
