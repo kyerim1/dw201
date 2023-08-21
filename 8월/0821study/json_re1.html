@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<style>
+    *{box-sizing: border-box;}
+#title, #list{
+    width:800px;   text-align: center;
+    border:2px solid #aaa;
+}
+#list{ list-style-type: none; padding:0; }
+#title b{ display:inline-block;}
+#list span{display:inline-block;}
+.hak, .name{width:20%}
+.dept{width:37%;}
+.c, .web{width:10%;}
+</style>
+</head>
+<body>
+    <div>
+        <input type="checkbox" name="department" value="com">컴퓨터공학과
+        <input type="checkbox" name="department" value="info">정보통신학과
+    </div>
+    <div id="title">
+        <b class="hak">학번</b> <b class="name">이름</b> <b class="dept">학과</b>
+        <b class="c">c언어</b><b class="web">웹</b>
+    </div>
+    <ul id="list">
+
+    </ul>
+</body>
+</html> 
+<script>
+    
+    $.getJSON("./data/test3.json",function(data){
+        console.log(data.score);
+
+        $.each(data.score,function(i, item){
+            $("#list").append("<li><span class='hak'>"+item.학번+"</span>"+
+                "<span class='name'>"+item.이름+"</span>"+
+                "<span class='dept'>"+item.학과+"</span>"+
+                "<span class='c'>"+item.C언어+"</span>"+
+                "<span class='web'>"+item.웹+"</span>"+
+                "</li>");
+        })
+    });
+
+    $("input[name=department]").change(function(){
+        var dept= new Array();
+        $("input[name=department]:checked").each(function(){
+            dept.push( $(this).val() );
+        });
+        console.log( dept );
+
+        $("#list>li").filter(function(){
+            var hasDept=true;
+            if( dept.length != 0){
+                hasDept=false;
+                for(var i in dept){
+                    if( $(this).text().indexOf(dept[i]=="com"?"컴퓨터공학과":"정보통신학과") > -1 )
+                        hasDept=true; 
+                }
+            }
+            $(this).toggle(hasDept);
+        });
+    });
+    // 배열에 사용되는 반복문
+    // for~ in,  for ~ of,  forEach  
+    // for( var i in 배열) ->  i에는 배열의 인덱스, 데이터가 대입된다.
+    // for( var k of 배열) ->  k에는 배열의 데이터가 대입된다.
+    // 배열.forEach(function(d){})  ->  d에는 배열의 데이터가 대입된다.
+
+</script>
