@@ -4,8 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--부트 스트랩-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+<!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="./static/css/test5.css">
+<script src="./static/js/test5.js"></script>
 </head>
 <body>
-    
+    <div id="wrap">
+        <h2 id="main_title"></h2>
+        <div id="search_wrap">
+            <div class="search_input">
+                <div class="word_box">
+                    <input type="text" name="word" id="word">
+                    <i class="bi bi-search-heart"></i>
+                </div>
+                <button id="detail_bt">상세검색</button>
+            </div>
+            <div class="search_detail" style="display:none;">
+                <div class="tall_range">
+                    <label>키</label>
+                    <input type="text" id="minTall">~
+                    <input type="text" id="maxTall">
+                </div>
+                <div class="eyes_range">
+                    <label>시력</label>
+                    <input type="text" id="minEyes">~
+                    <input type="text" id="maxEyes">
+                </div>
+                <div class="class_select">
+                    <label>반</label>
+                    <select id="cls">
+                        <option value="1">1</option><option value="2">2</option>
+                        <option value="3">3</option><option value="4">4</option>
+                        <option value="5">5</option><option value="6">6</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="list_wrap">
+            
+        </div>
+    </div>
 </body>
 </html>
+
+<!--
+ css 작업  알아서 하기  지금 바로 나우 !!!
+ 상세검색 버튼을 클릭하면   키,시력,반 이 보인다.
+ 상세검색 버튼을 클릭하기전에는  키, 시력, 반 은  보이지않는다.
+ 
+<div class='info'>
+    <ul class='dt'>
+        <li class='name'>이름 : 천송이</li>"+
+        <li class='ban'>1반</li>"+
+        <li class='myteacher'> 담임 : 전지현</li>"+
+        <li class='t'>키 : 172cm</li>"+
+        <li class='e'>시력 : 좌1.2  우1.5</li>"+
+        <li class='w'>몸무게 : 47kg</li>"+
+    </ul>
+</div>
+-->
