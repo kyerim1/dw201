@@ -1,4 +1,16 @@
 let school=new Object(); // json 전체 데이터 저장
+let swt = true;  // 차트와 목록 전환 판단 용
+let std_chart='';  // 차트 객체 담아주기
+
+const chartColor =["#A7EEFF","#65FFBA","#00CDFF","#8CF064","#66F8F0",
+"#FFCAD5","#FFAAFF","#FFF064","#FFD700","#FFCB9C"];
+// 변수이름, 함수이름 등등  이름을 정할때 대표적인 표기방법
+//  카멜 표기법(camelCase), 스네이크표기법(snake_case)
+// 카멜표기법 -  studentChartDraw
+//스네이크표기법 - student_chart_draw
+//케밥 표기법 - student-chart-draw
+//파스칼 표기법 - StudentChartDraw
+
 $(function(){
     $("#detail_bt").click(function(){
         $(".search_detail").slideToggle(500);
@@ -32,13 +44,52 @@ $(function(){
     $(".search_detail input").on("keyup", detail_search);
     $("#cls").change(detail_search);
 
-    $("#chartBt").click(drawChart);
+    $("#chartBt").click(switchScreen);
 });
-function drawChart(){
+function switchScreen(){
     var ban = $("#cls").val();
     if( ban==''){alert("먼저 반을 선택하세요"); return;}
-    
+
+    if( swt ){
+        $(this).text("목록");
+        $("#list_wrap").hide();
+        $("#student_chart").show();
+        drawChart(ban);
+        swt=false;
+    }else{
+        $(this).text("차트");
+        $("#list_wrap").show();
+        $("#student_chart").hide();
+        swt=true;
+    }
 }
+
+function drawChart(ban){
+    var ctx = $("#student")[0];
+// 선택한 반의 키를 구하기
+    var tall=[];
+    var name=[];
+    $.each(school.학생,function(idx, std){
+        if(std.반==ban){
+            tall.push(std.키);
+            name.push(std.이름);
+        }
+    });
+    new Chart(ctx,{
+        type:"bar",
+        data:{
+            labels: name,
+            datasets:[
+                {
+                    label:ban+"반 키",
+                    data:tall,
+                    backgroundColor:chartColor,
+                }
+            ]
+        }   
+    });
+}
+
 function detail_search(){
     var minT=0, maxT=0, minE=0,maxE=0;
     minT = parseInt($("#minTall").val()==''? 0: $("#minTall").val());

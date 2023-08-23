@@ -88,3 +88,8 @@ body{background:#222845;}
 }
 .info .name{ display:inline-block; padding:0 10px; font-size:25px;}
 .info ul{list-style: none;}
+
+#student_chart{
+    width:800px;
+    height:500px;
+}
