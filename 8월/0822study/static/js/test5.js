@@ -54,12 +54,19 @@ function switchScreen(){
         $(this).text("목록");
         $("#list_wrap").hide();
         $("#student_chart").show();
+        $(".search_input").hide();
+        $(".tall_range").hide();
+        $(".eyes_range").hide();
+        if(std_chart != '')std_chart.destroy();
         drawChart(ban);
         swt=false;
     }else{
         $(this).text("차트");
         $("#list_wrap").show();
         $("#student_chart").hide();
+        $(".search_input").show();
+        $(".tall_range").show();
+        $(".eyes_range").show();
         swt=true;
     }
 }
@@ -75,7 +82,7 @@ function drawChart(ban){
             name.push(std.이름);
         }
     });
-    new Chart(ctx,{
+    std_chart=new Chart(ctx,{
         type:"bar",
         data:{
             labels: name,
@@ -133,3 +140,13 @@ function default_search(){  // 이름  만  검색
         $(this).toggle( $(this).find(".name").text().indexOf(word) > -1 );
     });
 }
+
+
+/*
+    만들어야 할것 
+    차트 버튼 클릭하면 검색어입력하는input태그, 상세검색버튼, 키, 시력
+    부분을 안보이게 하기  반 select만 보여야 된다.
+
+    목록버튼을 클릭하면 다시 원상복귀 시키기
+
+*/

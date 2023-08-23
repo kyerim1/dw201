@@ -25,6 +25,7 @@ body{background:#222845;}
 .chartMakeBt{
     position:absolute;
     right:0; top:0;
+    z-index: 100;
 }
 #chartBt{
     padding:5px 8px;
@@ -57,7 +58,6 @@ body{background:#222845;}
 .word_box i{width:10%; cursor:pointer;}
 .search_detail{
     position:relative;
-    z-index: 100;
     display:flex;
     flex-direction: column;
     align-items: start;
