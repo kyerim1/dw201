@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <!--부트 스트랩-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+<!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<!--chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<link rel="stylesheet" href="./static/css/test6.css">
+<script src="./static/js/test6.js"></script>   
+</head>
+<body>
+    <div id="wrap">
+        <div id="side" class="sideclose">
+            <b id="icon" class="close"><i class="bi bi-list"></i></b>
+            <input type="text" id="word">
+            <h3>분류</h3>
+            <ul id="category">
+                
+            </ul>
+            <h3>금액</h3>
+            <div><input type="number" id="money"> 이하</div>
+        </div>
+        <div id="main">
+
+        </div>
+    </div>
+</body>
+</html>
+
+<!--
+    id가 side인 div를
+    side에 넣어놓은 아이콘을 클릭하면 왼쪽에서  오른쪽으로 펼쳐지면서 열리게 만들기
+    다시 아이콘 클릭하면 왼쪽으로 접히기
+
+ul태그에  직접 입력하시오  
+<li><input type='checkbox' name='category' value='교통'>교통</li>
+
+   main 부분에  전체  띄우기( 지출 수입  구분 해서 띄우기)
+   id가 word인 input에 입력하면  해당 문구를 포함하는 내역(지출,수입) 나타내기
+   id가 money인 input에 입력하면 입력한 숫자 이하 금액에 해당하는 내역(수입,지출)
+   나타내기
+-->

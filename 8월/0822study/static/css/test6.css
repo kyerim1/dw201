@@ -1,0 +1,68 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+ul{list-style-type: none;}
+#wrap{
+    width:100%;
+    max-width:1000px;
+    min-width:700px;
+    margin:0 auto;
+}
+.sideclose{/*side  접혀있는 모습  */
+    position:absolute;
+    left:-300px; top:0;
+    padding:100px 50px;
+    display:flex;
+    flex-direction: column;
+    background:#222845;    color:#fff;
+    height:100%;    row-gap:20px;    width:300px;
+    transition: left 1s ease;
+}
+.close{ /* 접혀있을때 아이콘 모습 */
+    position:absolute;
+    top:45px;left:300px;color:#222845;
+    font-size:30px;    cursor:pointer;
+    transition: left 1s ease 0.5s;
+}
+.open{    left:50px;color:#fff;} /*  펼쳐 질때 아이콘 모습 */
+.sideopen{    left:0;  }   /* side 펼치면  */
+#word, #money{
+    height:30px; 
+    border-radius: 5px; 
+    padding:0 5px; 
+    outline: none;
+    border:0;
+    font-size:17px;
+}
+#side h3{border-top:2px solid #aaa; padding-top:10px;}
+#category li{
+    display:flex; align-items: center;
+    column-gap: 10px;
+    padding:2px 0;
+}
+#category input[type=checkbox]{
+    height:17px;width:17px;
+}
+#money{
+    width:150px;
+}
+
+
+#main{
+    width:100%;
+}
+.title{
+    margin-top:30px ;
+}
+.title span{text-align: center; font-size:17px; font-weight:800;border-bottom:2px solid #aaa;}
+.categoryText{display:inline-block; width:20%;padding:3px 10px; border-right:1px solid #aaa;}
+.moneyText{display:inline-block; text-align:right;width:20%;padding:3px 10px; border-right:1px solid #aaa;}
+.detailText{display:inline-block; width:60%;padding:3px 10px;}
+.detail{
+
+}
+.detail:nth-child(even){
+    background:#ddd;
+}
