@@ -42,7 +42,15 @@ $(function(){
     $("#word").next().click(default_search);
 
     $(".search_detail input").on("keyup", detail_search);
-    $("#cls").change(detail_search);
+    $("#cls").change(function(){
+        if(swt)  //  반 을 변경했을때 detail_search함수실행 이냐 차트업데이트냐
+            detail_search()
+        else{
+            var ban = $("#cls").val();
+            std_chart.destroy();
+            drawChart(ban);
+        }
+    }); 
 
     $("#chartBt").click(switchScreen);
 });
@@ -76,12 +84,16 @@ function drawChart(ban){
 // 선택한 반의 키를 구하기
     var tall=[];
     var name=[];
+    var avg=0, tot=0; //전체 학생의 평균키에 사용할 변수
     $.each(school.학생,function(idx, std){
+        tot += std.키;
         if(std.반==ban){
             tall.push(std.키);
             name.push(std.이름);
         }
     });
+    avg = tot/school.학생.length; // 평균키
+
     std_chart=new Chart(ctx,{
         type:"bar",
         data:{
@@ -91,8 +103,14 @@ function drawChart(ban){
                     label:ban+"반 키",
                     data:tall,
                     backgroundColor:chartColor,
+                    base:avg,
                 }
             ]
+        },
+        options:{
+            scales:{
+                y:{min:150,max:190}
+            }
         }   
     });
 }
