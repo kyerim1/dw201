@@ -29,11 +29,11 @@ $(function(){
     $("#cls").change(detail_search);
 });
 function detail_search(){
-    var minT=0, maxT=0, minW=0,maxW=0;
+    var minT=0, maxT=0, minE=0,maxE=0;
     minT = parseInt($("#minTall").val()==''? 0: $("#minTall").val());
     maxT = parseInt($("#maxTall").val()==''? 0: $("#maxTall").val());
-    minW = parseInt($("#minEyes").val()==''? 0: $("#minEyes").val());
-    maxW = parseInt($("#maxEyes").val()==''? 0: $("#maxEyes").val());
+    minE = parseFloat($("#minEyes").val()==''? 0: $("#minEyes").val());
+    maxE = parseFloat($("#maxEyes").val()==''? 0: $("#maxEyes").val());
     
     $(".info").filter(function(){
         var isShow=true;
@@ -41,6 +41,14 @@ function detail_search(){
             var T=parseInt( $(this).find(".t").text().slice(3) ); 
 // 화면에 표시된 키는 cm단위를 가지고있는 텍스트이기때문에 parseInt를 통해 앞쪽의 숫자만 걸러온다
             if( minT > T || maxT< T )
+                isShow=false;
+        }
+        if(minE != 0){ // 키 검색 한것에 추가 검색이 되도록 할것인지  
+             //  키와 시력둘중하나 검색이되게 할것인지 정해야한다.
+            var text = $(this).find(".e").text();
+            var temp = [ parseFloat(text.slice(text.indexOf("좌")+1)) ,parseFloat(text.slice(text.indexOf("우")+1)) ];
+            var E = Math.min(...temp);
+            if(minE > E || maxE < E)
                 isShow=false;
         }
         $(this).toggle(isShow);
