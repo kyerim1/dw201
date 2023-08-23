@@ -1,9 +1,13 @@
+let school=new Object(); // json 전체 데이터 저장
 $(function(){
     $("#detail_bt").click(function(){
         $(".search_detail").slideToggle(500);
     })
 
     $.getJSON("./data/test5.json",function(data){
+
+        school = data;
+
         var teacher= data.담임;
         $("#main_title").text(data.학교명);
         
@@ -27,7 +31,14 @@ $(function(){
 
     $(".search_detail input").on("keyup", detail_search);
     $("#cls").change(detail_search);
+
+    $("#chartBt").click(drawChart);
 });
+function drawChart(){
+    var ban = $("#cls").val();
+    if( ban==''){alert("먼저 반을 선택하세요"); return;}
+    
+}
 function detail_search(){
     var minT=0, maxT=0, minE=0,maxE=0;
     minT = parseInt($("#minTall").val()==''? 0: $("#minTall").val());
@@ -35,6 +46,10 @@ function detail_search(){
     minE = parseFloat($("#minEyes").val()==''? 0: $("#minEyes").val());
     maxE = parseFloat($("#maxEyes").val()==''? 0: $("#maxEyes").val());
     
+    var ban = $("#cls").val(); // 반 선택 값
+
+    console.log(ban);
+
     $(".info").filter(function(){
         var isShow=true;
         if(minT != 0 ){  //  상세 검색에서 키를 입력ㄷ했다면 minT변수는 0이 아니다
@@ -43,12 +58,17 @@ function detail_search(){
             if( minT > T || maxT< T )
                 isShow=false;
         }
-        if(minE != 0){ // 키 검색 한것에 추가 검색이 되도록 할것인지  
+        if(minE != 0 && isShow==false){ // 키 검색 한것에 추가 검색이 되도록 할것인지  
              //  키와 시력둘중하나 검색이되게 할것인지 정해야한다.
             var text = $(this).find(".e").text();
             var temp = [ parseFloat(text.slice(text.indexOf("좌")+1)) ,parseFloat(text.slice(text.indexOf("우")+1)) ];
             var E = Math.min(...temp);
             if(minE > E || maxE < E)
+                isShow=false;
+            else isShow=true;
+        }
+        if( isShow ){
+            if( $(this).find(".ban").text().indexOf(ban) == -1 )
                 isShow=false;
         }
         $(this).toggle(isShow);
