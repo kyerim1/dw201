@@ -8,8 +8,9 @@ ul{list-style-type: none;}
     width:100%;
     max-width:1000px;
     min-width:700px;
-    margin:0 auto;
+    
 }
+.noneactive{ margin:0 auto;}
 .sideclose{/*side  접혀있는 모습  */
     position:absolute;
     left:-300px; top:0;
@@ -28,6 +29,11 @@ ul{list-style-type: none;}
 }
 .open{    left:50px;color:#fff;} /*  펼쳐 질때 아이콘 모습 */
 .sideopen{    left:0;  }   /* side 펼치면  */
+@media screen and (max-width:1600px){
+    .sideactive{
+        margin-left:300px;
+    }
+}
 #word, #money{
     height:30px; 
     border-radius: 5px; 
