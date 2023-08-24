@@ -33,7 +33,7 @@ $(function(){
         $.each(cg,function(i,c){   // 분류 ㅎul 태그 추가
             $("#category").append('<li><input type="checkbox" name="category" value="'+c+'">'+c+'</li>')
         });
-        
+        $("input[name=category]").change(categorySearch);
         //console.log(cg);
     });
     $("#icon").click(function(){  // 사이드 접펼
@@ -44,25 +44,54 @@ $(function(){
 
     $("#word").on("keyup",keywordSearch);// input 입력
     $("#money").on("keyup",moneyBelow); // 금액 입력 부분 
+    
 })
 
+function categorySearch(){
+    var ctg = []; // 선택 한 분류들 저장 할 배열
+
+    $("input[name=category]:checked").each(function(){
+        ctg.push($(this).val());
+    });
+    
+    $(".detail").filter(function(){
+        var isShow=true; 
+        //배열에 존재하는 값인지 아닌지 확인 하는 방법은?
+        var text = $(this).find(".categoryText").text();
+        // 전체 글에서 분류 적힌 부분 찾기
+        if( ctg.indexOf(text) == -1 && ctg.length!=0) isShow=false;
+        $(this).toggle(isShow);
+    });
+
+}
+
 function moneyBelow(){
-    var moneyB= $(this).val();
-    if(moneyB !=''){
-        $(".detail").filter(function(){
+    var moneyB= $(this).val();//입력한 금액 가져오기
+    if(moneyB !=''){  // 금액 입력했다면
+        $(".detail").filter(function(){ // 필터처리
             var isShow=true;
             var m = $(this).find(".moneyText").text().replace("원","").replace(/,/g,"");
-            if( Number(moneyB) < m) isShow=false;
+            //나는 화면에 천단위콤마 해놓아서 ,제거 하는거까지 한것
+            if( Number(moneyB) < Number(m) ) isShow=false;
             $(this).toggle( isShow );
         });
     }
 }
 
 function keywordSearch(){
-    var word = $(this).val();
+    var word = $(this).val(); // input 입력값 가져오기
     
-    $(".detail").filter(function(){
+    $(".detail").filter(function(){ // 필터 처리
 
         $(this).toggle( $(this).text().indexOf(word) > -1);
     });
+}
+
+
+function showList(){
+
+}
+
+function showChart(){
+
 }
