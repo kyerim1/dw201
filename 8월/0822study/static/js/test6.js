@@ -89,9 +89,125 @@ function keywordSearch(){
 
 
 function showList(){
-
+    $("#main").show();
+    $("#mychart").hide();
 }
-
+let house_chart='';
+let houseColor=["#A7EEFF","#65FFBA","#00CDFF","#8CF064","#66F8F0",
+"#FFCAD5","#FFAAFF","#FFF064","#FFD700","#FFCB9C"];
+let incomeColor=["#FFCB9C","#FFD700","#FFF064","#FFAAFF",
+"#FFCAD5","#66F8F0","#8CF064"];
 function showChart(){
+    $("#main").hide();
+    $("#mychart").show();
+    if(house_chart ==''){ // 차트가 이미 그려졌다면 실행 안하기
+        var ctx = $("#mycanvas")[0];
 
+// 분류와 분류별 금액 총액 구하기 를 하겠습니다.
+var setE = new Set(); //지출 분류   
+var totalE=new Array(); // 지출 분류 별 총금액
+        $.each(house.지출, function(idx, data){
+            var 분류 = data.분류;
+            var 금액 = Number(data.금액);
+            if( setE.has(분류) ){ //set에 해당분류가 저장되어있다면 true
+                totalE[분류] += 금액;  // 분류 별 금액 누적
+            }else{
+                totalE[분류]=금액; 
+            }
+            setE.add(분류);
+        });
+        house_chart = new Chart(ctx,{plugins:[ChartDataLabels],
+            type:"pie",
+            data:{
+                labels:Array.from(setE),
+                datasets:[
+                    {
+                        data: Object.values(totalE),
+                        backgroundColor:houseColor,
+                    }
+                ]
+            },
+            options:{
+                plugins:{
+                    title:{
+                        display:true,
+                        text:"지출",
+                        font:{size:20,}
+                    },datalabels:{
+                        formatter:function(value,context){ 
+                            var idx = context.dataIndex;
+                            var lb = context.chart.data.labels[idx]; //해당 데이터 이름
+    
+                            var total = context.chart.getDatasetMeta(0).total;
+    
+                            return Math.round(value/total*100)+"%";
+                        },
+                        backgroundColor:"#222845",
+                        borderRadius:"5",
+                        padding:7,
+                        color:"white",
+                        align:"start", //start, end, center, right, left, bottom,top
+                        anchor:"end", // center, start, end
+                        font:{
+                            size:"15px"
+                        },
+                    },
+                }
+            }
+        });
+        var ctx = $("#incomeChart")[0];
+
+// 분류와 분류별 금액 총액 구하기 를 하겠습니다.
+var setI = new Set(); //지출 분류   
+var totalI=new Array(); // 지출 분류 별 총금액
+        $.each(house.수입, function(idx, data){
+            var 분류 = data.분류;
+            var 금액 = Number(data.금액);
+            if( setI.has(분류) ){ //set에 해당분류가 저장되어있다면 true
+                totalI[분류] += 금액;  // 분류 별 금액 누적
+            }else{
+                totalI[분류]=금액; 
+            }
+            setI.add(분류);
+        });
+        house_chart = new Chart(ctx,{plugins:[ChartDataLabels],
+            type:"pie",
+            data:{
+                labels: Array.from(setI),
+                datasets:[
+                    {
+                        data: Object.values(totalI),
+                        backgroundColor:incomeColor,
+                    }
+                ]
+            },options:{
+                plugins:{
+                    title:{
+                        display:true,
+                        text:"수입",
+                        font:{size:20,}
+                    },datalabels:{
+                    
+                        formatter:function(value,context){ 
+                            var idx = context.dataIndex;
+                            var lb = context.chart.data.labels[idx]; //해당 데이터 이름
+    
+                            var total = context.chart.getDatasetMeta(0).total;
+    
+                            return Math.round(value/total*100)+"%";
+                        },
+                        backgroundColor:"#222845",
+                        borderRadius:"5",
+                        padding:7,
+                        color:"white",
+                        align:"start", //start, end, center, right, left, bottom,top
+                        anchor:"end", // center, start, end
+                        font:{
+                            size:"15px"
+                        },
+                    },
+                }
+            }
+        });
+    }
 }

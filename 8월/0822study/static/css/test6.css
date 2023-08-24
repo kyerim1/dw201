@@ -85,6 +85,9 @@ ul{list-style-type: none;}
 #bt_box a:hover{color:rgb(195, 243, 212);;background:#222845;
 border:1px solid rgb(195, 243, 212);}
 #mychart{
-    width:1000px;
-    height:600px;
+    margin-top:50%;
+    transform: translate(0,-80%);
+    width:500px;
+    height:400px;
+    display:flex;
 }
