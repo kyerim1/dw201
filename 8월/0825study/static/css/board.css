@@ -1,0 +1,72 @@
+
+#items{
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%,0);
+    height:300px;width:500px;
+}
+#items #dice_bt{
+    position:absolute;
+    bottom:0;left:50%;transform: translate(-50%,0);
+    padding:5px 30px; font-size:25px;font-weight:800;
+    border:0; border-radius: 5px;
+    background:lawngreen;
+    cursor: pointer;
+}
+#dice_wrap{
+    position:relative;
+    width:100px;    height:100px;
+    margin:0 auto; perspective: 700px;
+}
+#dice_wrap:after{
+    position:absolute;
+    left:50%; bottom:-60px;
+    transform: translateX(-50%);
+    display: block;
+    content:""; width:120px; height:15px;
+    filter: blur(5px);
+    background: rgb(0,0,0,0.7);
+}
+#dice_wrap .dice{
+    position:absolute; top:0; left:0;
+    width:100%; height:100%;
+    transition: all 1.5s;
+    transform-style: preserve-3d;
+    /* animation: turn 3s linear infinite; */
+}
+#dice_wrap .dice > div{
+    position: absolute; top:0; left:0;
+    display:flex; justify-content: center; align-items: center;
+    width:100%; height:100%; font-size:30px;
+    border:5px solid #444;
+    background:rgb(255, 255, 255);
+}
+#dice_wrap .dice>div:nth-child(1){transform: translateZ(50px);}
+#dice_wrap .dice>div:nth-child(2){transform: translateX(-50px) rotateY(-90deg);}
+#dice_wrap .dice>div:nth-child(3){transform: translateY(-50px) rotateX(270deg);}
+#dice_wrap .dice>div:nth-child(4){transform: translateY(50px) rotateX(-270deg);}
+#dice_wrap .dice>div:nth-child(5){transform: translateX(50px) rotateY(90deg);}
+#dice_wrap .dice>div:nth-child(6){transform: translateZ(-50px) rotateY(-180deg);}
+
+
+@keyframes turn {
+    0%{transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+    100%{transform: rotateX(360deg) rotateY(720deg) rotateZ(720deg);}
+}
+
+
+#board_container{
+    display:grid;
+    grid-template-columns: repeat(9,1fr); 
+    grid-template-rows: repeat(7,calc(1400px / 9));
+  
+}
+.pan{ display:flex; align-items: end;}
+.center{
+    background:url(../image/main.jpg) center no-repeat;
+    background-size: cover;
+    grid-area: center;
+    opacity: 0.6;
+}
+.location_name{background:#222845; width:100%; color:#fff; text-align: center;
+padding:5px 0;border-right: 1px solid #aaa;}

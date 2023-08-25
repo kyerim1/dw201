@@ -1,0 +1,61 @@
+<!-- set_gamer.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #wrap{
+        width:300px;margin:0 auto;
+        position:relative;
+        text-align: center;
+    }
+    #reg{width:200px; font-size:17px; background:#222845 ;
+    color:#fff; border:0; border-radius: 5px;padding:5px 0;}
+    #people{
+        width:100%;
+        display:flex; flex-direction: column; align-items: center;
+        position:relative; row-gap: 7px;
+        margin-top:10px;
+    }
+    #people input[type=text]{
+        width:50%; border-radius: 5px; padding:2px 5px;
+        outline: none; font-size:17px; height:25px;
+    }
+    #add{position:absolute; right:10%; height:33px; top:0;
+    border:0; border-radius: 5px; background:lightcoral; 
+    padding:3px 10px; transition: top 1s ease;}
+</style>
+<!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<script>
+$(function(){
+    $("#reg").click(function(){
+// 본 페이지의 gamer 배열에 입력한 참가자들 이름을 저장 하시오.
+// 저장 구조는 { 김유신:1 } , { 이순신:2} , {김춘추:3}
+        $(".name").each(function(idx){
+            opener.gamer.push( { [$(this).val()]:(idx+1)});
+        });
+        window.close();
+    });
+    $("#add").click(function(){
+        var top= Number($(this).css("top").split("px")[0]);
+        $(this).css("top",top+40+"px"); // + 버튼의 top값 구해서 40씩 증가
+        $("#people").append('<input type="text" class="name">');
+        $(".name").last().focus();
+    });
+});
+</script>
+</head>
+<body>
+<div id="wrap">
+    <button id="reg">등록</button>
+    <div id="people">
+        <button id="add">+</button>
+        <input type="text" class="name">
+    </div>
+</div>    
+</body>
+</html>
