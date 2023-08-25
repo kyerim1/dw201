@@ -32,9 +32,20 @@ function initBoard(){
     $("#board_container").css("grid-template-areas",areas);
 
 }
-
+const gcolor=["#A7EEFF","#65FFBA","#00CDFF","#8CF064","#66F8F0",
+"#FFCAD5","#FFAAFF","#FFF064","#FFD700","#FFCB9C"];
 function draw(){
 //보드 그리기
+    var gidx=Object.values(gamer); // 참가자 번호 만 배열로 가져오기
+    $.each(gidx,function(i,p){
+        var ctx=30, cty=35;
+        $(".pan").eq(0).prepend('<svg>'+
+        '<polygon points="'+ctx+',25 '+(ctx+30)+',40 '+(ctx+60)+',40 '+(ctx+90)+',25 '+
+        ''+(ctx+100)+',35 '+(ctx+60)+',60 '+(ctx+60)+',110 '+(ctx+50)+',110 '+
+        ''+(ctx+50)+',80 '+(ctx+40)+',80 '+(ctx+40)+',110 '+(ctx+30)+',110 '+(ctx+30)+',60'+
+        ''+(ctx-10)+',35" fill="'+gcolor[i]+'"/>'+ 
+        '</svg>');
+    });
 }
 
 
