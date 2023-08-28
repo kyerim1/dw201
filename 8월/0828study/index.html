@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script src="./static/js/index.js" type="module"></script>
+
+<style>
+    #box table tr td{border:1px solid black; width:50px; height:50px;}
+    #box2 table tr td{
+        border:1px solid red;
+        width:100px; height:50px;
+    }
+    #box2 table{border-collapse: collapse;}
+</style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box2"></div>
+</body>
+</html>
+<!--
+    자바스크립트 모듈화
+    모듈이란 코드들의 묶음,집합체 이다. 
+    import, export로 구현 한다.   
+    기능별로 모듈을 구분해서 작성한다.
+    모듈을 사용 하면 좋은점
+     - 유지보수 용이 , 재사용, 네임스페이스 
+     ->유지보수용이 : 프로그램 수정에서 필요한 모듈만 수정함으로써 최소한의
+                   작업으로 유지보수가 가능하다.
+     -> 네임스페이스 : 전역변수는 어디서든 접근이 가능하기 때문에 ,코드를 
+     보다 쉽게 만들어 줄수 있게 된다. 하지만 프로그램의 규모가 커지면 
+     디버깅을 어렵게 만들기 때문에 모듈을 사용하여 private 공간을 만들어 사용하면
+     디버깅을 어렵지 않게 만들수 있다.
+     -> 재사용 : 기능적 부분을 모듈화 시켜놓으면 어디서나 필요한 곳에서
+     import를 통해 쉽게 사용할 수 있다.
+
+     export 를 통해 내보낼 대상을 설정한다.
+     export에는 function , class, 변수 를 내보낼수 있다.
+     export function a() {  }
+     export const a=100;
+     여러개를 export 하고자 할때는 export { a, b, c }
+    export 대상이 하나 일경우에 import statement outside a module 에러가 발생한다.
+    기본 export가 지정 되지 않아서 발생하는 에러 이다.
+    export default 를 해주어야 만한다.
+
+
+     import를 통해 외부에서 가져올수 있다.
+     import { 외부파일의 함수, 변수, class 명 } from '경로/모듈파일명.js'
+    import { a } from 'mymodule.js'
+    import { a as mainA } from 'mymodule.js'
+    as를 이용하여 이름을 변경할 수 있다.
+
+
+    모듈 사용 방법
+    1. 모듈 파일 작성 (mymodule.js)
+    2. 모듈 import 하기 (index.js)
+    3. <script src='./static/js/index.js' type='module'></script>
+       type='module' 을 반드시 작성해야한다.
+
+
+    다른 자바스크립트 파일의 함수나 변수를 가져다 사용할 수 있다.
+    A.js의 함수를 B.js에서 사용 할 수 있다.
+    원리는  A와 B 모두 하나의 html에 포함되서 동작하기때문에
+    실제 동작에서는 하나의 파일안에서 실행 이된다. script 태그가 
+    두개가 나누어진것뿐이다.
+    두개 이상의 js 파일로 나누어 구성을 해도  순차적으로 실행이기때문에
+    코드의 순서를 파악하고 작성 해야한다.
+
+    자바스크립트 파일을 여러개로 나누어 작성 하는 이유는 목적별, 용도별, 타입별로
+    구분 하기 위해서 나누어 작성한다.
+    하나의 js 파일로 만들어 사용하면  수정,추가에  시간이 많이 소요될수있다.
+    여러개로 나누어 주면 목적,용도 등에 따라 해당 파일만 열어서 수정, 추가하면된다.
+    10년동안 찍은 사진을 한 폴더에 저장 해두는것보다.
+    년도별,  년도안에서 월별로 나누어 저장하면 찾고자하는 사진을 쉽게 찾을수 있다.
+    또는 장소별로 나누어도 쉽게 찾을수 있다.  
+    한폴더에 다 저장해도 되지만 분류하여 저장하는이유는 사진을 쉽게 찾기 위함이다.
+
+-->
