@@ -1,0 +1,18 @@
+[
+    {"id":1, "sdmId":"kim@naver.com", "sdmPw":"951253q" , "tel":"010-1234-5678", 
+"addr":"대전 중구 은행동", "wDate":"2024-04-06"},
+{"id":2, "sdmId":"song@gmail.com", "sdmPw":"ses0101" , "tel":"010-1345-5678", 
+"addr":"대전 중구 선화동", "wDate":"2024-12-11"},
+{"id":3, "sdmId":"sin_kim@naver.com", "sdmPw":"30744550" , "tel":"010-5643-5678", 
+"addr":"대전 서구 월평동", "wDate":"2024-08-01"},
+{"id":4, "sdmId":"ksh@naver.com", "sdmPw":"tlstkdtn!" , "tel":"010-3074-4550", 
+"addr":"대전 동구 용운동 주공1단지", "wDate":"2025-05-02"},
+{"id":5, "sdmId":"jkr@naver.com", "sdmPw":"cjswo" , "tel":"010-4378-5678", 
+"addr":"대전 동구 용전동", "wDate":"2023-11-06"},
+{"id":6, "sdmId":"good123@naver.com", "sdmPw":"tjsgidqkdrnl" , "tel":"010-1234-8589", 
+"addr":"대전 서구 용문동 향수아파트", "wDate":"2023-11-23"},
+{"id":7, "sdmId":"kkkkkkk@kakao.com", "sdmPw":"1234" , "tel":"010-6544-5678", 
+"addr":"대전 대덕구 중리동 ", "wDate":"2025-01-15"},
+{"id":8, "sdmId":"z1234@kakao.com", "sdmPw":"1234!@#" , "tel":"010-1234-4127", 
+"addr":"대전 대덕구 송촌동", "wDate":"2024-04-16"}
+]
