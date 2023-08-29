@@ -1,0 +1,48 @@
+#content{
+    grid-column: 1/3;
+    text-align: center;
+}
+#content h3{
+    padding:15px 0;
+    font-size:30px;
+}
+#content .login_wrap{
+    width:400px;
+    margin:0 auto;
+    padding:20px 10px;
+}
+#content .login_wrap .login_box{
+    padding:10px 0;
+}
+#content .login_wrap .login_input{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px 0;
+    font-size:30px;
+}
+#content .login_wrap .login_input input{
+    width:85%;order:2;
+    font-size:20px;
+    padding:10px 10px;
+}
+#content .login_wrap .login_input label{opacity: 0.6;}
+#content .login_wrap .login_input input:focus + label{
+    opacity: 1; font-weight:800;
+}
+#content .login_wrap .login_bt a{
+    background:#646EFF;
+    display:inline-block;
+    width:100%;
+    color:#fff;
+    font-size:30px;
+    padding:10px 0; border-radius: 5px;
+    text-decoration: none;
+}
+#content .login_wrap .joinAfind{
+    display:flex;
+    justify-content: space-between;
+}
+#content .login_wrap .joinAfind a{
+    text-decoration: none;
+}

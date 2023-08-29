@@ -2,15 +2,24 @@
 
 var http= require('http');
 var fs = require('fs');
+var tempUrl=require('url');
+
 var app = http.createServer(function(request,response){
     var url = request.url;
-    if(request.url=='/')
-        url='index.html'
-    if(request.url=='/sign')
-        url='signup.html'
-    if(request.url=='/qs')
-        url='question.html'
-    
+    var query = tempUrl.parse(url,true).query;
+    console.log(query.part);
+    if(query.part == undefined){
+        if(request.url=='/')
+            url='/src/index.html';
+        if(request.url=='/sign')
+            url='/src/signup.html';
+        if(request.url=='/qs')
+            url='/src/question.html';
+        if(request.url=='/login')
+            url='/src/login.html';
+    }else{
+
+    }
     if(request.url =='/favicon.ico'){
         return response.writeHead(404);
     }
@@ -20,6 +29,12 @@ var app = http.createServer(function(request,response){
 app.listen(3000);
 
 /*
+    루트 도메인( 루트url) -  http://localhost:3000
+
+
+
+
+
     page 구성 -  메인, 회원가입, 문의
         메인 - index.html
         회원가입 - signup.html

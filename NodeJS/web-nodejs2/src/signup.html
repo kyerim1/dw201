@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스드메의 모든것</title>
+
+<link rel="stylesheet" href="./src/main.css">
+<link rel="stylesheet" href="./src/sign.css">
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="logo"><a href="/"><img src="./src/logo.png"></a></div>
+            <nav class="nav">
+                <ul class="menuList">
+                    <li class="menu"><a href="/studio">스튜디오</a></li>
+                    <li class="menu"><a href="/dress">드레스</a></li>
+                    <li class="menu"><a href="/makeup">메이크업</a></li>
+                    <li class="menu"><a href="/wedding">예식장</a></li>
+                    <li class="menu"><a href="/qs">Q&A</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="main">
+            <section id="content">
+                <h3>스드메 회원가입</h3>
+                <form name="signf" id="signf" method="get" action="/signup">
+                    <div class="sign_wrap">
+                        <div class="sign_input">
+                            <input type="email" name="email" id="email">
+                            <label for="email">이메일</label>
+                        </div>
+                        <div class="sign_input">
+                            <input type="password" name="sdmPw" id="sdmPw">
+                            <label for="sdmPw">비밀번호</label>
+                        </div>
+                        <div class="sign_input">
+                            <select id="sdmTel1" name="sdmTel1">
+                                <option value="010">010</option>
+                                <option value="02">02</option>
+                                <option value="042">042</option>
+                                <option value="053">053</option>
+                            </select>
+                            <input type="tel" name="sdmTel2" id="sdmTel2">
+                            <input type="tel" name="sdmTel3" id="sdmTel3">
+                            <label for="sdmTel2">연락처</label>
+                        </div>
+                        <div class="sign_input">
+                            <input type="text" name="addr" id="addr">
+                            <label for="addr">신혼집 주소</label>
+                        </div>
+                        <div class="sign_input">
+                            <input type="date" name="wDate" id="wDate">
+                            <label for="wDate">결혼예정일</label>
+                        </div>
+                        <div class="sign_bt">
+                            <a href="/signup">SIGN-UP</a>
+                        </div>
+                    </div>
+                </form>
+                <!-- 
+                    회원가입 양식 만들기
+                    아이디는  이메일로 ,
+                    비밀번호, 연락처,  신혼집 주소,  결혼예정일
+                    css 작업까지 하기  -  sign.css
+
+                    로그인.html 은 css 작업하기
+                    12시까지
+                -->
+            </section>
+            
+        </main>
+    </div>
+</body>
+</html>
