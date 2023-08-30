@@ -55,17 +55,17 @@
             </section>
         </main>
     </div>
-    <div class='qsModal'>
+    <div id='qsModal' style="display:none;">
         <div class="modalBackground"></div>
         <div class="qsInputBox">
             <h3>문의글 작성</h3>
             <div class="qsInput">
                 <input type="text" name="title" id="title">
-                <label>제목</label>
+                <label for="title">제목</label>
             </div>
             <div class="qsInput">
                 <textarea name="qsContent" id="qsContent"></textarea>
-                <label>문의내용</label>
+                <label for="qsContent">문의내용</label>
             </div>
             <div class="qsRegBt">
                 <a href="javascript:qsSave();">완료</a>

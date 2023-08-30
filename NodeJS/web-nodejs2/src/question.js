@@ -40,10 +40,20 @@ $(function(){
             $(this).toggle( isShow);
         });
     });
+
+    $(".modalBackground").click(function(){
+        $(this).parent().hide();//회색부분 아무데나 클릭하면 문의글작성 모달창 닫기
+    });
 });
+
+function qsSave(){
+    $("#qsModal").hide(); // 문의글작성 모달창 닫기
+    // json형식으로 값 전달하기 만들기
+}
+
 function questionWrite(){
     if(isLogin){ // 로그인 성공
-
+        $("#qsModal").show();
     }else{ // 로그인 안한 상태
         var isOk = confirm("로그인후 문의하기 할 수 있습니다. \n로그인 하시겠습니까?");
         if(isOk){
