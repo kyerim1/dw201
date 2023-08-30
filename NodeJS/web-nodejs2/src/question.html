@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스드메의 모든것</title>
 
+<!-- jquery-->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script src="./src/func.js"></script>
+<script src="./src/question.js"></script>
 <link rel="stylesheet" href="./src/main.css">
+<link rel="stylesheet" href="./src/question.css">
 </head>
 <body>
     <div id="wrap">
@@ -23,12 +28,27 @@
         </header>
         <main id="main">
             <section id="content">
-                <img src="./src/main.png">
+                <div id="qsList">
+                    <div class="qsTitle">
+                        <h2>문의</h2>
+                        <a href="javascript:questionWrite();">문의하기</a>
+                    </div>
+                    <div class="search_wrap">
+                        <input type="text" name="word" id="word">
+                    </div>
+                    <div class="qsList_box">
+                        <table>
+                            <thead>
+                                <th>번호</th><th>제목</th><th>작성자</th>
+                                <th>작성일</th><th>답변</th>
+                            </thead>
+                            <tbody id="qs"></tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
             <section id="side">
-                <div class="login_bt">
-                    <a href="/login">로그인</a>
-                </div>
+                
             </section>
         </main>
     </div>

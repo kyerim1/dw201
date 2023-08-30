@@ -1,0 +1,12 @@
+[
+    {"id":1, "title":"", "writer":"kim@naver.com", "content":"", "date":"", 
+     "to":1, "answer":"" },
+     {"id":2, "title":"", "writer":"", "content":"", "date":"", 
+     "to":1, "answer":"" },
+     {"id":3, "title":"", "writer":"", "content":"", "date":"", 
+     "to":1, "answer":"" },
+     {"id":4, "title":"", "writer":"", "content":"", "date":"", 
+     "to":0, "answer":"" },
+     {"id":5, "title":"", "writer":"", "content":"", "date":"", 
+     "to":0, "answer":"" }
+]

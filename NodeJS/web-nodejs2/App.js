@@ -39,6 +39,9 @@ var app = http.createServer(function(request,response){
             }
             url='/src/'+page+'.html';
         }
+        if(page==='logout'){
+            url='/src/index.html'; 
+        }
         response.writeHead(200,{
             'Set-Cookie':['isLogin='+isLogin, 'id='+id]
         });
@@ -61,6 +64,13 @@ var app = http.createServer(function(request,response){
 app.listen(3000);
 
 /*
+    로그아웃 만들기
+    쿠키 isLogin에  false를 저장해야한다.
+    이동할 페이지는  루트url 로 이동한다.
+
+
+
+
     루트 도메인( 루트url) -  http://localhost:3000
 
 
