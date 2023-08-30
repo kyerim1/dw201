@@ -49,3 +49,14 @@
 #qsList .qsList_box .date{width:100px;}
 #qsList .qsList_box .ans{width:80px;}
 #qsList .qsList_box .ans .bi-r-square-fill{color:#ef7a7a};
+
+
+.qsModal{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    top:0; left:0;
+}
+.qsModal .modalBackground{
+    background:#ddd;
+}

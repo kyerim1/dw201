@@ -1,6 +1,9 @@
 // question.js
+
+let isLogin=false;
+
 $(function(){
-    var isLogin=getCookie("isLogin")=="true"? true:false;
+    isLogin=getCookie("isLogin")=="true"? true:false;
     var id = getCookie("id");
 
     var login='';
@@ -39,5 +42,12 @@ $(function(){
     });
 });
 function questionWrite(){
-    
+    if(isLogin){ // 로그인 성공
+
+    }else{ // 로그인 안한 상태
+        var isOk = confirm("로그인후 문의하기 할 수 있습니다. \n로그인 하시겠습니까?");
+        if(isOk){
+            location.href="/login";
+        }
+    }
 }
