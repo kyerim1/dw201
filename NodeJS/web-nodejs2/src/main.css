@@ -35,3 +35,35 @@
     display:grid;
     grid-template-columns: 4fr 1fr;
 }
+#side .login_bt{
+    padding:10px 10px;
+}
+#side .login_bt a{
+    color:white;
+    text-decoration: none;
+    background:#646EFF;
+    padding:10px 0;
+    width:100%;  
+    font-size:20px; font-weight:800;
+    display:inline-block;
+    border-radius: 5px;
+    text-align: center;
+}
+#side .user{
+    padding:10px 10px;
+}
+#side .user p{
+    padding-bottom:10px;
+    font-weight:800;
+}
+#side .user a{
+    color:white;
+    text-decoration: none;
+    background:#646EFF;
+    padding:5px 0;
+    width:100%;  
+    font-size:15px; font-weight:800;
+    display:inline-block;
+    border-radius: 5px;
+    text-align: center;
+}
