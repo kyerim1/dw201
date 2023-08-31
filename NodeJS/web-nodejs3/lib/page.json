@@ -7,5 +7,13 @@
         }
         ,
         "main_img":"main.png"
+    },
+    "login_before":{
+        "url":"login",
+        "text":"로그인"
+    },
+    "login_after":{
+        "url":"logout",
+        "text":"로그아웃"
     }
 }
