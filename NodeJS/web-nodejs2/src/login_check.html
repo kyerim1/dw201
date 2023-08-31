@@ -18,7 +18,8 @@
         }else{
             $("#login_result").append('<h2>로그인 성공</h2>');
             setTimeout(function(){  // 로그인성공하면 3초뒤에 첫페이지이동
-                location.href="/"; 
+                location.href="/"+getCookie("sub"); 
+                document.cookie="sub=;"; //expires=Thu, 01 Jan 1970 00:00:01 GMT;";
             },3000);
         }
     });

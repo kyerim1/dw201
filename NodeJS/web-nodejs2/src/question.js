@@ -51,13 +51,13 @@ function qsSave(){
     // json형식으로 값 전달하기 만들기
 }
 
-function questionWrite(){
+function questionWrite(){ //문의하기 버튼 클릭시 실행되는 함수
     if(isLogin){ // 로그인 성공
         $("#qsModal").show();
     }else{ // 로그인 안한 상태
         var isOk = confirm("로그인후 문의하기 할 수 있습니다. \n로그인 하시겠습니까?");
         if(isOk){
-            location.href="/login";
+            location.href="/?sub=question";
         }
     }
 }

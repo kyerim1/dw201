@@ -1,0 +1,13 @@
+const http= require('http');
+const fs =require('fs');
+const url=require('url');
+
+const app = http.createServer(function(request, response){
+    const pageURL=request.url;
+    const query = url.parse(pageURL,true).query;
+
+    
+    response.writeHead(200);
+    response.end();
+});
+app.listen(3000);
