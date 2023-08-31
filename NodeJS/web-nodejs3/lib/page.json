@@ -15,5 +15,13 @@
     "login_after":{
         "url":"logout",
         "text":"로그아웃"
+    },
+
+    "sign":{
+        "email":"<input type='email' name='email' id='email'><label for='email'>이메일</label>",
+        "pw":"<input type='password' name='sdmPw' id='sdmPw'><label for='sdmPw'>비밀번호</label>",
+        "tel":"<select id='sdmTel1' name='sdmTel1'><option value='010'>010</option><option value='02'>02</option><option value='042'>042</option><option value='053'>053</option></select><input type='tel' name='sdmTel2' id='sdmTel2'><input type='tel' name='sdmTel3' id='sdmTel3'><label for='sdmTel2'>연락처</label>",
+        "addr":"<input type='text' name='addr' id='addr'><label for='addr'>신혼집 주소</label>",
+        "wdate":"<input type='date' name='wDate' id='wDate'><label for='wDate'>결혼예정일</label>"
     }
 }

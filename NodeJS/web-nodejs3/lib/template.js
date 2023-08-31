@@ -13,7 +13,25 @@ module.exports = {
         </section>`;
         return ( commonHTML(main,mainHTML,"index") );
     },
-    
+    signHTML:function(main,signFrame){
+        var inputTag = '';
+        for(var v of Object.keys(signFrame))
+            inputTag+=`<div class="sign_input">${signFrame[v]}</div>`;
+        var signHTML=`
+        <section id="content">
+                <h3>스드메 회원가입</h3>
+                <form name="signf" id="signf" method="get" action="/signup">
+                    <div class="sign_wrap">
+                        ${inputTag}
+                        <div class="sign_bt">
+                            <a href="/signup">SIGN-UP</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        `;
+        return ( commonHTML(main,signHTML,"sign") );
+    },
     loginHTML:function(main){
         var loginHTML=`
         <section id="content">

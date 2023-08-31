@@ -2,29 +2,27 @@ const http= require('http');
 const fs =require('fs');
 const url=require('url');
 const template = require('./lib/template.js');
+const dataParse = JSON.parse(fs.readFileSync('./lib/page.json','utf8'));
 
 const app = http.createServer(function(request, response){
     const pageURL=request.url;
     const query = url.parse(pageURL,true).query;// 쿼리 스트링
     const path = url.parse(pageURL,true).pathname; //루트도메인 뒤 주소
 
-    if( path ==="/"){
-        fs.readFile('./lib/page.json', 'utf8',function(err,data){
-            const dataParse = JSON.parse(data);
-            const html = template.homeHTML(dataParse.main, dataParse.login_before);
-            response.writeHead(200);
-            response.write(html);
-            response.end();
-        });
-    }
-    if(path==='/login'){
-        fs.readFile('./lib/page.json', 'utf8',function(err,data){
-            const dataParse = JSON.parse(data);
-            const html = template.loginHTML(dataParse.main);
-            response.writeHead(200);
-            response.write(html);
-            response.end();
-        });
+    if(path.indexOf(".")==-1){
+        var html='';
+        if( path ==="/"){
+            html = template.homeHTML(dataParse.main, dataParse.login_before);
+        }
+        if(path==='/login'){
+            html = template.loginHTML(dataParse.main);
+        }
+        if(path==='/sign'){
+            html = template.signHTML(dataParse.main, dataParse.sign);
+        }
+        response.writeHead(200);
+        response.write(html);
+        response.end();
     }
     if(path.indexOf('.css') > -1){
         var css_name = path.slice('/lib/'.length);
@@ -45,6 +43,7 @@ const app = http.createServer(function(request, response){
 
 });
 app.listen(3000);
+
 
 
 
