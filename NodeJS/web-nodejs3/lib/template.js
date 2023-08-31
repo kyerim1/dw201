@@ -3,6 +3,11 @@
 module.exports = {
     questionHTML:function(main, login, qsData){
         var tag='';
+        qsData.sort(function(a,b){
+            if(a.date < b.date ) return 1;
+            if(a.date > b.date ) return -1;
+            return 0;
+        });
         for(var q of qsData){
             var ans = q.to==0?'<i class="bi bi-question-square"></i>':'<i class="bi bi-r-square-fill"></i>';
             tag += '<tr><td class="num">'+q.id+'</td>'+
@@ -116,7 +121,7 @@ function commonHTML(main, html,css){
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>스드메의 모든것</title>
-    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="./lib/main.css">
         <link rel="stylesheet" href="./lib/${css}.css">
     </head>
