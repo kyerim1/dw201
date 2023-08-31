@@ -20,6 +20,11 @@ const app = http.createServer(function(request, response){
         if(path==='/sign'){
             html = template.signHTML(dataParse.main, dataParse.sign);
         }
+        if(path==='/qs'){
+            var qdata = JSON.parse(fs.readFileSync('./lib/question.json','utf8'));
+            html = template.questionHTML(dataParse.main, dataParse.login_before, qdata );
+
+        }
         response.writeHead(200);
         response.write(html);
         response.end();

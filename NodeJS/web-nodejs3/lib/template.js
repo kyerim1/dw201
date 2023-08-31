@@ -1,6 +1,46 @@
 // template.js
 
 module.exports = {
+    questionHTML:function(main, login, qsData){
+        var tag='';
+        for(var q of qsData){
+            var ans = q.to==0?'<i class="bi bi-question-square"></i>':'<i class="bi bi-r-square-fill"></i>';
+            tag += '<tr><td class="num">'+q.id+'</td>'+
+            '<td class="title">'+q.title+'</td><td class="writer">'+q.writer+'</td>'+
+            '<td class="date">'+q.date+'</td><td class="ans">'+ans+'</td></tr>';
+        }
+
+        var qsHTML=`
+        <section id="content">
+        <div id="qsList">
+            <div class="qsTitle">
+                <h2>문의</h2>
+                <a href="javascript:questionWrite();">문의하기</a>
+            </div>
+            <div class="search_wrap">
+                <input type="text" name="word" id="word">
+            </div>
+            <div class="qsList_box">
+                <table>
+                    <thead>
+                        <th class="num">번호</th><th class="title">제목</th>
+                        <th class="writer">작성자</th>
+                        <th class="date">작성일</th><th class="ans">답변</th>
+                    </thead>
+                    <tbody id="qs"> ${tag}  </tbody>
+                </table>
+            </div>
+        </div>
+        </section>
+        <section id="side">
+            <div class="login_bt">
+                <a href="/${login.url}">${login.text}</a>
+            </div>
+        </section>        
+        `;
+
+        return ( commonHTML(main,qsHTML,"question") );
+    },
     homeHTML:function(main, login){
         var mainHTML=`
         <section id="content">
