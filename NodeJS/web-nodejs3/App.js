@@ -2,6 +2,7 @@ const http= require('http');
 const fs =require('fs');
 const url=require('url');
 const template = require('./lib/template.js');
+const JStemp = require('./lib/JStemplate.js');
 const dataParse = JSON.parse(fs.readFileSync('./lib/page.json','utf8'));
 
 const app = http.createServer(function(request, response){
@@ -16,6 +17,7 @@ const app = http.createServer(function(request, response){
         }
         if(path==='/login'){
             html = template.loginHTML(dataParse.main);
+            html += JStemp.login();
         }
         if(path==='/sign'){
             html = template.signHTML(dataParse.main, dataParse.sign);
