@@ -21,6 +21,16 @@ const routes = [
         path:"/qs",
         name:"SdmQuestion",
         component :() => import('@/components/SdmQuestion.vue')
+    },
+    {
+        path:"/dress",
+        name:"SdmDress",
+        component:()=>import('@/components/SdmDress.vue')
+    },
+    {
+        path:"/makeup",
+        name:"SdmMakeup",
+        component:()=>import('@/components/SdmMakeup.vue')
     }
 ];
 const router = createRouter({

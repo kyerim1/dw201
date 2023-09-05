@@ -1,0 +1,30 @@
+
+ul{list-style-type: none;}
+#content{
+    width:100%; position:relative;
+}
+.dressList{
+    width:100%;
+    margin-top:30px;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 15px;
+}
+.dressList li{
+    width:30%;
+}
+.dressItem{
+    width:100%;
+    padding:5px;
+}
+.dressImg{
+    width:100%;
+    height:250px;
+}
+.dressText{
+    text-align: center;
+    padding:10px 0;
+    font-size:20px;
+    font-weight:800;
+}
