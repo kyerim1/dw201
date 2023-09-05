@@ -1,0 +1,100 @@
+/* question.css */
+#content{
+    width:100%;
+    position:relative;
+}
+#qsList{
+    width:100%;
+    position:relative;
+    padding:10px 20px;
+    display:flex; flex-direction: column;
+    row-gap: 10px;
+}
+#qsList .qsTitle{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 20px 20px 20px;
+    border-bottom:3px solid #aaa;
+}
+#qsList .qsTitle a{
+    color:white;
+    text-decoration: none;
+    background:#ef7a7a;
+    padding:10px 30px;
+    font-size:20px; font-weight:800;
+    display:inline-block;
+    border-radius: 5px;
+    text-align: center;
+}
+#qsList .search_wrap{
+    width:100%;
+}
+#qsList .search_wrap #word{
+    width:60%;
+    height:30px; padding:3px 15px;
+    border:0;
+    border:2px solid #ef7a7a;
+    border-radius: 5px;
+    outline: none;
+}
+#qsList .qsList_box{width:100%;}
+#qsList .qsList_box table{width:100%; border-collapse: collapse;}
+#qsList .qsList_box th{border-bottom:2px solid #999; padding:10px 0;}
+#qsList .qsList_box td{border-bottom:1px solid #ddd; padding:20px 0; text-align: center;}
+#qsList .qsList_box .num{width:80px;}
+#qsList .qsList_box .title{width:300px;}
+#qsList .qsList_box .writer{width:200px;}
+#qsList .qsList_box .date{width:100px;}
+#qsList .qsList_box .ans{width:80px;}
+#qsList .qsList_box .ans .bi-r-square-fill{color:#ef7a7a;}
+
+#qsModal{
+    position:fixed;
+    width:100%; height:100vh;
+   top:0; left:0;
+}
+#qsModal .modalBackground{
+    position:absolute;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.4);
+}
+#qsModal .qsInputBox{
+    position:absolute;
+    background:#eee;
+    width:600px;
+    padding:50px 80px;
+    border-radius: 10px;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    display:flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.qsInput{
+    display:flex;
+    align-items: center;
+}
+.qsInput label{width:20%; font-size:17px; opacity: 0.4;}
+#title{ 
+    height:30px; font-size:17px; padding:3px 15px;
+    width:80%; border:0; border-radius: 5px;
+    order:2;
+}
+#title:focus + label{ opacity: 1; font-weight:800;}
+#qsContent{
+    order:2; resize:none; width:80%; height:300px; border:0; 
+    padding:3px 10px; font-size:17px;
+}
+#qsContent:focus + label{ opacity: 1; font-weight:800;}
+.qsRegBt{
+    text-align: center;
+}
+.qsRegBt a{
+    display:inline-block;
+    padding:10px 100px;
+    text-decoration: none;
+    background:#ef7a7a;
+    color:#eee;  border-radius: 5px;
+}

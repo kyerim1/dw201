@@ -53,6 +53,7 @@ module.exports = {
         </section>
         <section id="side">
             <div class="login_bt">
+                ${login.url=='logout'? `<p>${login.id}</p>`:''}
                 <a href="/${login.url}">${login.text}</a>
             </div>
         </section>`;
