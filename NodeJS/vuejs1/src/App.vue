@@ -1,4 +1,5 @@
 <template>
+ <i class="bi bi-android2"></i>
   <header id="header">
       <div class="logo"><a href="/"><img src="./assets/logo.png"></a></div>
       <nav class="nav">
@@ -19,8 +20,7 @@
 export default {
   name: 'App',
   components: {
-    
-  }
+  },
 }
 </script>
 

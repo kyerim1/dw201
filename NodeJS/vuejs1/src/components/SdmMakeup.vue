@@ -1,4 +1,5 @@
 <template>
+
     <main id="main">
         <section id="content">
             <h1>신부화장</h1>

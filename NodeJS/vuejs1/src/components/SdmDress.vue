@@ -1,5 +1,6 @@
 <template>
     <main id="main">
+        
         <section id="content">
             <h1>웨딩 드레스</h1>
             <ul class="dressList">
