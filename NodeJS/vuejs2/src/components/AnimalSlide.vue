@@ -16,7 +16,6 @@ defineProps({
                 <p>수컷</p>
             </div>
         </div>
-        휴 살았다 말 해주셨음 킬뻔
     </div>
 </template>
 

@@ -1,0 +1,10 @@
+@import './base.css';
+
+
+#app{
+  font-family: sans-serif;
+  height:100vh;
+  overflow: auto;
+  background:#212529;
+  color:white;
+}
