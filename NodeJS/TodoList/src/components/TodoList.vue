@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div v-for="(todo,idx) in data" :key="todo.id">
+        <div v-for="(todo,idx) in data" :key="todo.id">  <!-- 할일 목록 표시하기 위한 반복문   할일데이터 갯수 만큼 반복한다.-->
             <div class="input-group my-2 input-group-sm">
                 <div class="input-group-text">
                     <input class="form-check-input mt-0"

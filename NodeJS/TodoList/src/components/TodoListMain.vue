@@ -55,7 +55,7 @@ export default{
         }
         provide('filters',filters)
 
-        const groupBy = (todos) =>{
+        const groupBy = (todos) =>{  // 날짜별로 그룹 만들기
             return todos.reduce( (acc,cur) => {
                 acc[cur['date']] =acc[cur['date']] || []
                 acc[cur['date']].push(cur)
@@ -68,7 +68,7 @@ export default{
             filter.value = Number(filter_idx)
         }
 
-        watch(
+        watch( // 새로운 할일 을 등록하거나  리스트 필터에 의해 할일 표시해야될 내용이 변경되거나 하는것을 감지한다.
             [ ()=> filter.value, todos.value ], 
             ( [new_filter, new_todos ], [ old_filter, old_todos]) =>{
                 console.log(new_todos)
