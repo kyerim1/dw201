@@ -24,7 +24,8 @@ provider.addScope('public_profile')
 provider.setCustomParameters({
     'display':'popup'
 })
- 
+
+const sessionStorage = window.sessionStorage
 
     export default{
         name:'login',
@@ -45,7 +46,11 @@ provider.setCustomParameters({
             login(){
                 firebase.auth().signInWithEmailAndPassword(this.email,this.password)
                 .then( (user) => {
-                    this.$session.set('user_id',user.user.uid)
+                    //빠르게 인증 작업 합시다.
+                    // 어제 마지막에 한 session은 버리고 다른 session 으로
+                    // 무설치 로 할 수 있지만 단점이 한가지 있습니다. 
+                    // 단점을 보완하기 위해서 axios 같은걸 사용해야한다.
+                    sessionStorage.setItem('user_id', user.user.id);
                     this.$router.replace('msg');
                 } ).catch( (err) => {
                     alert('에러 : ' + err.message)
