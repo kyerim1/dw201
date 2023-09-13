@@ -4,7 +4,14 @@ const sessionStorage= window.sessionStorage;
 const uid = sessionStorage.getItem('user_id')
 export default{
     name:'App',
-    data(){      return { uid}    }
+    data(){  return { uid }    },
+    methods:{
+      logout(){
+        if( uid!==null){
+          sessionStorage.removeItem('user_id')
+        }
+      }
+    }
 }
 </script>
 <template>
@@ -14,7 +21,7 @@ export default{
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink v-if="uid==null" to="/login">Login</RouterLink>
-        <RouterLink v-if="uid!==null" to="/logout">Logout</RouterLink>
+        <button v-on:click="logout" v-if="uid!==null">Logout</button>
 
         <RouterLink to="/msg">축하메시지</RouterLink>
       </nav>

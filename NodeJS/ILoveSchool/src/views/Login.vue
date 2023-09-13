@@ -4,11 +4,7 @@
         <input type="text" v-model="email" placeholder="email"> <br>
         <input type="password" v-model="password" placeholder="password"><br>
         <button v-on:click="login">로그인</button>
-        <p> 또는 페이스북 로그인<br>
-            <button v-on:click="facebookLogin" class="facebook">
-                <img src="@/assets/facebook_logo.png">
-            </button>
-        </p>
+        
         <p>만약 계정이 없다면 , <RouterLink to="/signup">회원 가입</RouterLink >을 먼저 진행해주세요</p>
     </div>
 </template>
@@ -16,7 +12,30 @@
 <script>
 import { RouterLink, useRouter } from 'vue-router'
 import firebase from 'firebase'
+import { collection, addDoc } from "firebase/firebase-firestore"; 
+import { initializeApp } from "firebase/firebase-app";
+const firebaseConfig = {
+    apiKey: "AIzaSyAWHOW-US4jKBcLLtczKEFyZ2SBg6BZzPc",
+    authDomain: "iloveschool-f6efc.firebaseapp.com",
+    projectId: "iloveschool-f6efc",
+    storageBucket: "iloveschool-f6efc.appspot.com",
+    messagingSenderId: "70645106048",
+    appId: "1:70645106048:web:078502189019f67bf0ad65",
+    measurementId: "G-4TRGP0LV75"
+  };
+  const app = initializeApp(firebaseConfig);
 
+const db = getFirestore(app);
+try {
+                const docRef = await addDoc(collection(db, "users"), {
+                    first: "Ada",
+                    last: "Lovelace",
+                    born: 1815
+                });
+                console.log("Document written with ID: ", docRef.id);
+                } catch (e) {
+                console.error("Error adding document: ", e);
+                }
 const router = useRouter();
 
 var provider = new firebase.auth.FacebookAuthProvider()
@@ -33,16 +52,6 @@ const sessionStorage = window.sessionStorage
             return { email:'', password:''  }
         },
         methods:{
-            facebookLogin(){
-                firebase.auth().signInWithPopup(provider).then( 
-                    (result) => {
-                        var token = result.credential.accessToken
-                        var user = result.user
-                        alert('로그인성공')
-                    }
-                ).catch( (err) => { alert('에러 : '+err.message)})
-            },
-
             login(){
                 firebase.auth().signInWithEmailAndPassword(this.email,this.password)
                 .then( (user) => {
@@ -55,6 +64,7 @@ const sessionStorage = window.sessionStorage
                 } ).catch( (err) => {
                     alert('에러 : ' + err.message)
                 })
+
             },
         },
     }
